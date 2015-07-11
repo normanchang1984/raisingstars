@@ -1,0 +1,2 @@
+class ProposalcommentsController < ApplicationController
+end
