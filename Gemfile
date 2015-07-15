@@ -34,6 +34,9 @@ gem 'compass-rails'
 gem 'sass-rails', '4.0.2'
 gem 'sprockets', '~> 2.11.0'
 
+# rails spec
+gem 'rspec-rails'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
