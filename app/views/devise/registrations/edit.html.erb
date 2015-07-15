@@ -1,39 +1,164 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= devise_error_messages! %>
+<div id='wrapper'>
+      <header id='header'>
+        <div class='container'>
+          <nav class='navbar navbar-collapsed-sm navbar-default' id='nav' role='navigation'>
+            <div class='navbar-header'>
+              <button class='navbar-toggle' data-target='.navbar-header-collapse' data-toggle='collapse' type='button'>
+                <span class='sr-only'>Toggle navigation</span>
+                <span class='icon-bar'></span>
+                <span class='icon-bar'></span>
+                <span class='icon-bar'></span>
+              </button>
+              <a class='navbar-brand' href='index.html'>
+                <img alt="Jednotka" width="117" height="39" src="assets/images/logo.svg" />
+              </a>
+            </div>
+            <div class='collapse navbar-collapse navbar-header-collapse'>
+              <ul class='nav navbar-nav navbar-right'>
+                <% if current_user %>
+                <li style='font-size: 18px'>
+                  <%= link_to('登出', destroy_user_session_path, :method => :delete) %>
+                </li>
+                <li class='dropdown' style='font-size: 18px'>
+                  <%= link_to('修改密碼', edit_registration_path(:user)) %>
+                </li>
+                <% else %>
+                <li class='dropdown' style='font-size: 18px'>
+                    <%= link_to('註冊', new_registration_path(:user)) %>
+                </li>
+                <li class='dropdown' style='font-size: 18px'>
+                  <%= link_to('登入', new_session_path(:user)) %>
+                </li>
+                <% end %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
-  </div>
+              </ul>
+            </div>
+          </nav>
+        </div>
+      </header>
+      <div id='main' role='main'>
+        <div id='main-content-header'>
+          <div class='container'>
+            <div class='row'>
+              <div class='col-sm-12'>
+                <h1 class='title'>
+                  P
+                  <small>Portfolio with 3 columns</small>
+                </h1>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id='main-content'>
+          <div class='container'>
+            <div class='row' id='portfolio-filter'>
+              <div class='col-sm-12'>
+                <h1 style='font-size: 40px'>帳號更新</h1>
+                <br>
+                  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+                  <%= devise_error_messages! %>
 
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-  <% end %>
+                  <div class="field">
+                    <span style='font-size: 20px'>
+                      <%= f.label :email %><br />
+                      <%= f.email_field :email, autofocus: true %>
+                    </span>
+                  </div>
 
-  <div class="field">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
+                  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+                    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+                  <% end %>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
+                  <div class="field">
+                    <span style='font-size: 20px'>
+                      <%= f.label :密碼 %> <i>(leave blank if you don't want to change it)</i><br />
+                      <%= f.password_field :password, autocomplete: "off" %>
+                    </span>
+                  </div>
 
-  <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "off" %>
-  </div>
+                  <div class="field">
+                    <span style='font-size: 20px'>
+                      <%= f.label :密碼確認 %><br />
+                      <%= f.password_field :password_confirmation, autocomplete: "off" %>
+                    </span>
+                  </div>
 
-  <div class="actions">
-    <%= f.submit "Update" %>
-  </div>
-<% end %>
+                  <div class="field">
+                    <span style='font-size: 20px'>
+                      <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
+                      <%= f.password_field :current_password, autocomplete: "off" %>
+                    </span>
+                  </div>
 
-<h3>Cancel my account</h3>
+                  <div class="actions">
+                    <span style='font-size: 20px'>
+                      <%= f.submit "Update" %>
+                    </span>
+                  </div>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class='fade' id='scroll-to-top'>
+          <i class='fa fa-chevron-up'></i>
+        </div>
+      </div>
+      <footer id='footer'>
+        <div id='footer-main'>
+          <div class='container'>
+            <div class='row'>
+              <div class='col-md-5 col-sm-5 info-box'>
+                <div class='logo-container'>
+                  <h2 class='title'>關於我們</h2>
+                </div>
+                <p class='no-mg-b'>Raising Stars 專為運動員打造的募資平台。我們協助有潛力的運動員，透過群眾募資取得必須的資金。挑戰更高等級的賽事。</p>
+              </div>
 
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+              <div class='col-md-4 col-sm-4 info-box social-box'>
+                <h2 class='title'>社交平台</h2>
+                <div class='icon-boxes'>
+                  <a class='btn btn-circle btn-medium-light btn-sm' href='https://www.facebook.com/raising.stars.tw'>
+                    <i class='fa fa-facebook text-dark'></i>
+                  </a>
+                </div>
+              </div>
+              <div class='col-md-3 col-sm-3 info-box'>
+                <h2 class='title'>諮詢我們</h2>
+                <p>請留下你的信箱</p>
+                <form action='index.html' class='form-inline form-validation' method='get'>
+                  <div class='row'>
+                    <div class='form-group control-group col-xs-9 col-md-8 col-lg-9'>
+                      <input class='form-control' data-rule-email='true' data-rule-required='true' id='newsletter_email' name='newsletter[email]' placeholder='Email address' type='email'>
+                    </div>
+                    <div class='col-xs-3 col-md-4 col-lg-3'>
+                      <button class='btn btn-medium-light btn-block' type='submit'>
+                        <i class='fa fa-reply text-white'></i>
+                      </button>
+                    </div>
 
-<%= link_to "Back", :back %>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id='footer-copyright'>
+          <div class='container'>
+            <div class='row'>
+              <div class='col-lg-12 clearfix'>
+                <p class='copyright'>
+                  Copyright
+                  &copy;
+                  2015 Raising Stars
+                </p>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+
