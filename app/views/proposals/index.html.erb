@@ -15,6 +15,7 @@
             </div>
             <div class='collapse navbar-collapse navbar-header-collapse'>
               <ul class='nav navbar-nav navbar-right'>
+                <!--
                 <li class='dropdown'>
                   <a class='dropdown-toggle' data-delay='50' data-hover='dropdown' data-toggle='dropdown' href='#'>
                     <span>
@@ -176,6 +177,24 @@
                     </li>
                   </ul>
                 </li>
+                -->
+
+                <% if current_user %>
+                <li style='font-size: 18px'>
+                  <%= link_to('登出', destroy_user_session_path, :method => :delete) %>
+                </li>
+                <li class='dropdown' style='font-size: 18px'>
+                  <%= link_to('修改密碼', edit_registration_path(:user)) %>
+                </li>
+                <% else %>
+                <li class='dropdown' style='font-size: 18px'>
+                    <%= link_to('註冊', new_registration_path(:user)) %>
+                </li>
+                <li class='dropdown' style='font-size: 18px'>
+                  <%= link_to('登入', new_session_path(:user)) %>
+                </li>
+                <% end %>
+
               </ul>
             </div>
           </nav>
@@ -199,11 +218,11 @@
             <div class='row' id='portfolio-filter'>
               <div class='col-sm-12'>
                 <ul class='nav nav-pills'>
-                  <li class='active'><a data-filter="*" href="#">All</a></li>
-                  <li><a data-filter=".portfolio-filter-photography" href="#">Photography</a></li>
-                  <li><a data-filter=".portfolio-filter-identity" href="#">Identity</a></li>
-                  <li><a data-filter=".portfolio-filter-webdesign" href="#">Webdesign</a></li>
-                  <li><a data-filter=".portfolio-filter-marketing" href="#">Marketing</a></li>
+                  <li class='active'><a data-filter="*" href="#">全部</a></li>
+                  <li><a data-filter=".portfolio-filter-photography" href="#">比賽</a></li>
+                  <li><a data-filter=".portfolio-filter-identity" href="#">訓練</a></li>
+                  <li><a data-filter=".portfolio-filter-webdesign" href="#">物資</a></li>
+
                 </ul>
               </div>
             </div>
@@ -238,16 +257,7 @@
                   <p class='category'>Identity</p>
                 </a>
               </div>
-              <div class='col-sm-4 portfolio-box portfolio-filter-marketing portfolio-item'>
-                <a href='portfolio_detail.html'>
-                  <div class='image-link'>
-                    <i class='fa fa-search'></i>
-                    <img class="img-responsive img-rounded center-block" alt="Semper massa" width="360" height="235" src="http://placehold.it/360x235" />
-                  </div>
-                  <h3 class='title'>Semper massa</h3>
-                  <p class='category'>Marketing</p>
-                </a>
-              </div>
+
               <div class='col-sm-4 portfolio-box portfolio-filter-photography portfolio-filter-webdesign portfolio-item'>
                 <a href='portfolio_detail.html'>
                   <div class='image-link'>
@@ -309,83 +319,24 @@
         <div id='footer-main'>
           <div class='container'>
             <div class='row'>
-              <div class='col-md-3 col-sm-6 info-box'>
+              <div class='col-md-5 col-sm-5 info-box'>
                 <div class='logo-container'>
-                  <img alt="Jednotka" width="117" height="39" src="assets/images/logo.svg" />
+                  <h2 class='title'>關於我們</h2>
                 </div>
-                <p class='no-mg-b'>Integer vulputate porta augue, sit amet interdum tellus commodo et. Sed volutpat neque vel turpis ultrices sini bibendum. Aliquam quis malesuada.</p>
+                <p class='no-mg-b'>Raising Stars 專為運動員打造的募資平台。我們協助有潛力的運動員，透過群眾募資取得必須的資金。挑戰更高等級的賽事。</p>
               </div>
-              <div class='col-md-3 col-sm-6 info-box'>
-                <h2 class='title'>Contact</h2>
+
+              <div class='col-md-4 col-sm-4 info-box social-box'>
+                <h2 class='title'>社交平台</h2>
                 <div class='icon-boxes'>
-                  <div class='icon-box'>
-                    <div class='icon icon-wrap'>
-                      <i class='fa fa-map-marker'></i>
-                    </div>
-                    <div class='content'>
-                      4567 Street name,
-                      <br>
-                      012 12 City name, Country
-                    </div>
-                  </div>
-                  <div class='icon-box'>
-                    <div class='icon icon-wrap'>
-                      <i class='fa fa-phone'></i>
-                    </div>
-                    <div class='content'>
-                      <a href='tel:+012345678'>+012 345 678</a>
-                    </div>
-                  </div>
-                  <div class='icon-box'>
-                    <div class='icon icon-wrap'>
-                      <i class='fa fa-envelope'></i>
-                    </div>
-                    <div class='content'><a href="mailto:info@bublinastudio.com">info@bublinastudio.com</a></div>
-                  </div>
-                  <div class='icon-box'>
-                    <div class='icon icon-wrap'>
-                      <i class='fa fa-globe'></i>
-                    </div>
-                    <div class='content'><a href="#">www.bublinastudio.com</a></div>
-                  </div>
+                  <a class='btn btn-circle btn-medium-light btn-sm' href='https://www.facebook.com/raising.stars.tw'>
+                    <i class='fa fa-facebook text-dark'></i>
+                  </a>
                 </div>
               </div>
-              <div class='col-md-3 col-sm-6 info-box social-box'>
-                <h2 class='title'>Latest tweets</h2>
-                <div class='icon-boxes'>
-                  <div class='icon-box'>
-                    <div class='icon icon-wrap'>
-                      <i class='fa fa-twitter text-contrast'></i>
-                    </div>
-                    <div class='content'>
-                      <p>
-                        Phasellus vulputate lobortis sem. Mauris id velit in urna.
-                        <br>
-                        <a class='time' href='#'>
-                          <i>1 hour ago</i>
-                        </a>
-                      </p>
-                    </div>
-                  </div>
-                  <div class='icon-box'>
-                    <div class='icon icon-wrap'>
-                      <i class='fa fa-twitter text-contrast'></i>
-                    </div>
-                    <div class='content'>
-                      <p>
-                        Etiam luctus, dui congue tempus blandit, dui.
-                        <br>
-                        <a class='time' href='#'>
-                          <i>3 hours ago</i>
-                        </a>
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class='col-md-3 col-sm-6 info-box'>
-                <h2 class='title'>Newsletter</h2>
-                <p>Proin condimentum, nisi vel vestibulum ultricies, nunc elit.</p>
+              <div class='col-md-3 col-sm-3 info-box'>
+                <h2 class='title'>諮詢我們</h2>
+                <p>請留下你的信箱</p>
                 <form action='index.html' class='form-inline form-validation' method='get'>
                   <div class='row'>
                     <div class='form-group control-group col-xs-9 col-md-8 col-lg-9'>
@@ -396,6 +347,7 @@
                         <i class='fa fa-reply text-white'></i>
                       </button>
                     </div>
+
                   </div>
                 </form>
               </div>
@@ -409,19 +361,9 @@
                 <p class='copyright'>
                   Copyright
                   &copy;
-                  2013 Jednotka
+                  2015 Raising Stars
                 </p>
-                <div class='links'>
-                  <a class='btn btn-circle btn-medium-light btn-sm' href='#'>
-                    <i class='fa fa-twitter text-dark'></i>
-                  </a>
-                  <a class='btn btn-circle btn-medium-light btn-sm' href='#'>
-                    <i class='fa fa-dribbble text-dark'></i>
-                  </a>
-                  <a class='btn btn-circle btn-medium-light btn-sm' href='#'>
-                    <i class='fa fa-facebook text-dark'></i>
-                  </a>
-                </div>
+
               </div>
             </div>
           </div>
