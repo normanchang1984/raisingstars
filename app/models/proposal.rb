@@ -5,9 +5,15 @@ class Proposal < ActiveRecord::Base
   has_many :userproposalships
   has_many :favorites, :through => :userproposalships, :source => :user
 
+  scope :sort_by_category, -> (category) { where( :category_id =>  category ) }
+
   def page_count
     self.increment!(:views)
     self.views
+  end
+
+  def sort_by_default
+    1
   end
 
 end
