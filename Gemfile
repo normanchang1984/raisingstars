@@ -5,7 +5,6 @@ source 'https://rubygems.org'
 gem 'rails', '4.2.1'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
-
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
@@ -36,6 +35,8 @@ gem 'sprockets', '~> 2.11.0'
 
 # rails spec
 gem 'rspec-rails'
+# test tool capybara
+gem 'capybara'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
