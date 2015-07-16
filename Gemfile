@@ -37,6 +37,7 @@ gem 'sprockets', '~> 2.11.0'
 gem 'rspec-rails'
 # test tool capybara
 gem 'capybara'
+gem 'shoulda-matchers', group: :test
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
