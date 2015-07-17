@@ -33,6 +33,9 @@ gem 'compass-rails'
 gem 'sass-rails', '4.0.2'
 gem 'sprockets', '~> 2.11.0'
 
+# faker
+gem 'faker'
+
 # rails spec
 gem 'rspec-rails'
 # test tool capybara
