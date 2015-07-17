@@ -36,11 +36,12 @@ gem 'sprockets', '~> 2.11.0'
 # faker
 gem 'faker'
 
-# rails spec
+# test tool
 gem 'rspec-rails'
-# test tool capybara
 gem 'capybara'
 gem 'shoulda-matchers', group: :test
+gem 'factory_girl'
+
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
