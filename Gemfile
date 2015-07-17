@@ -1,6 +1,5 @@
 source 'https://rubygems.org'
 
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.1'
 # Use sqlite3 as the database for Active Record
@@ -33,12 +32,6 @@ gem 'compass-rails'
 gem 'sass-rails', '4.0.2'
 gem 'sprockets', '~> 2.11.0'
 
-# rails spec
-gem 'rspec-rails'
-# test tool capybara
-gem 'capybara'
-gem 'shoulda-matchers', group: :test
-
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -51,6 +44,11 @@ gem 'shoulda-matchers', group: :test
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
+
+  gem 'rspec-rails'
+  gem 'capybara'
+  gem 'shoulda-matchers'
+
   # guard-rspec
   gem 'guard-rspec', require: false
 
