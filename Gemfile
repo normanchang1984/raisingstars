@@ -32,7 +32,7 @@ gem 'compass-rails'
 gem 'sass-rails', '4.0.2'
 gem 'sprockets', '~> 2.11.0'
 
-<<<<<<< HEAD
+
 # faker
 gem 'faker'
 
@@ -43,8 +43,6 @@ gem 'shoulda-matchers', group: :test
 gem 'factory_girl'
 
 
-=======
->>>>>>> 5a225d4a8862d9ab24a5030086b8820bf06ef1e6
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
