@@ -9,3 +9,7 @@
 Category.create( :name => '比賽' )
 Category.create( :name => '訓練' )
 Category.create( :name => '物資' )
+
+Reward.create( :price => '100' )
+Reward.create( :price => '500' )
+Reward.create( :price => '1000' )

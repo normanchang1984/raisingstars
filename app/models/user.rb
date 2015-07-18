@@ -8,4 +8,8 @@ class User < ActiveRecord::Base
   has_many :userproposalships
   has_many :favorites, :through => :userproposalships, :source => :proposal
 
+  # reward relationship
+  has_many :user_reward_proposals
+  has_many :rewards, :through => :user_reward_proposals
+
 end
