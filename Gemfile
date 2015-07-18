@@ -36,13 +36,6 @@ gem 'sprockets', '~> 2.11.0'
 # faker
 gem 'faker'
 
-# test tool
-gem 'rspec-rails'
-gem 'capybara'
-gem 'shoulda-matchers', group: :test
-gem 'factory_girl'
-
-
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -59,6 +52,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'capybara'
   gem 'shoulda-matchers'
+  gem 'factory_girl'
 
   # guard-rspec
   gem 'guard-rspec', require: false
