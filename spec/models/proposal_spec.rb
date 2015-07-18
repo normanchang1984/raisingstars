@@ -8,6 +8,7 @@ RSpec.describe Proposal, :type => :model do
     create(:proposal)
     # users
     create(:user)
+    create(:user)
     # rewards
     arr = [ 100, 500, 1000 ]
     arr.each do |f|
@@ -20,16 +21,12 @@ RSpec.describe Proposal, :type => :model do
     end
   end
 
-  let(:proposal1) { Proposal.create!(name: "Test_for_category1", category_id: 1) }
-  let(:proposal) {  Proposal.create!(name: "Hexter", email: "hexter.ch@gmail.com", phone: "0983216646", self_intro: "just for test") }
+  let(:proposal) {  Proposal.first }
   let(:category) { Category.first }
 
   context ".create" do
-    it "the basic proposal" do
+    it "the basic proposal with category_id and user_id" do
       expect(proposal).to eq(proposal)
-    end
-    it "the proposal with category" do
-      Proposal.create!(name: "Hexter", category_id: category)
     end
   end
 
@@ -42,12 +39,13 @@ RSpec.describe Proposal, :type => :model do
 
   context "::sort" do
     before do
-       @p1 = Proposal.create(name: "p1", category: Category.first)
-       @p2 = Proposal.create(name: "p2", category: Category.last)
+       @p1 = Proposal.create(name: "p1", category: Category.first, user_id: User.first)
+       @p2 = Proposal.create(name: "p2", category: Category.last, user_id: User.last)
     end
 
     it "by category" do
-      expect( Proposal.sort_by_category(1) ).to eq( [@p1] )
+      # expect( Proposal.sort_by_category(1) ).to eq( [@p1] )
+      expect(Proposal.sort_by_category(1)).to eq( Proposal.where( :category_id => 1 ) )
     end
 
     it "by default" do
@@ -62,7 +60,6 @@ RSpec.describe Proposal, :type => :model do
 
     end
     it "show category" do
-
 
     end
   end
