@@ -17,4 +17,14 @@ RSpec.describe ProposalsController, :type => :controller do
       expect(proposal).to permit(:name).for(:create)
     end
   end
+
+  describe '.update' do
+  end
+
+  describe '.destory' do
+  end
+
+  describe '::favorite' do
+  end
+
 end

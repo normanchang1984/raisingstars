@@ -1,5 +1,6 @@
 require "rails_helper"
 
+
 RSpec.describe Proposal, :type => :model do
 
   let(:proposal1) { Proposal.create!(name: "Test_for_category1", category_id: 1) }
@@ -8,7 +9,7 @@ RSpec.describe Proposal, :type => :model do
 
   let(:proposal) {  Proposal.create!(name: "Hexter", email: "hexter.ch@gmail.com", phone: "0983216646", self_intro: "just for test") }
 
-  let(:category) { Category.create!( :name => "ccc")
+  let(:category) { Category.create!( :name => "ccc") }
 
   context ".create" do
     it "the basic proposal" do
