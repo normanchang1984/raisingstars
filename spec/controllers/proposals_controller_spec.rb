@@ -12,7 +12,14 @@ RSpec.describe ProposalsController, :type => :controller do
       end
   end
 
+  login_user
+
   describe ".create" do
+
+    it "should have a current_user" do
+      expect(subject.current_user).not_to be_nil
+    end
+
     it "with strong parameter" do
       expect(proposal).to permit(:name).for(:create)
     end
