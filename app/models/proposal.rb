@@ -12,8 +12,8 @@ class Proposal < ActiveRecord::Base
     self.views
   end
 
+  # still not work ,but i will working on it
   def sort_by_default
     1
   end
-
 end

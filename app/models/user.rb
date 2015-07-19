@@ -12,4 +12,8 @@ class User < ActiveRecord::Base
   has_many :user_reward_proposals
   has_many :rewards, :through => :user_reward_proposals
 
+  def give_reward(reward ,proposal)
+    UserRewardProposal.create( :reward_id => reward.id, :proposal_id => proposal.id)
+  end
+
 end

@@ -3,11 +3,10 @@ require "rails_helper"
 
 RSpec.describe Proposal, :type => :model do
 
-  before(:all) do
-    # proposal
+  before(:each) do
+    # proposals
     create(:proposal)
     # users
-    create(:user)
     create(:user)
     # rewards
     arr = [ 100, 500, 1000 ]
@@ -21,8 +20,10 @@ RSpec.describe Proposal, :type => :model do
     end
   end
 
-  let(:proposal) {  Proposal.first }
+  let(:proposal) { Proposal.first }
   let(:category) { Category.first }
+  let(:user) { User.first }
+  let(:reward) { Reward.first }
 
   context ".create" do
     it "the basic proposal with category_id and user_id" do
@@ -39,8 +40,8 @@ RSpec.describe Proposal, :type => :model do
 
   context "::sort" do
     before do
-       @p1 = Proposal.create(name: "p1", category: Category.first, user_id: User.first)
-       @p2 = Proposal.create(name: "p2", category: Category.last, user_id: User.last)
+       @p1 = Proposal.create(name: "p1", category: Category.first, user_id: user)
+       @p2 = Proposal.create(name: "p2", category: Category.last, user_id: user)
     end
 
     it "by category" do
@@ -56,12 +57,13 @@ RSpec.describe Proposal, :type => :model do
 
   # Test for Factory_girl gem
   context "::give_reward" do
-    it "show reward" do
 
-    end
-    it "show category" do
-
+    it "give reward to the proposal" do
+      user_create_reward = user.give_reward(reward, proposal)
+      # expect(user_create_reward).to eq( UserRewardProposal.where( :reward_id => 1, :proposal_id => 1 ))
     end
   end
+
+
 
 end
