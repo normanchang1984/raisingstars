@@ -16,4 +16,6 @@ class Proposal < ActiveRecord::Base
   def sort_by_default
     1
   end
+
+
 end
