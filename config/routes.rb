@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, :controllers => { :omniauth_calllbacks => "users/omniauth_calllbacks" }
 
   resources :proposals do
     resources :comments, :controller => :proposalcomments
