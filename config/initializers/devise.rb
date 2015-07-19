@@ -17,6 +17,9 @@ Devise.setup do |config|
   # Configure the class responsible to send e-mails.
   # config.mailer = 'Devise::Mailer'
 
+  # config for omniauth
+  config.omniauth :facebook, '427883970729109', 'e27ed011dbe824468750bb1bc5952a7f'
+
   # ==> ORM configuration
   # Load and configure the ORM. Supports :active_record (default) and
   # :mongoid (bson_ext recommended) by default. Other ORMs may be
