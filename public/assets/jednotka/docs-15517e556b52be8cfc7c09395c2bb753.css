@@ -1,0 +1,906 @@
+/**
+ * SyntaxHighlighter
+ * http://alexgorbatchev.com/SyntaxHighlighter
+ *
+ * SyntaxHighlighter is donationware. If you are using it, please donate.
+ * http://alexgorbatchev.com/SyntaxHighlighter/donate.html
+ *
+ * @version
+ * 3.0.83 (July 02 2010)
+ *
+ * @copyright
+ * Copyright (C) 2004-2010 Alex Gorbatchev.
+ *
+ * @license
+ * Dual licensed under the MIT and GPL licenses.
+ */
+/* line 27, /Users/Hexter/Github/raisingstars/vendor/assets/stylesheets/jednotka/docs.scss */
+.syntaxhighlighter a,
+.syntaxhighlighter div,
+.syntaxhighlighter code,
+.syntaxhighlighter table,
+.syntaxhighlighter table td,
+.syntaxhighlighter table tr,
+.syntaxhighlighter table tbody,
+.syntaxhighlighter table thead,
+.syntaxhighlighter table caption,
+.syntaxhighlighter textarea {
+  -moz-border-radius: 0 0 0 0 !important;
+  -webkit-border-radius: 0 0 0 0 !important;
+  background: none !important;
+  border: 0 !important;
+  bottom: auto !important;
+  float: none !important;
+  height: auto !important;
+  left: auto !important;
+  line-height: 1.1em !important;
+  margin: 0 !important;
+  outline: 0 !important;
+  overflow: visible !important;
+  padding: 0 !important;
+  position: static !important;
+  right: auto !important;
+  text-align: left !important;
+  top: auto !important;
+  vertical-align: baseline !important;
+  width: auto !important;
+  box-sizing: content-box !important;
+  font-family: "Consolas", "Bitstream Vera Sans Mono", "Courier New", Courier, monospace !important;
+  font-weight: normal !important;
+  font-style: normal !important;
+  font-size: 1em !important;
+  min-height: inherit !important;
+  min-height: auto !important;
+}
+
+/* line 56, /Users/Hexter/Github/raisingstars/vendor/assets/stylesheets/jednotka/docs.scss */
+.syntaxhighlighter {
+  width: 100% !important;
+  margin: 1em 0 1em 0 !important;
+  position: relative !important;
+  overflow: auto !important;
+  font-size: 1em !important;
+}
+
+/* line 63, /Users/Hexter/Github/raisingstars/vendor/assets/stylesheets/jednotka/docs.scss */
+.syntaxhighlighter.source {
+  overflow: hidden !important;
+}
+
+/* line 66, /Users/Hexter/Github/raisingstars/vendor/assets/stylesheets/jednotka/docs.scss */
+.syntaxhighlighter .bold {
+  font-weight: bold !important;
+}
+
+/* line 69, /Users/Hexter/Github/raisingstars/vendor/assets/stylesheets/jednotka/docs.scss */
+.syntaxhighlighter .italic {
+  font-style: italic !important;
+}
+
+/* line 72, /Users/Hexter/Github/raisingstars/vendor/assets/stylesheets/jednotka/docs.scss */
+.syntaxhighlighter .line {
+  white-space: pre !important;
+}
+
+/* line 75, /Users/Hexter/Github/raisingstars/vendor/assets/stylesheets/jednotka/docs.scss */
+.syntaxhighlighter table {
+  width: 100% !important;
+}
+
+/* line 78, /Users/Hexter/Github/raisingstars/vendor/assets/stylesheets/jednotka/docs.scss */
+.syntaxhighlighter table caption {
+  text-align: left !important;
+  padding: .5em 0 0.5em 1em !important;
+}
+
+/* line 82, /Users/Hexter/Github/raisingstars/vendor/assets/stylesheets/jednotka/docs.scss */
+.syntaxhighlighter table td.code {
+  width: 100% !important;
+}
+
+/* line 85, /Users/Hexter/Github/raisingstars/vendor/assets/stylesheets/jednotka/docs.scss */
+.syntaxhighlighter table td.code .container {
+  position: relative !important;
+}
+
+/* line 88, /Users/Hexter/Github/raisingstars/vendor/assets/stylesheets/jednotka/docs.scss */
+.syntaxhighlighter table td.code .container textarea {
+  box-sizing: border-box !important;
+  position: absolute !important;
+  left: 0 !important;
+  top: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  border: none !important;
+  background: white !important;
+  padding-left: 1em !important;
+  overflow: hidden !important;
+  white-space: pre !important;
+}
+
+/* line 101, /Users/Hexter/Github/raisingstars/vendor/assets/stylesheets/jednotka/docs.scss */
+.syntaxhighlighter table td.gutter .line {
+  text-align: right !important;
+  padding: 0 0.5em 0 1em !important;
+}
+
+/* line 105, /Users/Hexter/Github/raisingstars/vendor/assets/stylesheets/jednotka/docs.scss */
+.syntaxhighlighter table td.code .line {
+  padding: 0 1em !important;
+}
+
+/* line 108, /Users/Hexter/Github/raisingstars/vendor/assets/stylesheets/jednotka/docs.scss */
+.syntaxhighlighter.nogutter td.code .container textarea, .syntaxhighlighter.nogutter td.code .line {
+  padding-left: 0em !important;
+}
+
+/* line 111, /Users/Hexter/Github/raisingstars/vendor/assets/stylesheets/jednotka/docs.scss */
+.syntaxhighlighter.show {
+  display: block !important;
+}
+
+/* line 114, /Users/Hexter/Github/raisingstars/vendor/assets/stylesheets/jednotka/docs.scss */
+.syntaxhighlighter.collapsed table {
+  display: none !important;
+}
+
+/* line 117, /Users/Hexter/Github/raisingstars/vendor/assets/stylesheets/jednotka/docs.scss */
+.syntaxhighlighter.collapsed .toolbar {
+  padding: 0.1em 0.8em 0em 0.8em !important;
+  font-size: 1em !important;
+  position: static !important;
+  width: auto !important;
+  height: auto !important;
+}
+
+/* line 124, /Users/Hexter/Github/raisingstars/vendor/assets/stylesheets/jednotka/docs.scss */
+.syntaxhighlighter.collapsed .toolbar span {
+  display: inline !important;
+  margin-right: 1em !important;
+}
+
+/* line 128, /Users/Hexter/Github/raisingstars/vendor/assets/stylesheets/jednotka/docs.scss */
+.syntaxhighlighter.collapsed .toolbar span a {
+  padding: 0 !important;
+  display: none !important;
+}
+
+/* line 132, /Users/Hexter/Github/raisingstars/vendor/assets/stylesheets/jednotka/docs.scss */
+.syntaxhighlighter.collapsed .toolbar span a.expandSource {
+  display: inline !important;
+}
+
+/* line 135, /Users/Hexter/Github/raisingstars/vendor/assets/stylesheets/jednotka/docs.scss */
+.syntaxhighlighter .toolbar {
+  position: absolute !important;
+  right: 1px !important;
+  top: 1px !important;
+  width: 11px !important;
+  height: 11px !important;
+  font-size: 10px !important;
+  z-index: 10 !important;
+}
+
+/* line 144, /Users/Hexter/Github/raisingstars/vendor/assets/stylesheets/jednotka/docs.scss */
+.syntaxhighlighter .toolbar span.title {
+  display: inline !important;
+}
+
+/* line 147, /Users/Hexter/Github/raisingstars/vendor/assets/stylesheets/jednotka/docs.scss */
+.syntaxhighlighter .toolbar a {
+  display: block !important;
+  text-align: center !important;
+  text-decoration: none !important;
+  padding-top: 1px !important;
+}
+
+/* line 153, /Users/Hexter/Github/raisingstars/vendor/assets/stylesheets/jednotka/docs.scss */
+.syntaxhighlighter .toolbar a.expandSource {
+  display: none !important;
+}
+
+/* line 156, /Users/Hexter/Github/raisingstars/vendor/assets/stylesheets/jednotka/docs.scss */
+.syntaxhighlighter.ie {
+  font-size: .9em !important;
+  padding: 1px 0 1px 0 !important;
+}
+
+/* line 160, /Users/Hexter/Github/raisingstars/vendor/assets/stylesheets/jednotka/docs.scss */
+.syntaxhighlighter.ie .toolbar {
+  line-height: 8px !important;
+}
+
+/* line 163, /Users/Hexter/Github/raisingstars/vendor/assets/stylesheets/jednotka/docs.scss */
+.syntaxhighlighter.ie .toolbar a {
+  padding-top: 0px !important;
+}
+
+/* line 170, /Users/Hexter/Github/raisingstars/vendor/assets/stylesheets/jednotka/docs.scss */
+.syntaxhighlighter.printing .line.alt1 .content,
+.syntaxhighlighter.printing .line.alt2 .content,
+.syntaxhighlighter.printing .line.highlighted .number,
+.syntaxhighlighter.printing .line.highlighted.alt1 .content,
+.syntaxhighlighter.printing .line.highlighted.alt2 .content {
+  background: none !important;
+}
+
+/* line 173, /Users/Hexter/Github/raisingstars/vendor/assets/stylesheets/jednotka/docs.scss */
+.syntaxhighlighter.printing .line .number {
+  color: #bbbbbb !important;
+}
+
+/* line 176, /Users/Hexter/Github/raisingstars/vendor/assets/stylesheets/jednotka/docs.scss */
+.syntaxhighlighter.printing .line .content {
+  color: black !important;
+}
+
+/* line 179, /Users/Hexter/Github/raisingstars/vendor/assets/stylesheets/jednotka/docs.scss */
+.syntaxhighlighter.printing .toolbar {
+  display: none !important;
+}
+
+/* line 182, /Users/Hexter/Github/raisingstars/vendor/assets/stylesheets/jednotka/docs.scss */
+.syntaxhighlighter.printing a {
+  text-decoration: none !important;
+}
+
+/* line 185, /Users/Hexter/Github/raisingstars/vendor/assets/stylesheets/jednotka/docs.scss */
+.syntaxhighlighter.printing .plain, .syntaxhighlighter.printing .plain a {
+  color: black !important;
+}
+
+/* line 188, /Users/Hexter/Github/raisingstars/vendor/assets/stylesheets/jednotka/docs.scss */
+.syntaxhighlighter.printing .comments, .syntaxhighlighter.printing .comments a {
+  color: #008200 !important;
+}
+
+/* line 191, /Users/Hexter/Github/raisingstars/vendor/assets/stylesheets/jednotka/docs.scss */
+.syntaxhighlighter.printing .string, .syntaxhighlighter.printing .string a {
+  color: blue !important;
+}
+
+/* line 194, /Users/Hexter/Github/raisingstars/vendor/assets/stylesheets/jednotka/docs.scss */
+.syntaxhighlighter.printing .keyword {
+  color: #006699 !important;
+  font-weight: bold !important;
+}
+
+/* line 198, /Users/Hexter/Github/raisingstars/vendor/assets/stylesheets/jednotka/docs.scss */
+.syntaxhighlighter.printing .preprocessor {
+  color: gray !important;
+}
+
+/* line 201, /Users/Hexter/Github/raisingstars/vendor/assets/stylesheets/jednotka/docs.scss */
+.syntaxhighlighter.printing .variable {
+  color: #aa7700 !important;
+}
+
+/* line 204, /Users/Hexter/Github/raisingstars/vendor/assets/stylesheets/jednotka/docs.scss */
+.syntaxhighlighter.printing .value {
+  color: #009900 !important;
+}
+
+/* line 207, /Users/Hexter/Github/raisingstars/vendor/assets/stylesheets/jednotka/docs.scss */
+.syntaxhighlighter.printing .functions {
+  color: #ff1493 !important;
+}
+
+/* line 210, /Users/Hexter/Github/raisingstars/vendor/assets/stylesheets/jednotka/docs.scss */
+.syntaxhighlighter.printing .constants {
+  color: #0066cc !important;
+}
+
+/* line 213, /Users/Hexter/Github/raisingstars/vendor/assets/stylesheets/jednotka/docs.scss */
+.syntaxhighlighter.printing .script {
+  font-weight: bold !important;
+}
+
+/* line 216, /Users/Hexter/Github/raisingstars/vendor/assets/stylesheets/jednotka/docs.scss */
+.syntaxhighlighter.printing .color1, .syntaxhighlighter.printing .color1 a {
+  color: gray !important;
+}
+
+/* line 219, /Users/Hexter/Github/raisingstars/vendor/assets/stylesheets/jednotka/docs.scss */
+.syntaxhighlighter.printing .color2, .syntaxhighlighter.printing .color2 a {
+  color: #ff1493 !important;
+}
+
+/* line 222, /Users/Hexter/Github/raisingstars/vendor/assets/stylesheets/jednotka/docs.scss */
+.syntaxhighlighter.printing .color3, .syntaxhighlighter.printing .color3 a {
+  color: red !important;
+}
+
+/* line 225, /Users/Hexter/Github/raisingstars/vendor/assets/stylesheets/jednotka/docs.scss */
+.syntaxhighlighter.printing .break, .syntaxhighlighter.printing .break a {
+  color: black !important;
+}
+
+/**
+ * SyntaxHighlighter
+ * http://alexgorbatchev.com/SyntaxHighlighter
+ *
+ * SyntaxHighlighter is donationware. If you are using it, please donate.
+ * http://alexgorbatchev.com/SyntaxHighlighter/donate.html
+ *
+ * @version
+ * 3.0.83 (July 02 2010)
+ *
+ * @copyright
+ * Copyright (C) 2004-2010 Alex Gorbatchev.
+ *
+ * @license
+ * Dual licensed under the MIT and GPL licenses.
+ */
+/* line 254, /Users/Hexter/Github/raisingstars/vendor/assets/stylesheets/jednotka/docs.scss */
+.syntaxhighlighter a,
+.syntaxhighlighter div,
+.syntaxhighlighter code,
+.syntaxhighlighter table,
+.syntaxhighlighter table td,
+.syntaxhighlighter table tr,
+.syntaxhighlighter table tbody,
+.syntaxhighlighter table thead,
+.syntaxhighlighter table caption,
+.syntaxhighlighter textarea {
+  -moz-border-radius: 0 0 0 0 !important;
+  -webkit-border-radius: 0 0 0 0 !important;
+  background: none !important;
+  border: 0 !important;
+  bottom: auto !important;
+  float: none !important;
+  height: auto !important;
+  left: auto !important;
+  line-height: 1.1em !important;
+  margin: 0 !important;
+  outline: 0 !important;
+  overflow: visible !important;
+  padding: 0 !important;
+  position: static !important;
+  right: auto !important;
+  text-align: left !important;
+  top: auto !important;
+  vertical-align: baseline !important;
+  width: auto !important;
+  box-sizing: content-box !important;
+  font-family: "Consolas", "Bitstream Vera Sans Mono", "Courier New", Courier, monospace !important;
+  font-weight: normal !important;
+  font-style: normal !important;
+  font-size: 1em !important;
+  min-height: inherit !important;
+  min-height: auto !important;
+}
+
+/* line 283, /Users/Hexter/Github/raisingstars/vendor/assets/stylesheets/jednotka/docs.scss */
+.syntaxhighlighter {
+  width: 100% !important;
+  margin: 1em 0 1em 0 !important;
+  position: relative !important;
+  overflow: auto !important;
+  font-size: 1em !important;
+}
+
+/* line 290, /Users/Hexter/Github/raisingstars/vendor/assets/stylesheets/jednotka/docs.scss */
+.syntaxhighlighter.source {
+  overflow: hidden !important;
+}
+
+/* line 293, /Users/Hexter/Github/raisingstars/vendor/assets/stylesheets/jednotka/docs.scss */
+.syntaxhighlighter .bold {
+  font-weight: bold !important;
+}
+
+/* line 296, /Users/Hexter/Github/raisingstars/vendor/assets/stylesheets/jednotka/docs.scss */
+.syntaxhighlighter .italic {
+  font-style: italic !important;
+}
+
+/* line 299, /Users/Hexter/Github/raisingstars/vendor/assets/stylesheets/jednotka/docs.scss */
+.syntaxhighlighter .line {
+  white-space: pre !important;
+}
+
+/* line 302, /Users/Hexter/Github/raisingstars/vendor/assets/stylesheets/jednotka/docs.scss */
+.syntaxhighlighter table {
+  width: 100% !important;
+}
+
+/* line 305, /Users/Hexter/Github/raisingstars/vendor/assets/stylesheets/jednotka/docs.scss */
+.syntaxhighlighter table caption {
+  text-align: left !important;
+  padding: .5em 0 0.5em 1em !important;
+}
+
+/* line 309, /Users/Hexter/Github/raisingstars/vendor/assets/stylesheets/jednotka/docs.scss */
+.syntaxhighlighter table td.code {
+  width: 100% !important;
+}
+
+/* line 312, /Users/Hexter/Github/raisingstars/vendor/assets/stylesheets/jednotka/docs.scss */
+.syntaxhighlighter table td.code .container {
+  position: relative !important;
+}
+
+/* line 315, /Users/Hexter/Github/raisingstars/vendor/assets/stylesheets/jednotka/docs.scss */
+.syntaxhighlighter table td.code .container textarea {
+  box-sizing: border-box !important;
+  position: absolute !important;
+  left: 0 !important;
+  top: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  border: none !important;
+  background: white !important;
+  padding-left: 1em !important;
+  overflow: hidden !important;
+  white-space: pre !important;
+}
+
+/* line 328, /Users/Hexter/Github/raisingstars/vendor/assets/stylesheets/jednotka/docs.scss */
+.syntaxhighlighter table td.gutter .line {
+  text-align: right !important;
+  padding: 0 0.5em 0 1em !important;
+}
+
+/* line 332, /Users/Hexter/Github/raisingstars/vendor/assets/stylesheets/jednotka/docs.scss */
+.syntaxhighlighter table td.code .line {
+  padding: 0 1em !important;
+}
+
+/* line 335, /Users/Hexter/Github/raisingstars/vendor/assets/stylesheets/jednotka/docs.scss */
+.syntaxhighlighter.nogutter td.code .container textarea, .syntaxhighlighter.nogutter td.code .line {
+  padding-left: 0em !important;
+}
+
+/* line 338, /Users/Hexter/Github/raisingstars/vendor/assets/stylesheets/jednotka/docs.scss */
+.syntaxhighlighter.show {
+  display: block !important;
+}
+
+/* line 341, /Users/Hexter/Github/raisingstars/vendor/assets/stylesheets/jednotka/docs.scss */
+.syntaxhighlighter.collapsed table {
+  display: none !important;
+}
+
+/* line 344, /Users/Hexter/Github/raisingstars/vendor/assets/stylesheets/jednotka/docs.scss */
+.syntaxhighlighter.collapsed .toolbar {
+  padding: 0.1em 0.8em 0em 0.8em !important;
+  font-size: 1em !important;
+  position: static !important;
+  width: auto !important;
+  height: auto !important;
+}
+
+/* line 351, /Users/Hexter/Github/raisingstars/vendor/assets/stylesheets/jednotka/docs.scss */
+.syntaxhighlighter.collapsed .toolbar span {
+  display: inline !important;
+  margin-right: 1em !important;
+}
+
+/* line 355, /Users/Hexter/Github/raisingstars/vendor/assets/stylesheets/jednotka/docs.scss */
+.syntaxhighlighter.collapsed .toolbar span a {
+  padding: 0 !important;
+  display: none !important;
+}
+
+/* line 359, /Users/Hexter/Github/raisingstars/vendor/assets/stylesheets/jednotka/docs.scss */
+.syntaxhighlighter.collapsed .toolbar span a.expandSource {
+  display: inline !important;
+}
+
+/* line 362, /Users/Hexter/Github/raisingstars/vendor/assets/stylesheets/jednotka/docs.scss */
+.syntaxhighlighter .toolbar {
+  position: absolute !important;
+  right: 1px !important;
+  top: 1px !important;
+  width: 11px !important;
+  height: 11px !important;
+  font-size: 10px !important;
+  z-index: 10 !important;
+}
+
+/* line 371, /Users/Hexter/Github/raisingstars/vendor/assets/stylesheets/jednotka/docs.scss */
+.syntaxhighlighter .toolbar span.title {
+  display: inline !important;
+}
+
+/* line 374, /Users/Hexter/Github/raisingstars/vendor/assets/stylesheets/jednotka/docs.scss */
+.syntaxhighlighter .toolbar a {
+  display: block !important;
+  text-align: center !important;
+  text-decoration: none !important;
+  padding-top: 1px !important;
+}
+
+/* line 380, /Users/Hexter/Github/raisingstars/vendor/assets/stylesheets/jednotka/docs.scss */
+.syntaxhighlighter .toolbar a.expandSource {
+  display: none !important;
+}
+
+/* line 383, /Users/Hexter/Github/raisingstars/vendor/assets/stylesheets/jednotka/docs.scss */
+.syntaxhighlighter.ie {
+  font-size: .9em !important;
+  padding: 1px 0 1px 0 !important;
+}
+
+/* line 387, /Users/Hexter/Github/raisingstars/vendor/assets/stylesheets/jednotka/docs.scss */
+.syntaxhighlighter.ie .toolbar {
+  line-height: 8px !important;
+}
+
+/* line 390, /Users/Hexter/Github/raisingstars/vendor/assets/stylesheets/jednotka/docs.scss */
+.syntaxhighlighter.ie .toolbar a {
+  padding-top: 0px !important;
+}
+
+/* line 397, /Users/Hexter/Github/raisingstars/vendor/assets/stylesheets/jednotka/docs.scss */
+.syntaxhighlighter.printing .line.alt1 .content,
+.syntaxhighlighter.printing .line.alt2 .content,
+.syntaxhighlighter.printing .line.highlighted .number,
+.syntaxhighlighter.printing .line.highlighted.alt1 .content,
+.syntaxhighlighter.printing .line.highlighted.alt2 .content {
+  background: none !important;
+}
+
+/* line 400, /Users/Hexter/Github/raisingstars/vendor/assets/stylesheets/jednotka/docs.scss */
+.syntaxhighlighter.printing .line .number {
+  color: #bbbbbb !important;
+}
+
+/* line 403, /Users/Hexter/Github/raisingstars/vendor/assets/stylesheets/jednotka/docs.scss */
+.syntaxhighlighter.printing .line .content {
+  color: black !important;
+}
+
+/* line 406, /Users/Hexter/Github/raisingstars/vendor/assets/stylesheets/jednotka/docs.scss */
+.syntaxhighlighter.printing .toolbar {
+  display: none !important;
+}
+
+/* line 409, /Users/Hexter/Github/raisingstars/vendor/assets/stylesheets/jednotka/docs.scss */
+.syntaxhighlighter.printing a {
+  text-decoration: none !important;
+}
+
+/* line 412, /Users/Hexter/Github/raisingstars/vendor/assets/stylesheets/jednotka/docs.scss */
+.syntaxhighlighter.printing .plain, .syntaxhighlighter.printing .plain a {
+  color: black !important;
+}
+
+/* line 415, /Users/Hexter/Github/raisingstars/vendor/assets/stylesheets/jednotka/docs.scss */
+.syntaxhighlighter.printing .comments, .syntaxhighlighter.printing .comments a {
+  color: #008200 !important;
+}
+
+/* line 418, /Users/Hexter/Github/raisingstars/vendor/assets/stylesheets/jednotka/docs.scss */
+.syntaxhighlighter.printing .string, .syntaxhighlighter.printing .string a {
+  color: blue !important;
+}
+
+/* line 421, /Users/Hexter/Github/raisingstars/vendor/assets/stylesheets/jednotka/docs.scss */
+.syntaxhighlighter.printing .keyword {
+  color: #006699 !important;
+  font-weight: bold !important;
+}
+
+/* line 425, /Users/Hexter/Github/raisingstars/vendor/assets/stylesheets/jednotka/docs.scss */
+.syntaxhighlighter.printing .preprocessor {
+  color: gray !important;
+}
+
+/* line 428, /Users/Hexter/Github/raisingstars/vendor/assets/stylesheets/jednotka/docs.scss */
+.syntaxhighlighter.printing .variable {
+  color: #aa7700 !important;
+}
+
+/* line 431, /Users/Hexter/Github/raisingstars/vendor/assets/stylesheets/jednotka/docs.scss */
+.syntaxhighlighter.printing .value {
+  color: #009900 !important;
+}
+
+/* line 434, /Users/Hexter/Github/raisingstars/vendor/assets/stylesheets/jednotka/docs.scss */
+.syntaxhighlighter.printing .functions {
+  color: #ff1493 !important;
+}
+
+/* line 437, /Users/Hexter/Github/raisingstars/vendor/assets/stylesheets/jednotka/docs.scss */
+.syntaxhighlighter.printing .constants {
+  color: #0066cc !important;
+}
+
+/* line 440, /Users/Hexter/Github/raisingstars/vendor/assets/stylesheets/jednotka/docs.scss */
+.syntaxhighlighter.printing .script {
+  font-weight: bold !important;
+}
+
+/* line 443, /Users/Hexter/Github/raisingstars/vendor/assets/stylesheets/jednotka/docs.scss */
+.syntaxhighlighter.printing .color1, .syntaxhighlighter.printing .color1 a {
+  color: gray !important;
+}
+
+/* line 446, /Users/Hexter/Github/raisingstars/vendor/assets/stylesheets/jednotka/docs.scss */
+.syntaxhighlighter.printing .color2, .syntaxhighlighter.printing .color2 a {
+  color: #ff1493 !important;
+}
+
+/* line 449, /Users/Hexter/Github/raisingstars/vendor/assets/stylesheets/jednotka/docs.scss */
+.syntaxhighlighter.printing .color3, .syntaxhighlighter.printing .color3 a {
+  color: red !important;
+}
+
+/* line 452, /Users/Hexter/Github/raisingstars/vendor/assets/stylesheets/jednotka/docs.scss */
+.syntaxhighlighter.printing .break, .syntaxhighlighter.printing .break a {
+  color: black !important;
+}
+
+/* line 456, /Users/Hexter/Github/raisingstars/vendor/assets/stylesheets/jednotka/docs.scss */
+.syntaxhighlighter {
+  background-color: white !important;
+}
+
+/* line 459, /Users/Hexter/Github/raisingstars/vendor/assets/stylesheets/jednotka/docs.scss */
+.syntaxhighlighter .line.alt1 {
+  background-color: white !important;
+}
+
+/* line 462, /Users/Hexter/Github/raisingstars/vendor/assets/stylesheets/jednotka/docs.scss */
+.syntaxhighlighter .line.alt2 {
+  background-color: white !important;
+}
+
+/* line 465, /Users/Hexter/Github/raisingstars/vendor/assets/stylesheets/jednotka/docs.scss */
+.syntaxhighlighter .line.highlighted.alt1, .syntaxhighlighter .line.highlighted.alt2 {
+  background-color: #e0e0e0 !important;
+}
+
+/* line 468, /Users/Hexter/Github/raisingstars/vendor/assets/stylesheets/jednotka/docs.scss */
+.syntaxhighlighter .line.highlighted.number {
+  color: black !important;
+}
+
+/* line 471, /Users/Hexter/Github/raisingstars/vendor/assets/stylesheets/jednotka/docs.scss */
+.syntaxhighlighter table caption {
+  color: black !important;
+}
+
+/* line 474, /Users/Hexter/Github/raisingstars/vendor/assets/stylesheets/jednotka/docs.scss */
+.syntaxhighlighter .gutter {
+  color: #afafaf !important;
+}
+
+/* line 477, /Users/Hexter/Github/raisingstars/vendor/assets/stylesheets/jednotka/docs.scss */
+.syntaxhighlighter .gutter .line {
+  border-right: 3px solid #6ce26c !important;
+}
+
+/* line 480, /Users/Hexter/Github/raisingstars/vendor/assets/stylesheets/jednotka/docs.scss */
+.syntaxhighlighter .gutter .line.highlighted {
+  background-color: #6ce26c !important;
+  color: white !important;
+}
+
+/* line 484, /Users/Hexter/Github/raisingstars/vendor/assets/stylesheets/jednotka/docs.scss */
+.syntaxhighlighter.printing .line .content {
+  border: none !important;
+}
+
+/* line 487, /Users/Hexter/Github/raisingstars/vendor/assets/stylesheets/jednotka/docs.scss */
+.syntaxhighlighter.collapsed {
+  overflow: visible !important;
+}
+
+/* line 490, /Users/Hexter/Github/raisingstars/vendor/assets/stylesheets/jednotka/docs.scss */
+.syntaxhighlighter.collapsed .toolbar {
+  color: blue !important;
+  background: white !important;
+  border: 1px solid #6ce26c !important;
+}
+
+/* line 495, /Users/Hexter/Github/raisingstars/vendor/assets/stylesheets/jednotka/docs.scss */
+.syntaxhighlighter.collapsed .toolbar a {
+  color: blue !important;
+}
+
+/* line 498, /Users/Hexter/Github/raisingstars/vendor/assets/stylesheets/jednotka/docs.scss */
+.syntaxhighlighter.collapsed .toolbar a:hover {
+  color: red !important;
+}
+
+/* line 501, /Users/Hexter/Github/raisingstars/vendor/assets/stylesheets/jednotka/docs.scss */
+.syntaxhighlighter .toolbar {
+  color: white !important;
+  background: #6ce26c !important;
+  border: none !important;
+}
+
+/* line 506, /Users/Hexter/Github/raisingstars/vendor/assets/stylesheets/jednotka/docs.scss */
+.syntaxhighlighter .toolbar a {
+  color: white !important;
+}
+
+/* line 509, /Users/Hexter/Github/raisingstars/vendor/assets/stylesheets/jednotka/docs.scss */
+.syntaxhighlighter .toolbar a:hover {
+  color: black !important;
+}
+
+/* line 512, /Users/Hexter/Github/raisingstars/vendor/assets/stylesheets/jednotka/docs.scss */
+.syntaxhighlighter .plain, .syntaxhighlighter .plain a {
+  color: black !important;
+}
+
+/* line 515, /Users/Hexter/Github/raisingstars/vendor/assets/stylesheets/jednotka/docs.scss */
+.syntaxhighlighter .comments, .syntaxhighlighter .comments a {
+  color: #008200 !important;
+}
+
+/* line 518, /Users/Hexter/Github/raisingstars/vendor/assets/stylesheets/jednotka/docs.scss */
+.syntaxhighlighter .string, .syntaxhighlighter .string a {
+  color: blue !important;
+}
+
+/* line 521, /Users/Hexter/Github/raisingstars/vendor/assets/stylesheets/jednotka/docs.scss */
+.syntaxhighlighter .keyword {
+  color: #006699 !important;
+}
+
+/* line 524, /Users/Hexter/Github/raisingstars/vendor/assets/stylesheets/jednotka/docs.scss */
+.syntaxhighlighter .preprocessor {
+  color: gray !important;
+}
+
+/* line 527, /Users/Hexter/Github/raisingstars/vendor/assets/stylesheets/jednotka/docs.scss */
+.syntaxhighlighter .variable {
+  color: #aa7700 !important;
+}
+
+/* line 530, /Users/Hexter/Github/raisingstars/vendor/assets/stylesheets/jednotka/docs.scss */
+.syntaxhighlighter .value {
+  color: #009900 !important;
+}
+
+/* line 533, /Users/Hexter/Github/raisingstars/vendor/assets/stylesheets/jednotka/docs.scss */
+.syntaxhighlighter .functions {
+  color: #ff1493 !important;
+}
+
+/* line 536, /Users/Hexter/Github/raisingstars/vendor/assets/stylesheets/jednotka/docs.scss */
+.syntaxhighlighter .constants {
+  color: #0066cc !important;
+}
+
+/* line 539, /Users/Hexter/Github/raisingstars/vendor/assets/stylesheets/jednotka/docs.scss */
+.syntaxhighlighter .script {
+  font-weight: bold !important;
+  color: #006699 !important;
+  background-color: none !important;
+}
+
+/* line 544, /Users/Hexter/Github/raisingstars/vendor/assets/stylesheets/jednotka/docs.scss */
+.syntaxhighlighter .color1, .syntaxhighlighter .color1 a {
+  color: gray !important;
+}
+
+/* line 547, /Users/Hexter/Github/raisingstars/vendor/assets/stylesheets/jednotka/docs.scss */
+.syntaxhighlighter .color2, .syntaxhighlighter .color2 a {
+  color: #ff1493 !important;
+}
+
+/* line 550, /Users/Hexter/Github/raisingstars/vendor/assets/stylesheets/jednotka/docs.scss */
+.syntaxhighlighter .color3, .syntaxhighlighter .color3 a {
+  color: red !important;
+}
+
+/* line 554, /Users/Hexter/Github/raisingstars/vendor/assets/stylesheets/jednotka/docs.scss */
+.syntaxhighlighter .keyword {
+  font-weight: bold !important;
+}
+
+/* line 560, /Users/Hexter/Github/raisingstars/vendor/assets/stylesheets/jednotka/docs.scss */
+.documentation {
+  background-color: white;
+  background-image: none !important;
+}
+/* line 564, /Users/Hexter/Github/raisingstars/vendor/assets/stylesheets/jednotka/docs.scss */
+.documentation #wrapper {
+  background-image: none !important;
+}
+/* line 568, /Users/Hexter/Github/raisingstars/vendor/assets/stylesheets/jednotka/docs.scss */
+.documentation .container {
+  max-width: 100% !important;
+  width: 100% !important;
+}
+/* line 573, /Users/Hexter/Github/raisingstars/vendor/assets/stylesheets/jednotka/docs.scss */
+.documentation #doc-navigation {
+  border-right: 2px solid #eaedf2;
+  background-color: #fafbfc;
+  position: fixed;
+  width: 250px;
+  padding: 20px;
+  height: 100%;
+  z-index: 0;
+  overflow-y: scroll;
+  top: 0;
+}
+/* line 584, /Users/Hexter/Github/raisingstars/vendor/assets/stylesheets/jednotka/docs.scss */
+.documentation #doc-navigation .doc-title {
+  font-size: 16px;
+  line-height: 20px;
+  margin: 10px 0;
+  color: #8dc153;
+}
+/* line 591, /Users/Hexter/Github/raisingstars/vendor/assets/stylesheets/jednotka/docs.scss */
+.documentation #doc-navigation a {
+  color: black;
+}
+/* line 595, /Users/Hexter/Github/raisingstars/vendor/assets/stylesheets/jednotka/docs.scss */
+.documentation #doc-navigation ul {
+  font-size: 13px;
+}
+/* line 598, /Users/Hexter/Github/raisingstars/vendor/assets/stylesheets/jednotka/docs.scss */
+.documentation #doc-navigation ul ul {
+  padding-left: 15px;
+  list-style: none;
+  font-size: 11px;
+}
+/* line 606, /Users/Hexter/Github/raisingstars/vendor/assets/stylesheets/jednotka/docs.scss */
+.documentation #main-content {
+  width: 100%;
+  margin-left: 250px;
+  max-width: 1000px;
+  padding: 0 30px 0 30px;
+}
+/* line 612, /Users/Hexter/Github/raisingstars/vendor/assets/stylesheets/jednotka/docs.scss */
+.documentation #main-content .doc-title {
+  margin: 0;
+  padding: 100px 0 30px 0;
+}
+/* line 617, /Users/Hexter/Github/raisingstars/vendor/assets/stylesheets/jednotka/docs.scss */
+.documentation #main-content .doc-help, .documentation #main-content .doc-example {
+  margin-bottom: 20px;
+}
+/* line 621, /Users/Hexter/Github/raisingstars/vendor/assets/stylesheets/jednotka/docs.scss */
+.documentation #main-content h1.doc-title {
+  font-size: 52px;
+  line-height: 1.5;
+  padding-top: 15px;
+}
+/* line 627, /Users/Hexter/Github/raisingstars/vendor/assets/stylesheets/jednotka/docs.scss */
+.documentation #main-content h2.doc-title {
+  font-size: 42px;
+  line-height: 1.5;
+}
+/* line 632, /Users/Hexter/Github/raisingstars/vendor/assets/stylesheets/jednotka/docs.scss */
+.documentation #main-content h3.doc-title {
+  font-size: 32px;
+  line-height: 1.5;
+}
+/* line 637, /Users/Hexter/Github/raisingstars/vendor/assets/stylesheets/jednotka/docs.scss */
+.documentation #main-content h4.doc-title {
+  font-size: 22px;
+  line-height: 1.5;
+}
+/* line 642, /Users/Hexter/Github/raisingstars/vendor/assets/stylesheets/jednotka/docs.scss */
+.documentation #main-content > section {
+  border-bottom: 2px solid #8dc153;
+  padding-bottom: 30px;
+}
+/* line 646, /Users/Hexter/Github/raisingstars/vendor/assets/stylesheets/jednotka/docs.scss */
+.documentation #main-content > section:last-child {
+  border-bottom: none;
+}
+/* line 652, /Users/Hexter/Github/raisingstars/vendor/assets/stylesheets/jednotka/docs.scss */
+.documentation #main-content section .syntaxhighlighter {
+  margin: 0 !important;
+  border: 2px solid #eaedf2;
+}
+/* line 656, /Users/Hexter/Github/raisingstars/vendor/assets/stylesheets/jednotka/docs.scss */
+.documentation #main-content section .syntaxhighlighter .gutter .line {
+  border-right-color: #8dc153 !important;
+}
+/* line 660, /Users/Hexter/Github/raisingstars/vendor/assets/stylesheets/jednotka/docs.scss */
+.documentation #main-content section .syntaxhighlighter .toolbar {
+  display: none;
+}
+/* line 666, /Users/Hexter/Github/raisingstars/vendor/assets/stylesheets/jednotka/docs.scss */
+.documentation #main-content .alert {
+  padding: 5px 10px;
+}

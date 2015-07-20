@@ -33,7 +33,7 @@ gem 'omniauth-facebook'
 gem 'kaminari'
 
 gem 'bootstrap-sass'
-
+gem "font-awesome-rails"
 gem 'compass-rails'
 
 # Use SCSS for stylesheets
