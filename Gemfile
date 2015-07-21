@@ -11,6 +11,14 @@ gem 'coffee-rails', '~> 4.1.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
+# capistrano
+gem 'capistrano-rails', :group => :development
+gem 'capistrano-passenger', :group => :development
+
+# mysql2
+gem "mysql2"
+gem 'sidekiq'
+
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
@@ -26,7 +34,7 @@ gem 'omniauth-facebook'
 gem 'kaminari'
 
 gem 'bootstrap-sass'
-
+gem "font-awesome-rails"
 gem 'compass-rails'
 
 # Use SCSS for stylesheets
