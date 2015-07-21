@@ -316,7 +316,7 @@ PLATFORMS
 
 DEPENDENCIES
   bootstrap-sass
-  byebug
+  byebug (= 5.0.0)
   capistrano-passenger
   capistrano-rails
   capybara
