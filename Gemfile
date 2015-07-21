@@ -36,6 +36,7 @@ gem 'kaminari'
 gem 'bootstrap-sass'
 gem "font-awesome-rails"
 gem 'compass-rails'
+gem 'youtube_it'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '4.0.2'
