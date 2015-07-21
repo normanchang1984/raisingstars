@@ -17,6 +17,7 @@ gem 'capistrano-passenger', :group => :development
 
 # mysql2
 gem "mysql2"
+gem 'sidekiq'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
