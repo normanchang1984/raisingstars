@@ -2,6 +2,7 @@
       <header id='header'>
         <div class='container'>
           <nav class='navbar navbar-collapsed-sm navbar-default' id='nav' role='navigation'>
+
             <div class='navbar-header'>
               <button class='navbar-toggle' data-target='.navbar-header-collapse' data-toggle='collapse' type='button'>
                 <span class='sr-only'>Toggle navigation</span>
@@ -9,10 +10,13 @@
                 <span class='icon-bar'></span>
                 <span class='icon-bar'></span>
               </button>
+
               <a class='navbar-brand' href='index.html'>
-                <%= image_tag("logo.png", id: "logo" ) %>
+                <%#= image_tag("raisingstars_logo.png", id: "logo" ) %>
               </a>
+
             </div>
+
             <div class='collapse navbar-collapse navbar-header-collapse'>
               <ul class='nav navbar-nav navbar-right'>
                 <!--
@@ -178,7 +182,7 @@
                   </ul>
                 </li>
                 -->
-
+                <br>
                 <% if current_user %>
                 <li style='font-size: 18px'>
                   <%= link_to('登出', destroy_user_session_path, :method => :delete) %>
@@ -206,8 +210,11 @@
             <div class='row'>
               <div class='col-sm-12'>
                 <h1 class='title'>
+                <!--
                   Portfolio
+
                   <small>Portfolio with 3 columns</small>
+                -->
                 </h1>
               </div>
             </div>
@@ -222,25 +229,25 @@
                   <li><a data-filter=".portfolio-filter-photography" href="#">比賽</a></li>
                   <li><a data-filter=".portfolio-filter-identity" href="#">訓練</a></li>
                   <li><a data-filter=".portfolio-filter-webdesign" href="#">物資</a></li>
-
                 </ul>
               </div>
             </div>
 
-            <% @proposals.each do |p| %>
+
             <div class='row portfolio-boxes' id='portfolio-container'>
+            <% @proposals.each do |p| %>
               <div class='col-sm-4 portfolio-box portfolio-filter-photography portfolio-item'>
                 <a href='proposal_path(p)'>
                   <div class='image-link'>
                     <i class='fa fa-search'></i>
-                    <img class="img-responsive img-rounded center-block" alt="Etiam vestibulum" width="360" height="235" src="http://lorempixel.com/360/235/sports/2" />
+                    <img class="img-responsive img-rounded center-block" alt="Etiam vestibulum" width="360" height="235" src="http://lorempixel.com/360/235/sports/3" />
                   </div>
                   <h3 class='title'><%=p.title%></h3>
                   <p class='category'>Webdesign</p>
                 </a>
               </div>
               <%end%>
-
+              </div>
 
               <!--original code
               <div class='col-sm-4 portfolio-box portfolio-filter-webdesign portfolio-item'>
@@ -315,13 +322,67 @@
                 </a>
               </div>
               end of original code-->
-            </div>
+
           </div>
+        </div>
         </div>
         <div class='fade' id='scroll-to-top'>
           <i class='fa fa-chevron-up'></i>
         </div>
-        <br>
-      </div>
-  </div>
+
+    </div>
+    <footer id='footer'>
+        <div id='footer-main'>
+          <div class='container'>
+            <div class='row'>
+              <div class='col-md-5 col-sm-5 info-box'>
+                <div class='logo-container'>
+                  <h2 class='title'>關於我們</h2>
+                </div>
+                <p class='no-mg-b'>Raising Stars 專為運動員打造的募資平台。我們協助有潛力的運動員，透過群眾募資取得必須的資金。挑戰更高等級的賽事。</p>
+              </div>
+
+              <div class='col-md-4 col-sm-4 info-box social-box'>
+                <h2 class='title'>社交平台</h2>
+                <div class='icon-boxes'>
+                  <a class='btn btn-circle btn-medium-light btn-sm' href='https://www.facebook.com/raising.stars.tw'>
+                    <i class='fa fa-facebook text-dark'></i>
+                  </a>
+                </div>
+              </div>
+              <div class='col-md-3 col-sm-3 info-box'>
+                <h2 class='title'>諮詢我們</h2>
+                <p>請留下你的信箱</p>
+                <form action='index.html' class='form-inline form-validation' method='get'>
+                  <div class='row'>
+                    <div class='form-group control-group col-xs-9 col-md-8 col-lg-9'>
+                      <input class='form-control' data-rule-email='true' data-rule-required='true' id='newsletter_email' name='newsletter[email]' placeholder='Email address' type='email'>
+                    </div>
+                    <div class='col-xs-3 col-md-4 col-lg-3'>
+                      <button class='btn btn-medium-light btn-block' type='submit'>
+                        <i class='fa fa-reply text-white'></i>
+                      </button>
+                    </div>
+
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id='footer-copyright'>
+          <div class='container'>
+            <div class='row'>
+              <div class='col-lg-12 clearfix'>
+                <p class='copyright'>
+                  Copyright
+                  &copy;
+                  2015 Raising Stars
+                </p>
+
+              </div>
+            </div>
+          </div>
+        </div>
+    </footer>
 </div>
