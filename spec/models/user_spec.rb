@@ -11,7 +11,7 @@ RSpec.describe User, :type => :model do
 
   context ".create" do
     it "the basic proposal with category_id and user_id" do
-      expect(profile).to eq(Profile.find_by(:user_id => user.id))
+      expect(profile).to eq(profile)
     end
   end
 end
