@@ -39,6 +39,62 @@
 
 <%= yield %>
 
+<footer id='footer'>
+        <div id='footer-main'>
+          <div class='container'>
+            <div class='row'>
+              <div class='col-md-5 col-sm-5 info-box'>
+                <div class='logo-container'>
+                  <h2 class='title'>關於我們</h2>
+                </div>
+                <p class='no-mg-b'>Raising Stars 專為運動員打造的募資平台。我們協助有潛力的運動員，透過群眾募資取得必須的資金。挑戰更高等級的賽事。</p>
+              </div>
+
+              <div class='col-md-4 col-sm-4 info-box social-box'>
+                <h2 class='title'>社交平台</h2>
+                <div class='icon-boxes'>
+                  <a class='btn btn-circle btn-medium-light btn-sm' href='https://www.facebook.com/raising.stars.tw'>
+                    <i class='fa fa-facebook text-dark'></i>
+                  </a>
+                </div>
+              </div>
+              <div class='col-md-3 col-sm-3 info-box'>
+                <h2 class='title'>諮詢我們</h2>
+                <p>請留下你的信箱</p>
+                <form action='index.html' class='form-inline form-validation' method='get'>
+                  <div class='row'>
+                    <div class='form-group control-group col-xs-9 col-md-8 col-lg-9'>
+                      <input class='form-control' data-rule-email='true' data-rule-required='true' id='newsletter_email' name='newsletter[email]' placeholder='Email address' type='email'>
+                    </div>
+                    <div class='col-xs-3 col-md-4 col-lg-3'>
+                      <button class='btn btn-medium-light btn-block' type='submit'>
+                        <i class='fa fa-reply text-white'></i>
+                      </button>
+                    </div>
+
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id='footer-copyright'>
+          <div class='container'>
+            <div class='row'>
+              <div class='col-lg-12 clearfix'>
+                <p class='copyright'>
+                  Copyright
+                  &copy;
+                  2015 Raising Stars
+                </p>
+
+              </div>
+            </div>
+          </div>
+        </div>
+</footer>
+
+
 <!-- / required javascripts -->
     <script src="assets/javascripts/jednotka/jquery/jquery.min.js" type="text/javascript"></script>
     <script src="assets/javascripts/jednotka/jquery/jquery.mobile.custom.min.js" type="text/javascript"></script>
@@ -56,4 +112,5 @@
     <script src="assets/javascripts/jednotka/plugins/cycle/jquery.cycle.all.min.js" type="text/javascript"></script>
     <script src="assets/javascripts/jednotka/jednotka.js" type="text/javascript"></script>
 </body>
+
 </html>
