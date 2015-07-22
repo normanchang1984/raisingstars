@@ -13,3 +13,19 @@ Category.create( :name => '物資' )
 Reward.create( :price => '100' )
 Reward.create( :price => '500' )
 Reward.create( :price => '1000' )
+
+User.create( :email => "ihower@gmail.com", :password => "12345678" )
+
+
+2.times do
+  User.create( :email => Faker::Internet.email, :password => Faker::Internet.password(8) )
+end
+
+3.times do
+  Proposal.create( :name => Faker::Name.name , :email => Faker::Internet.email, :phone =>Faker::PhoneNumber.cell_phone, :self_intro => Faker::Lorem.paragraph(5) , :title => Faker::Lorem.word, :content => Faker::Lorem.paragraph(20), :category_id => Category.last.id, :user_id => User.first.id )
+end
+
+3.times do
+  Proposal.create( :name => Faker::Name.name , :email => Faker::Internet.email, :phone =>Faker::PhoneNumber.cell_phone, :self_intro => Faker::Lorem.paragraph(5) , :title => Faker::Lorem.word, :content => Faker::Lorem.paragraph(20), :category_id => Category.first.id, :user_id => User.last.id )
+end
+
