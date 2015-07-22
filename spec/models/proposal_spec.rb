@@ -43,21 +43,17 @@ RSpec.describe Proposal, :type => :model do
        @p1 = Proposal.create(name: "p1", category: Category.first, user_id: user)
        @p2 = Proposal.create(name: "p2", category: Category.last, user_id: user)
     end
-
     it "by category" do
       # expect( Proposal.sort_by_category(1) ).to eq( [@p1] )
       expect(Proposal.sort_by_category(1)).to eq( Proposal.where( :category_id => 1 ) )
     end
-
     it "by default" do
       expect(Proposal.first.sort_by_default).to eq(1)
     end
-
   end
 
   # Test for Factory_girl gem
   context "::give_reward" do
-
     it "give reward to the proposal" do
       user_create_reward = user.give_reward(reward, proposal)
       # expect(user_create_reward).to eq( UserRewardProposal.where( :reward_id => 1, :proposal_id => 1 ))
@@ -80,7 +76,9 @@ RSpec.describe Proposal, :type => :model do
       result = Userproposalship.where( :user_id => user.id )
       # expect(result).to eq(Userproposalship.find_by(:user_id => user.id))
     end
+  end
 
+  context "" do
   end
 
 end
