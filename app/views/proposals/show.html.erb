@@ -1,284 +1,135 @@
-<div id='wrapper'>
-      <header id='header'>
-        <div class='container'>
-          <nav class='navbar navbar-collapsed-sm navbar-default' id='nav' role='navigation'>
-            <div class='navbar-header'>
-              <button class='navbar-toggle' data-target='.navbar-header-collapse' data-toggle='collapse' type='button'>
-                <span class='sr-only'>Toggle navigation</span>
-                <span class='icon-bar'></span>
-                <span class='icon-bar'></span>
-                <span class='icon-bar'></span>
-              </button>
-              <a class='navbar-brand' href='index.html'>
-                <img alt="Jednotka" width="117" height="39" src="assets/images/logo.svg" />
-              </a>
-            </div>
-            <div class='collapse navbar-collapse navbar-header-collapse'>
-              <ul class='nav navbar-nav navbar-right'>
-                <br>
-
-                <% if current_user %>
-                <li style='font-size: 18px'>
-                  <%= link_to('登出', destroy_user_session_path, :method => :delete) %>
-                </li>
-                <li class='dropdown' style='font-size: 18px'>
-                  <%= link_to('修改密碼', edit_registration_path(:user)) %>
-                </li>
-                <% else %>
-                <li class='dropdown' style='font-size: 18px'>
-                    <%= link_to('註冊', new_registration_path(:user)) %>
-                </li>
-                <li class='dropdown' style='font-size: 18px'>
-                  <%= link_to('登入', new_session_path(:user)) %>
-                </li>
-                <% end %>
-
-              </ul>
+<div id='main' role='main'>
+  <div id='main-content'>
+    <div class='container'>
+      <div class='row'>
+        <div class='col-md-push-9 col-sm-push-8 col-sm-4 col-md-3'>
+          <nav class='sidebar sidebar-fixed'>
+            <button class='btn btn-block btn-contrast sidebar-toggle' data-target='.sidebar-collapse' data-toggle='collapse' type='button'>
+              <span class='sr-only'>Toggle navigation</span>
+              <span class='icon-bar'></span>
+              <span class='icon-bar'></span>
+              <span class='icon-bar'></span>
+            </button>
+            <div class='sidebar-collapse collapse'>
+              <div class='box'>
+                <h3 class='title'>Info</h3>
+                <ul class='list-unstyled list-padded'>
+                  <li>
+                    <i class='fa fa-user text-contrast fa fa-fixed-width'></i>
+                    Company name
+                  </li>
+                  <li>
+                    <i class='fa fa-calendar text-contrast fa fa-fixed-width'></i>
+                    September 2013
+                  </li>
+                </ul>
+              </div>
+              <div class='box'>
+                <h3 class='title'>Services</h3>
+                <ul class='list-unstyled list-padded'>
+                  <li>
+                    <i class='fa fa-check text-contrast fa fa-fixed-width'></i>
+                    Webdesign
+                  </li>
+                  <li>
+                    <i class='fa fa-check text-contrast fa fa-fixed-width'></i>
+                    HTML / CSS
+                  </li>
+                  <li>
+                    <i class='fa fa-check text-contrast fa fa-fixed-width'></i>
+                    Marketing
+                  </li>
+                  <li>
+                    <i class='fa fa-check text-contrast fa fa-fixed-width'></i>
+                    Identity
+                  </li>
+                </ul>
+              </div>
+              <div class='box'>
+                <a class="btn btn-contrast btn-bordered btn-block btn-primary" href="#">加入追蹤</a>
+              </div>
+              <div class='box'>
+                <a class="btn btn-contrast btn-bordered btn-block" href="#">我要贊助</a>
+              </div>
             </div>
           </nav>
         </div>
-      </header>
-      <div id='main' role='main'>
-        <div id='main-content-header'>
-          <div class='container'>
+          <div class='col-md-pull-3 col-sm-pull-4 col-sm-8 col-md-9'>
             <div class='row'>
               <div class='col-sm-12'>
-                <h1 class='title'>
-                  Project detail
-                </h1>
-                <ol class='breadcrumb'>
-                  <li>
-                    <a href='index.html'>
-                      <i class='fa fa-home'></i>
-                    </a>
-                  </li>
-                  <li>
-                    <a href='portfolio.html'>
-                      Portolio
-                    </a>
-                  </li>
-                  <li class='active'>Project detail</li>
-                </ol>
-                <div class='directional'>
-                  <a class='has-tooltip left' data-placement='right' data-title='Previous project' href='#'>
-                    <i class='fa fa-chevron-left'></i>
-                  </a>
-                  <a class='has-tooltip right' data-placement='left' data-title='Next project' href='#'>
-                    <i class='fa fa-chevron-right'></i>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div id='main-content'>
-          <div class='container'>
-            <div class='row'>
-              <div class='col-md-push-9 col-sm-push-8 col-sm-4 col-md-3'>
-                <nav class='sidebar sidebar-fixed'>
-                  <button class='btn btn-block btn-contrast sidebar-toggle' data-target='.sidebar-collapse' data-toggle='collapse' type='button'>
-                    <span class='sr-only'>Toggle navigation</span>
-                    <span class='icon-bar'></span>
-                    <span class='icon-bar'></span>
-                    <span class='icon-bar'></span>
-                  </button>
-                  <div class='sidebar-collapse collapse'>
-                    <div class='box'>
-                      <h3 class='title'>Info</h3>
-                      <ul class='list-unstyled list-padded'>
-                        <li>
-                          <i class='fa fa-user text-contrast fa fa-fixed-width'></i>
-                          Company name
-                        </li>
-                        <li>
-                          <i class='fa fa-calendar text-contrast fa fa-fixed-width'></i>
-                          September 2013
-                        </li>
-                      </ul>
-                    </div>
-                    <div class='box'>
-                      <h3 class='title'>Services</h3>
-                      <ul class='list-unstyled list-padded'>
-                        <li>
-                          <i class='fa fa-check text-contrast fa fa-fixed-width'></i>
-                          Webdesign
-                        </li>
-                        <li>
-                          <i class='fa fa-check text-contrast fa fa-fixed-width'></i>
-                          HTML / CSS
-                        </li>
-                        <li>
-                          <i class='fa fa-check text-contrast fa fa-fixed-width'></i>
-                          Marketing
-                        </li>
-                        <li>
-                          <i class='fa fa-check text-contrast fa fa-fixed-width'></i>
-                          Identity
-                        </li>
-                      </ul>
-                    </div>
-                    <div class='box'><a class="btn btn-contrast btn-bordered btn-block" href="#">Show project</a></div>
-                  </div>
-                </nav>
-              </div>
-              <div class='col-md-pull-3 col-sm-pull-4 col-sm-8 col-md-9'>
+                <h2 class='no-mg-t'>Project description</h2>
+                <p class='lead lead-sm'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut eu justo vitae odio rhoncus pulvinar. Morbi ac congue orci. Nulla tristique ultrices purus vel egestas. Aliquam viverra volutpat facilisis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Proin commodo sit amet eros non dapibus. Aenean vitae fermentum diam.</p>
                 <div class='row'>
                   <div class='col-sm-12'>
-                    <h2 class='no-mg-t'><%= @proposal.name %></h2>
-                    <p class='lead lead-sm'><%= @proposal.content %></p>
-                    <hr class='hr-invisible hr-half'>
-                    <p><img class="img-responsive center-block" alt="Project detail" width="300" height="104" src="http://placehold.it/300x104" /></p>
-                    <hr class='hr-invisible hr-half'>
-                    <p><%= @proposal.name %></p>
-                    <p><%= @proposal.email %></p>
-                    <p><%= @proposal.phone %></p>
-                    <p><%= @proposal.self_intro %></p>
-                  </div>
-                </div>
-                <div class='row'>
-                  <div class='col-sm-12'>
-                    <div class='page-header page-header-with-icon'>
-                      <i class='fa fa-leaf'></i>
-                      <h2>
-                        Related work
-                      </h2>
-                    </div>
-                    <div class='row portfolio-boxes'>
-                      <div class='carousel carousel-default slide carousel-auto' id='carousel-related-work'>
-                        <div class='carousel-inner'>
-                          <div class='item active'>
-                            <div class='col-sm-4 portfolio-box'>
-                              <a href='portfolio_detail.html'>
-                                <div class='image-link'>
-                                  <i class='fa fa-search'></i>
-                                  <img class="img-responsive img-rounded center-block" alt="Etiam vestibulum" width="262" height="171" src="http://placehold.it/262x171" />
-                                </div>
-                                <h3 class='title'>Etiam vestibulum</h3>
-                                <p class='category'>Photography</p>
-                              </a>
-                            </div>
-                            <div class='col-sm-4 portfolio-box'>
-                              <a href='portfolio_detail.html'>
-                                <div class='image-link'>
-                                  <i class='fa fa-link'></i>
-                                  <img class="img-responsive img-rounded center-block" alt="Malesuada" width="262" height="171" src="http://placehold.it/262x171" />
-                                </div>
-                                <h3 class='title'>Malesuada</h3>
-                                <p class='category'>Webdesign</p>
-                              </a>
-                            </div>
-                            <div class='col-sm-4 portfolio-box'>
-                              <a href='portfolio_detail.html'>
-                                <div class='image-link'>
-                                  <i class='fa fa-search'></i>
-                                  <img class="img-responsive img-rounded center-block" alt="Dictum vulputate" width="262" height="171" src="http://placehold.it/262x171" />
-                                </div>
-                                <h3 class='title'>Dictum vulputate</h3>
-                                <p class='category'>Identity</p>
-                              </a>
-                            </div>
-                          </div>
-                          <div class='item'>
-                            <div class='col-sm-4 portfolio-box'>
-                              <a href='portfolio_detail.html'>
-                                <div class='image-link'>
-                                  <i class='fa fa-search'></i>
-                                  <img class="img-responsive img-rounded center-block" alt="Malesuada" width="262" height="171" src="http://placehold.it/262x171" />
-                                </div>
-                                <h3 class='title'>Malesuada</h3>
-                                <p class='category'>Webdesign</p>
-                              </a>
-                            </div>
-                            <div class='col-sm-4 portfolio-box'>
-                              <a href='portfolio_detail.html'>
-                                <div class='image-link'>
-                                  <i class='fa fa-search'></i>
-                                  <img class="img-responsive img-rounded center-block" alt="Cullamcorper" width="262" height="171" src="http://placehold.it/262x171" />
-                                </div>
-                                <h3 class='title'>Cullamcorper</h3>
-                                <p class='category'>Marketing</p>
-                              </a>
-                            </div>
-                            <div class='col-sm-4 portfolio-box'>
-                              <a href='portfolio_detail.html'>
-                                <div class='image-link'>
-                                  <i class='fa fa-search'></i>
-                                  <img class="img-responsive img-rounded center-block" alt="Etiam posuere" width="262" height="171" src="http://placehold.it/262x171" />
-                                </div>
-                                <h3 class='title'>Etiam posuere</h3>
-                                <p class='category'>Identity, Marketing</p>
-                              </a>
-                            </div>
+                    <div class='browser-window'>
+                      <div class='browser-header'>
+                        <div class='browser-header-controls'>
+                          <span class='red'></span>
+                          <span class='orange'></span>
+                          <span class='green'></span>
+                        </div>
+                        <div class='browser-address-bar'>
+                          <div class='browser-title'>
+                            <a href="mailto:info@bublinastudio.com">www.bublinastudio.com</a>
                           </div>
                         </div>
-                        <ol class='carousel-indicators'>
-                          <li class='active' data-slide-to='0' data-target='#carousel-related-work'></li>
-                          <li data-slide-to='1' data-target='#carousel-related-work'></li>
-                        </ol>
+                      </div>
+                      <div class='browser-content'>
+                        <img alt="" width="1531" height="3202" src="http://placehold.it/1531x3202" />
                       </div>
                     </div>
                   </div>
                 </div>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut eu justo vitae odio rhoncus pulvinar. Morbi ac congue orci. Nulla tristique ultrices purus vel egestas. Aliquam viverra volutpat facilisis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Proin commodo sit amet eros non dapibus. Aenean vitae fermentum diam.</p>
+                <hr class='hr-invisible hr-half'>
+                <p><img class="img-responsive center-block" alt="Project detail" width="300" height="104" src="http://placehold.it/300x104" /></p>
+                <hr class='hr-invisible hr-half'>
+                <p>Aliquam viverra volutpat facilisis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Proin commodo sit amet eros non dapibus. Aenean vitae fermentum diam.</p>
               </div>
             </div>
-          </div>
-        </div>
-        <div class='fade' id='scroll-to-top'>
-          <i class='fa fa-chevron-up'></i>
-        </div>
-      </div>
-      <footer id='footer'>
-        <div id='footer-main'>
-          <div class='container'>
             <div class='row'>
-              <div class='col-md-5 col-sm-5 info-box'>
-                <div class='logo-container'>
-                  <h2 class='title'>關於我們</h2>
+              <div class='col-sm-12'>
+                <div class='page-header page-header-with-icon'>
+                  <i class='fa fa-leaf'></i>
+                  <h2>
+                    評論專區
+                  </h2>
                 </div>
-                <p class='no-mg-b'>Raising Stars 專為運動員打造的募資平台。我們協助有潛力的運動員，透過群眾募資取得必須的資金。挑戰更高等級的賽事。</p>
-              </div>
+                <div class='row portfolio-boxes'>
 
-              <div class='col-md-4 col-sm-4 info-box social-box'>
-                <h2 class='title'>社交平台</h2>
-                <div class='icon-boxes'>
-                  <a class='btn btn-circle btn-medium-light btn-sm' href='https://www.facebook.com/raising.stars.tw'>
-                    <i class='fa fa-facebook text-dark'></i>
-                  </a>
-                </div>
-              </div>
-              <div class='col-md-3 col-sm-3 info-box'>
-                <h2 class='title'>諮詢我們</h2>
-                <p>請留下你的信箱</p>
-                <form action='index.html' class='form-inline form-validation' method='get'>
-                  <div class='row'>
-                    <div class='form-group control-group col-xs-9 col-md-8 col-lg-9'>
-                      <input class='form-control' data-rule-email='true' data-rule-required='true' id='newsletter_email' name='newsletter[email]' placeholder='Email address' type='email'>
-                    </div>
-                    <div class='col-xs-3 col-md-4 col-lg-3'>
-                      <button class='btn btn-medium-light btn-block' type='submit'>
-                        <i class='fa fa-reply text-white'></i>
-                      </button>
-                    </div>
-
+                  <table class="table thumbnail table-striped">
+                    <label>問與答</label>
+                    <%#@proposal.comments.each do |c|%>
+                    <tr>
+                      <td><%#=c.content%></td>
+                      <td>
+                        <% if current_user and current_user == c.user %>
+                          <%=link_to "Edit", edit_forum_path(e), :class=>"btn btn-primary"%>
+                          <%=link_to "Destroy", forum_path(e), :method=>:delete, :class=>"btn btn-primary"%>
+                        <%end%>
+                      </td>
+                    </tr>
+                    <%#end%>
+                  </table>
+                  <br>
+                  <div class="form-group">
+                    <label>請留言</label>
+                    <input class="form-control" id="input-textarea" type="text">
                   </div>
-                </form>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div id='footer-copyright'>
-          <div class='container'>
-            <div class='row'>
-              <div class='col-lg-12 clearfix'>
-                <p class='copyright'>
-                  Copyright
-                  &copy;
-                  2015 Raising Stars
-                </p>
+                  <%#=form_for d, :url=>proposal_comments_path(d), :method=>:patch, :class=>"form" do |f|%>
+                  <%#=f.label :content, "Content"%>
+                  <%#=f.text_area :content, :class=>"form-control"%>
+                  <%#=f.submit "Publish"%>
+                  <%#end%>
 
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      </footer>
+      </div>
     </div>
+  </div>
+  <div class='fade' id='scroll-to-top'>
+    <i class='fa fa-chevron-up'></i>
+  </div>
+</div>
