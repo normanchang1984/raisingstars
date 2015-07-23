@@ -12,7 +12,6 @@ class User < ActiveRecord::Base
   has_many :rewards, :through => :user_reward_proposals
   has_one :profile
 
-
   # facebook login
   def self.from_omniauth(auth)
     # Case 1: Find existing user by facebook uid

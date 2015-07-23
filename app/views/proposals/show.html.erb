@@ -47,6 +47,7 @@
               </div>
               <div class='box' id= "favorite_button" >
                 <%= link_to "加入追蹤", favorite_proposal_path(@proposal), :class => "btn btn-contrast btn-bordered btn-block btn-primary", :method => :post, :remote => true %>
+                <%= link_to "加入追蹤", favorite_proposal_path(@proposal), :method => :post, :remote => true %>
               </div>
               <div class='box'>
                 <a class="btn btn-contrast btn-bordered btn-block" href= <%= pay_proposal_path %> >我要贊助</a>
