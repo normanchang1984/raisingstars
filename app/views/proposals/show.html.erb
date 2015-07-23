@@ -124,34 +124,15 @@
               <div class='col-md-pull-3 col-sm-pull-4 col-sm-8 col-md-9'>
                 <div class='row'>
                   <div class='col-sm-12'>
-                    <h2 class='no-mg-t'>Project description</h2>
-                    <p class='lead lead-sm'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut eu justo vitae odio rhoncus pulvinar. Morbi ac congue orci. Nulla tristique ultrices purus vel egestas. Aliquam viverra volutpat facilisis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Proin commodo sit amet eros non dapibus. Aenean vitae fermentum diam.</p>
-                    <div class='row'>
-                      <div class='col-sm-12'>
-                        <div class='browser-window'>
-                          <div class='browser-header'>
-                            <div class='browser-header-controls'>
-                              <span class='red'></span>
-                              <span class='orange'></span>
-                              <span class='green'></span>
-                            </div>
-                            <div class='browser-address-bar'>
-                              <div class='browser-title'>
-                                <a href="mailto:info@bublinastudio.com">www.bublinastudio.com</a>
-                              </div>
-                            </div>
-                          </div>
-                          <div class='browser-content'>
-                            <img alt="" width="1531" height="3202" src="http://placehold.it/1531x3202" />
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut eu justo vitae odio rhoncus pulvinar. Morbi ac congue orci. Nulla tristique ultrices purus vel egestas. Aliquam viverra volutpat facilisis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Proin commodo sit amet eros non dapibus. Aenean vitae fermentum diam.</p>
+                    <h2 class='no-mg-t'><%= @proposal.name %></h2>
+                    <p class='lead lead-sm'><%= @proposal.content %></p>
                     <hr class='hr-invisible hr-half'>
                     <p><img class="img-responsive center-block" alt="Project detail" width="300" height="104" src="http://placehold.it/300x104" /></p>
                     <hr class='hr-invisible hr-half'>
-                    <p>Aliquam viverra volutpat facilisis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Proin commodo sit amet eros non dapibus. Aenean vitae fermentum diam.</p>
+                    <p><%= @proposal.name %></p>
+                    <p><%= @proposal.email %></p>
+                    <p><%= @proposal.phone %></p>
+                    <p><%= @proposal.self_intro %></p>
                   </div>
                 </div>
                 <div class='row'>
