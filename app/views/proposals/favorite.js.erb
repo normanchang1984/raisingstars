@@ -1,0 +1,19 @@
+function favoriteproposal(){
+  var favorite_button = $('sidebar-collapse').find('#favorite_button');
+  favorite_button.addClass('zxc');
+}
+function nofavoriteproposal(){
+  var favorite_button = $('sidebar-collapse').find('#favorite_button');
+  favorite_button.removeClass('zxc');
+}
+<% user_favor = current_user.userproposalships.find_by_proposal_id(@proposal.id) %>
+<% if user_favor.nil?%>
+  <% current_user.add_proposal_relationship(current_user, @proposal) %>
+  favoriteproposal();
+  alert("create");
+<% else %>
+    <% user_favor.destroy %>
+    nofavoriteproposal();
+    alert("#{current_user}");
+<% end %>
+

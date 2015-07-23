@@ -39,13 +39,11 @@ class ProposalsController < ApplicationController
 
   def favorite
     @proposal = Proposal.find(params[:id])
-    user_favor = current_user.userproposalships.find_by_proposal_id(@proposal.id)
-    if user_favor
-      user_favor.destroy
-    else
-      current_user.add_proposal_relationship(current_user, @proposal)
+    respond_to do |format|
+      format.html {
+      }
+      format.js
     end
-    redirect_to @proposal
   end
 
   private
