@@ -46,11 +46,6 @@ class User < ActiveRecord::Base
     end
   end
 
-
-  def give_reward(reward ,proposal)
-    UserRewardProposal.create( :reward_id => reward.id, :proposal_id => proposal.id)
-  end
-
   def add_proposal_relationship(user, proposal)
     result = Userproposalship.find_by( :user_id => user.id, :proposal_id => proposal.id)
     if result

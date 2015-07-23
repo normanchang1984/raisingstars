@@ -1,5 +1,21 @@
-<p>Welcome <%= @email %>!</p>
+<div id='main' role='main'>
 
-<p>You can confirm your account email through the link below:</p>
+        <div id='main-content'>
+          <div class='container'>
+            <div class='row' id='portfolio-filter'>
+              <div class='col-sm-12'>
+                <h2 style='font-size: 40px'> 歡迎您， <%= @email %>!</h2>
+                <br>
+                <p>You can confirm your account email through the link below:</p>
 
-<p><%= link_to 'Confirm my account', confirmation_url(@resource, confirmation_token: @token) %></p>
+                <p><%= link_to 'Confirm my account', confirmation_url(@resource, confirmation_token: @token) %></p>
+
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class='fade' id='scroll-to-top'>
+          <i class='fa fa-chevron-up'></i>
+        </div>
+</div>
+

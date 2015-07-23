@@ -1,0 +1,42 @@
+#logo {
+  width: 281px;
+  height: 53px;
+}
+
+#header .navbar-default.navbar-collapsed-sm {
+  border-bottom: none;
+}
+
+#header {
+  background-color: black;
+}
+
+
+#footer #footer-main{
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+@media screen and (max-width: 320px) {
+  #wrapper {
+
+  background-repeat: no-repeat;
+  background-position: center 0;
+  background-image: image-url("raisingstars_logo_mobile.png");
+  -webkit-background-size: 300px 100px;
+  background-size: 300px 100px;
+  }
+
+}
+
+
+@media screen and (min-width: 321) and (max-width: 600px) {
+  #wrapper {
+  background-repeat: no-repeat;
+  background-position: center 0;
+  background-image: image-url("raisingstars_logo.png");
+  -webkit-background-size: 640px 380px;
+  background-size: 640px 380px;
+  }
+
+}

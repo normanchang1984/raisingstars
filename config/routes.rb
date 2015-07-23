@@ -1,8 +1,16 @@
 Rails.application.routes.draw do
   devise_for :users, :controllers => { :omniauth_calllbacks => "users/omniauth_calllbacks" }
 
+  resources :users do
+    resource :profile, :controller => 'user_profiles'
+  end
+
   resources :proposals do
     resources :comments, :controller => :proposalcomments
+    member do
+      get :pay
+      post :favorite
+    end
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

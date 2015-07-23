@@ -43,6 +43,15 @@ body {
   background-position: center 0;
   background-image: image-url("bg_wrapper.jpg");
   @include image-2x("bg_wrapper@2x.jpg", 1920px, 535px);
+  /*
+  background: url("raisingstars_log.png") no-repeat;
+  -moz-background-size: cover;
+  -webkit-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-position: center 0;
+  background-attachment: fixed;
+  */
 }
 
 #main-content {

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150720140702) do
+ActiveRecord::Schema.define(version: 20150722122937) do
 
   create_table "categories", force: :cascade do |t|
     t.string   "name",       limit: 255
@@ -29,6 +29,20 @@ ActiveRecord::Schema.define(version: 20150720140702) do
 
   add_index "comments", ["proposal_id"], name: "index_comments_on_proposal_id", using: :btree
 
+  create_table "orders", force: :cascade do |t|
+    t.string   "name",           limit: 255
+    t.string   "email",          limit: 255
+    t.string   "phone",          limit: 255
+    t.string   "address",        limit: 255
+    t.string   "payment_method", limit: 255
+    t.integer  "amount",         limit: 4
+    t.integer  "user_id",        limit: 4
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+  end
+
+  add_index "orders", ["user_id"], name: "index_orders_on_user_id", using: :btree
+
   create_table "profiles", force: :cascade do |t|
     t.string   "name",       limit: 255
     t.integer  "user_id",    limit: 4
@@ -37,17 +51,18 @@ ActiveRecord::Schema.define(version: 20150720140702) do
   end
 
   create_table "proposals", force: :cascade do |t|
-    t.string   "name",        limit: 255
-    t.string   "email",       limit: 255
-    t.string   "phone",       limit: 255
-    t.text     "self_intro",  limit: 65535
-    t.string   "title",       limit: 255
-    t.text     "content",     limit: 65535
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
-    t.integer  "views",       limit: 4
-    t.integer  "category_id", limit: 4
-    t.integer  "user_id",     limit: 4
+    t.string   "name",            limit: 255
+    t.string   "email",           limit: 255
+    t.string   "phone",           limit: 255
+    t.text     "self_intro",      limit: 65535
+    t.string   "title",           limit: 255
+    t.text     "content",         limit: 65535
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
+    t.integer  "views",           limit: 4
+    t.integer  "category_id",     limit: 4
+    t.integer  "user_id",         limit: 4
+    t.string   "title_graph_url", limit: 255
   end
 
   add_index "proposals", ["category_id"], name: "index_proposals_on_category_id", using: :btree
@@ -88,6 +103,7 @@ ActiveRecord::Schema.define(version: 20150720140702) do
     t.datetime "updated_at",                                      null: false
     t.string   "fb_uid",                 limit: 255
     t.string   "fb_token",               limit: 255
+    t.string   "avatar_url",             limit: 255
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
