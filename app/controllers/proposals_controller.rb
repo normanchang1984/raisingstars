@@ -1,5 +1,9 @@
 class ProposalsController < ApplicationController
 
+  before_action :set_proposal, only: [:show]
+  before_action :find_my_post, only: [:edit, :update, :destroy]
+  before_action :authenticate_user!, except: [:index, :show]
+
   def index
     @proposals = Proposal.all
   end
@@ -32,7 +36,7 @@ class ProposalsController < ApplicationController
   private
 
   def set_proposal
-    @proposal = Proposal.find_by_id( params[:id] )
+    @proposal = Proposal.find(params[:id])
   end
 
   def proposal_params

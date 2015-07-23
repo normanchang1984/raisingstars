@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
   devise_for :users, :controllers => { :omniauth_calllbacks => "users/omniauth_calllbacks" }
 
+  resources :users do
+    resource :profile, :controller => 'user_profiles'
+  end
+
   resources :proposals do
     resources :comments, :controller => :proposalcomments
   end
@@ -9,7 +13,7 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'proposals#show'
+  root 'proposals#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
