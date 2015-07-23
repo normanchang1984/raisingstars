@@ -46,10 +46,10 @@
                 </ul>
               </div>
               <div class='box'>
-                <a class="btn btn-contrast btn-bordered btn-block btn-primary" href="#">加入追蹤</a>
+                <a class="btn btn-contrast btn-bordered btn-block btn-primary" data-method= "post" href= <%= favorite_proposal_path(@proposal) %> >加入追蹤</a>
               </div>
               <div class='box'>
-                <a class="btn btn-contrast btn-bordered btn-block" href="#">我要贊助</a>
+                <a class="btn btn-contrast btn-bordered btn-block" href= <%= pay_proposal_path %> >我要贊助</a>
               </div>
             </div>
           </nav>
@@ -57,34 +57,20 @@
           <div class='col-md-pull-3 col-sm-pull-4 col-sm-8 col-md-9'>
             <div class='row'>
               <div class='col-sm-12'>
-                <h2 class='no-mg-t'>Project description</h2>
-                <p class='lead lead-sm'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut eu justo vitae odio rhoncus pulvinar. Morbi ac congue orci. Nulla tristique ultrices purus vel egestas. Aliquam viverra volutpat facilisis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Proin commodo sit amet eros non dapibus. Aenean vitae fermentum diam.</p>
-                <div class='row'>
-                  <div class='col-sm-12'>
-                    <div class='browser-window'>
-                      <div class='browser-header'>
-                        <div class='browser-header-controls'>
-                          <span class='red'></span>
-                          <span class='orange'></span>
-                          <span class='green'></span>
-                        </div>
-                        <div class='browser-address-bar'>
-                          <div class='browser-title'>
-                            <a href="mailto:info@bublinastudio.com">www.bublinastudio.com</a>
-                          </div>
-                        </div>
-                      </div>
-                      <div class='browser-content'>
-                        <img alt="" width="1531" height="3202" src="http://placehold.it/1531x3202" />
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut eu justo vitae odio rhoncus pulvinar. Morbi ac congue orci. Nulla tristique ultrices purus vel egestas. Aliquam viverra volutpat facilisis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Proin commodo sit amet eros non dapibus. Aenean vitae fermentum diam.</p>
+                <h2 class='no-mg-t'><%= @proposal.title %></h2>
+                <p class='lead lead-sm'><%= @user.email %></p>
+                <p><%= @proposal.content %></p>
                 <hr class='hr-invisible hr-half'>
-                <p><img class="img-responsive center-block" alt="Project detail" width="300" height="104" src="http://placehold.it/300x104" /></p>
+                <img class="img-responsive center-block" alt="Project detail" src= <%= @proposal.title_graph_url %> />
                 <hr class='hr-invisible hr-half'>
-                <p>Aliquam viverra volutpat facilisis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Proin commodo sit amet eros non dapibus. Aenean vitae fermentum diam.</p>
+                <p><%= @proposal.content %></p>
+              </div>
+            </div>
+            <div class='row'>
+              <div class='col-sm-12'>
+                <h2 class='no-mg-t'>發起人</h2>
+                <p class='lead lead-sm'><%= @user.email %></p>
+                <img class="img-responsive center-block" alt="Project detail" src= <%= @user.avatar_url %> />
               </div>
             </div>
             <div class='row'>
@@ -99,9 +85,9 @@
 
                   <table class="table thumbnail table-striped">
                     <label>問與答</label>
-                    <%#@proposal.comments.each do |c|%>
+                    <%@proposal.comments.each do |c|%>
                     <tr>
-                      <td><%#=c.content%></td>
+                      <td><%=c.content%></td>
                       <td>
                         <% if current_user and current_user == c.user %>
                           <%=link_to "Edit", edit_forum_path(e), :class=>"btn btn-primary"%>
@@ -109,7 +95,7 @@
                         <%end%>
                       </td>
                     </tr>
-                    <%#end%>
+                    <%end%>
                   </table>
                   <br>
                   <div class="form-group">

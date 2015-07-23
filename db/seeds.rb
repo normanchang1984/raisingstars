@@ -14,11 +14,11 @@ Reward.create( :price => '100' )
 Reward.create( :price => '500' )
 Reward.create( :price => '1000' )
 
-User.create( :email => "ihower@gmail.com", :password => "12345678" )
+User.create( :email => "ihower@gmail.com", :password => "12345678", :avatar_url => Faker::Avatar.image )
 
 
 2.times do
-  User.create( :email => Faker::Internet.email, :password => Faker::Internet.password(8), :avatar_url => Faker::Avatar.image("50x50") )
+  User.create!( :email => Faker::Internet.email, :password => Faker::Internet.password(8), :avatar_url => Faker::Avatar.image )
 end
 
 3.times do
