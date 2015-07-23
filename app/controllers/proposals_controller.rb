@@ -9,7 +9,7 @@ class ProposalsController < ApplicationController
   end
 
   def show
-
+    @comments = Comment.find_by_id(params[:id])
   end
 
   def edit
