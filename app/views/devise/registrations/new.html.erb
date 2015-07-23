@@ -15,6 +15,7 @@
             </div>
             <div class='collapse navbar-collapse navbar-header-collapse'>
               <ul class='nav navbar-nav navbar-right'>
+              <br>
                <% if current_user %>
                 <li style='font-size: 18px'>
                   <%= link_to('登出', destroy_user_session_path, :method => :delete) %>

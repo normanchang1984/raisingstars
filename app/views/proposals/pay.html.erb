@@ -1,0 +1,246 @@
+
+    <div id='wrapper'>
+      <header id='header'>
+        <div class='container'>
+          <nav class='navbar navbar-collapsed-sm navbar-default' id='nav' role='navigation'>
+
+            <div class='navbar-header'>
+              <button class='navbar-toggle' data-target='.navbar-header-collapse' data-toggle='collapse' type='button'>
+                <span class='sr-only'>Toggle navigation</span>
+                <span class='icon-bar'></span>
+                <span class='icon-bar'></span>
+                <span class='icon-bar'></span>
+              </button>
+
+              <a class='navbar-brand' href='index.html'>
+                <%#= image_tag("raisingstars_logo.png", id: "logo" ) %>
+              </a>
+
+            </div>
+
+            <div class='collapse navbar-collapse navbar-header-collapse'>
+              <ul class='nav navbar-nav navbar-right'>
+                <br>
+                <% if current_user %>
+                <li style='font-size: 18px'>
+                  <%= link_to('登出', destroy_user_session_path, :method => :delete) %>
+                </li>
+                <li class='dropdown' style='font-size: 18px'>
+                  <%= link_to('修改密碼', edit_registration_path(:user)) %>
+                </li>
+                <% else %>
+                <li class='dropdown' style='font-size: 18px'>
+                    <%= link_to('註冊', new_registration_path(:user)) %>
+                </li>
+                <li class='dropdown' style='font-size: 18px'>
+                  <%= link_to('登入', new_session_path(:user)) %>
+                </li>
+                <% end %>
+
+              </ul>
+            </div>
+          </nav>
+        </div>
+      </header>
+      <div id='main' role='main'>
+        <div id='main-content-header'>
+          <div class='container'>
+            <div class='row'>
+              <div class='col-sm-12'>
+                <h1 class='title'>
+                  Pricing tables
+                  <small>Morbi accumsan orci sem, nec lobortis lacus vulputate vitae.</small>
+                </h1>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id='main-content'>
+          <div class='container'>
+
+            <div class='row'>
+              <div class='col-sm-12'>
+                <div class='page-header page-header-with-icon'>
+                  <i class='fa fa-dollar'></i>
+                  <h2>
+                    Three tables
+                    <small>Second table style</small>
+                  </h2>
+                </div>
+                <div class='row panels'>
+                  <div class='col-sm-4 panel-item'>
+                    <div class='panel panel-bordered panel-light pricing-table pricing-table-solid'>
+                      <div class='panel-heading'>
+                        <h3 class='panel-title'>Basic</h3>
+                      </div>
+                      <div class='panel-body'>
+                        <h4 class='price'>
+                          <span class='currency'>
+                            &#36;
+                          </span>
+                          29
+                        </h4>
+                        <p class='period'>/ per month</p>
+                        <ul class='list-unstyled'>
+                          <li>
+                            <strong>5GB</strong>
+                            Disk space
+                          </li>
+                          <li>
+                            <strong>10GB</strong>
+                            Monthly Bandwidth
+                          </li>
+                          <li>
+                            <strong>10</strong>
+                            Email accounts
+                          </li>
+                          <li>
+                            <strong>2</strong>
+                            Subdomains
+                          </li>
+                        </ul>
+                        <a class='btn btn-block  btn-light btn-bordered' href='#'>Buy now</a>
+                      </div>
+                    </div>
+                  </div>
+                  <div class='col-sm-4 panel-item'>
+                    <div class='panel panel-bordered panel-contrast pricing-table pricing-table-solid'>
+                      <div class='panel-heading'>
+                        <h3 class='panel-title'>Standard</h3>
+                      </div>
+                      <div class='panel-body'>
+                        <h4 class='price'>
+                          <span class='currency'>
+                            &#36;
+                          </span>
+                          39
+                        </h4>
+                        <p class='period'>/ per month</p>
+                        <ul class='list-unstyled'>
+                          <li>
+                            <strong>10GB</strong>
+                            Disk space
+                          </li>
+                          <li>
+                            <strong>15GB</strong>
+                            Monthly Bandwidth
+                          </li>
+                          <li>
+                            <strong>20</strong>
+                            Email accounts
+                          </li>
+                          <li>
+                            <strong>4</strong>
+                            Subdomains
+                          </li>
+                        </ul>
+                        <a class='btn btn-block  btn-contrast btn-bordered' href='#'>Buy now</a>
+                      </div>
+                    </div>
+                  </div>
+                  <div class='col-sm-4 panel-item'>
+                    <div class='panel panel-bordered panel-light pricing-table pricing-table-solid'>
+                      <div class='panel-heading'>
+                        <h3 class='panel-title'>Premium</h3>
+                      </div>
+                      <div class='panel-body'>
+                        <h4 class='price'>
+                          <span class='currency'>
+                            &#36;
+                          </span>
+                          59
+                        </h4>
+                        <p class='period'>/ per month</p>
+                        <ul class='list-unstyled'>
+                          <li>
+                            <strong>20GB</strong>
+                            Disk space
+                          </li>
+                          <li>
+                            <strong>20GB</strong>
+                            Monthly Bandwidth
+                          </li>
+                          <li>
+                            <strong>Unlimited</strong>
+                            Email accounts
+                          </li>
+                          <li>
+                            <strong>10</strong>
+                            Subdomains
+                          </li>
+                        </ul>
+                        <a class='btn btn-block  btn-light btn-bordered' href='#'>Buy now</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class='row'>
+                  <div class='col-sm-12'>
+                    <hr class='hr-half hr-invisible'>
+                    <p class='lead lead-xs text-center'>* Nulla orci sem, pretium et facilisis et, mattis et orci. Vivamus bibendum hendrerit metus, in mattis urna interdum id. Suspendisse potenti. Sed volutpat est eu lacus pharetra, at venenatis eros ullamcorper.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+        <div class='fade' id='scroll-to-top'>
+          <i class='fa fa-chevron-up'></i>
+        </div>
+      </div>
+      <footer id='footer'>
+        <div id='footer-main'>
+          <div class='container'>
+            <div class='row'>
+              <div class='col-md-5 col-sm-5 info-box'>
+                <div class='logo-container'>
+                  <h2 class='title'>關於我們</h2>
+                </div>
+                <p class='no-mg-b'>Raising Stars 專為運動員打造的募資平台。我們協助有潛力的運動員，透過群眾募資取得必須的資金。挑戰更高等級的賽事。</p>
+              </div>
+
+              <div class='col-md-4 col-sm-4 info-box social-box'>
+                <h2 class='title'>社交平台</h2>
+                <div class='icon-boxes'>
+                  <a class='btn btn-circle btn-medium-light btn-sm' href='https://www.facebook.com/raising.stars.tw'>
+                    <i class='fa fa-facebook text-dark'></i>
+                  </a>
+                </div>
+              </div>
+              <div class='col-md-3 col-sm-3 info-box'>
+                <h2 class='title'>諮詢我們</h2>
+                <p>請留下你的信箱</p>
+                <form action='index.html' class='form-inline form-validation' method='get'>
+                  <div class='row'>
+                    <div class='form-group control-group col-xs-9 col-md-8 col-lg-9'>
+                      <input class='form-control' data-rule-email='true' data-rule-required='true' id='newsletter_email' name='newsletter[email]' placeholder='Email address' type='email'>
+                    </div>
+                    <div class='col-xs-3 col-md-4 col-lg-3'>
+                      <button class='btn btn-medium-light btn-block' type='submit'>
+                        <i class='fa fa-reply text-white'></i>
+                      </button>
+                    </div>
+
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id='footer-copyright'>
+          <div class='container'>
+            <div class='row'>
+              <div class='col-lg-12 clearfix'>
+                <p class='copyright'>
+                  Copyright
+                  &copy;
+                  2015 Raising Stars
+                </p>
+
+              </div>
+            </div>
+          </div>
+        </div>
+    </footer>
+    </div>
