@@ -2,8 +2,8 @@
 <html>
 <head>
   <title>Raisingstars</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag    'application', media: 'all' %>
+  <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
   <%= favicon_link_tag %>
   <!--start of Jednotka code-->
@@ -36,7 +36,6 @@
                 <span class='icon-bar'></span>
                 <span class='icon-bar'></span>
               </button>
-
               <a class='navbar-brand' href= <%= root_path %> >
                 <%= image_tag("raisingstars_logo_mobile2.png", id: "logo" ) %>
               </a>
