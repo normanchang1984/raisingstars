@@ -45,12 +45,14 @@ class User < ActiveRecord::Base
     end
   end
 
-  def add_proposal_relationship(user, proposal)
-    result = Userproposalship.find_by( :user_id => user.id, :proposal_id => proposal.id)
+  def toggle_like_proposal(proposal)
+    result = Userproposalship.find_by( :user_id => self.id, :proposal_id => proposal.id)
     if result
       result.delete
+      return false
     else
-      Userproposalship.create( :user_id => user.id, :proposal_id => proposal.id)
+      Userproposalship.create!( :user_id => self.id, :proposal_id => proposal.id)
+      return true
     end
   end
 

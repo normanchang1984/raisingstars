@@ -11,12 +11,12 @@ Rails.application.routes.draw do
   resources :proposals do
     resources :comments, :controller => :proposalcomments
     member do
-      post :pay
+      get :pay
       post :favorite
     end
     resources :products do
       member do
-        post :buy
+        get :buy
       end
     end
   end

@@ -60,19 +60,19 @@ RSpec.describe Proposal, :type => :model do
     end
   end
 
-  # Test for add_proposal_relationship
-  context "::add_proposal_relationship" do
+  # Test for toggle_like_proposal
+  context "::toggle_like_proposal" do
     it "user add favorite proposal" do
-      user.add_proposal_relationship(user, proposal)
+      user.toggle_like_proposal(proposal)
       expect( Userproposalship.where( :user_id => user.id, :proposal_id => proposal.id ) ).to exist
     end
     it "if favorite exist should remove it" do
-      user.add_proposal_relationship(user, proposal)
-      user.add_proposal_relationship(user, proposal)
+      user.toggle_like_proposal(proposal)
+      user.toggle_like_proposal(proposal)
       expect( Userproposalship.where( :user_id => user.id, :proposal_id => proposal.id ) ).not_to exist
     end
     it "search for the user favortie" do
-      user.add_proposal_relationship(user, proposal)
+      user.toggle_like_proposal(proposal)
       result = Userproposalship.where( :user_id => user.id )
       # expect(result).to eq(Userproposalship.find_by(:user_id => user.id))
     end

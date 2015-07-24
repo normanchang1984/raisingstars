@@ -45,7 +45,7 @@
                       Subdomains
                     </li>
                   </ul>
-                  <a class='btn btn-block  btn-light btn-bordered ' data-method= "post"  href= <%= buy_proposal_product_path(@proposal, p) %> >Buy now</a>
+                  <%= link_to "Buy now", buy_proposal_product_path(@proposal, p), :class => "btn btn-block  btn-light btn-bordered" %>
                 </div>
               </div>
             </div>

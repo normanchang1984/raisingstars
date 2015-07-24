@@ -16,4 +16,4 @@
 //= require jednotka/jquery/jquery.mobile.custom.min
 //= require jednotka/plugins/_plugins
 //= require jednotka/jednotka
-//= require_tree .
+//= require like_proposal

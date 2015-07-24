@@ -1,5 +1,8 @@
 class ProductsController < ApplicationController
+
   def buy
-    @product = Product.find(params[:id])
+    @proposal = Proposal.find( params[:proposal_id] )
+    @product = @proposal.products.find(params[:id])
   end
+
 end

@@ -1,6 +1,6 @@
 class ProposalsController < ApplicationController
 
-  before_action :set_proposal, only: [:show,]
+  before_action :set_proposal, only: [:show]
   before_action :authenticate_user!, except: [:index, :show,:favorite]
 
   def index
@@ -12,7 +12,8 @@ class ProposalsController < ApplicationController
   end
 
   def show
-    @comments = Comment.find_by_id(params[:id])
+    @comments = @proposal.comments
+
     if current_user
       @user_favor = current_user.userproposalships.find_by_proposal_id(@proposal.id)
     end
@@ -43,6 +44,9 @@ class ProposalsController < ApplicationController
   def favorite
     if current_user
       @proposal = Proposal.find(params[:id])
+
+      @like = current_user.toggle_like_proposal(@proposal)
+
       respond_to do |format|
         format.js
       end
