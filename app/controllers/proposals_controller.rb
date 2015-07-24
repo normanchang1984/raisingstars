@@ -14,7 +14,7 @@ class ProposalsController < ApplicationController
 
   def show
     @comments = Comment.find_by_id(params[:id])
-    #@newcomment=Comment.new(comment_params)
+    @newcomment=Comment.new(comment_params)
   end
 
   def edit
@@ -57,7 +57,7 @@ class ProposalsController < ApplicationController
     params.require(:proposal).permit(:name, :email, :phone, :self_intro, :title, :content, :category_id)
   end
 
-  #def comment_params
-  #  params.require(:comment).permit(:content)
-  #end
+  def comment_params
+    params.require(:comment).permit(:content)
+  end
 end
