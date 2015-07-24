@@ -1,36 +1,73 @@
-<ul>
-<% @order.errors.full_messages.each do |message| %>
-  <li><%= message %></li>
-<% end %>
-</ul>
+<div id='main' role='main'>
 
-<%= form_for @order, :url=>proposal_product_orders_path  do |f| %>
+        <div id='main-content'>
+          <div class='container'>
+            <div class='row' id='portfolio-filter'>
+              <div class='col-sm-12'>
+                <h2 style='font-size: 40px'>捐款確認</h2>
+                <br>
+                <ul>
+                  <% @order.errors.full_messages.each do |message| %>
+                  <li><%= message %></li>
+                  <% end %>
+                </ul>
 
-  <p>
-    <%= f.label :name %>
-    <%= f.text_field :name %>
-  </p>
+                <%= form_for @order, :url=>proposal_product_orders_path  do |f| %>
 
-  <p>
-    <%= f.label :email %>
-    <%= f.text_field :email %>
-  </p>
+                  <div class="field">
+                    <span style='font-size: 20px'>
+                      <%= f.label :名字 %>
+                      <%= f.text_field :name %>
+                    </span>
+                  </div>
+                  <br>
+                  <div class="field">
+                    <span style='font-size: 20px'>
+                      <%= f.label :email %>
+                      <%= f.text_field :email %>
+                    </span>
+                  </div>
+                  <br>
+                  <div class="field">
+                    <span style='font-size: 20px'>
+                      <%= f.label :電話 %>
+                      <%= f.text_field :phone %>
+                    </span>
+                  </div>
+                  <br>
+                  <div class="actions">
+                    <span style='font-size: 20px'>
+                      <%= f.label :地址 %>
+                      <%= f.text_field :address %>
+                    </span>
+                  </div>
+                  <br>
+                  <div class="actions">
+                    <span style='font-size: 20px'>
+                      <%= f.label :付款方式 %>
+                      <%= f.select :payment_method, ["allpay", "paypal"] %>
+                    </span>
+                  </div>
+                  <br>
+                  <%= f.submit "同意捐款"%>
+                <% end %>
 
-  <p>
-    <%= f.label :phone %>
-    <%= f.text_field :phone %>
-  </p>
+                <%#= render "devise/shared/links" %>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class='fade' id='scroll-to-top'>
+          <i class='fa fa-chevron-up'></i>
+        </div>
+</div>
 
-  <p>
-    <%= f.label :address %>
-    <%= f.text_field :address %>
-  </p>
 
-  <p>
-    <%= f.label :payment_method %>
-    <%= f.select :payment_method, ["allpay", "paypal"] %>
-  </p>
-  <p>
-    <%= f.submit %>
-  </p>
-<% end %>
+
+
+
+
+
+
+
+

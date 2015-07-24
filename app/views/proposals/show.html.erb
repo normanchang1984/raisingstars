@@ -104,7 +104,7 @@
                     <label style='font-size: 20px'>請留言</label>
                     <!--<input class="form-control" id="input-textarea" type="text">-->
                   </div>
-                  <%=form_for @newcomment, :url=>proposal_comments_path(@proposal, @newcomment), :method=>:patch, :class=>"form" do |f|%>
+                  <%=form_for @newcomment, :url=>proposal_comments_path(@proposal), :method=>:post, :class=>"form" do |f|%>
                   <%#=f.label :content, "Content"%>
                   <%=f.text_area :content, :class=>"form-control"%>
                   <%=f.submit "Publish"%>

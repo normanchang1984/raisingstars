@@ -1,7 +1,12 @@
 class ProposalcommentsController < ApplicationController
 
+  before_action :find_comments, only: [:show, :destroy, :update]
+
   def create
-    @comment=Comment.new(comment_params)
+    @proposal = Proposal.find_by_id( params[:proposal_id] )
+    @comment= @proposal.comments.new(comment_params)
+    @comment.save
+    redirect_to :back
   end
 
   def update
@@ -25,7 +30,7 @@ class ProposalcommentsController < ApplicationController
 
 
   def comment_params
-    params.require(:comment).permit(:content)
+    params.require(:comment).permit(:content, :proposal_id, :user_id)
   end
 
 end
