@@ -5,9 +5,9 @@
         <div class='col-sm-12'>
           <ul class='nav nav-pills'>
             <li class='active'><a data-filter="*" href="#">全部</a></li>
-            <li><a data-filter=".portfolio-filter-photography" href="#">比賽</a></li>
-            <li><a data-filter=".portfolio-filter-identity" href="#">訓練</a></li>
-            <li><a data-filter=".portfolio-filter-webdesign" href="#">物資</a></li>
+            <li><a data-filter=".portfolio-filter-1" href="#">比賽</a></li>
+            <li><a data-filter=".portfolio-filter-2" href="#">訓練</a></li>
+            <li><a data-filter=".portfolio-filter-3" href="#">物資</a></li>
           </ul>
         </div>
       </div>
@@ -15,14 +15,14 @@
 
             <div class='row portfolio-boxes' id='portfolio-container'>
             <% @proposals.each do |p| %>
-              <div class='col-sm-4 portfolio-box portfolio-filter-photography portfolio-item'>
-                <a href= <%= proposal_path(p) %> >
+              <div class="col-sm-4 portfolio-box portfolio-filter-<%= p.category.id %> portfolio-item">
+
+                <a href= <%= proposal_path(p) %>  >
                   <div class='image-link'>
                     <i class='fa fa-search'></i>
                     <img class="img-responsive img-rounded center-block" alt="Etiam vestibulum" width="360" height="235" src= <%= p.title_graph_url %> />
                   </div>
                   <h3 class='title'><%=p.title%></h3>
-                  <p class='category'>Webdesign</p>
                 </a>
               </div>
               <%end%>
