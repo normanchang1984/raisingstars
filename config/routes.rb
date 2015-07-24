@@ -18,6 +18,9 @@ Rails.application.routes.draw do
       member do
         get :buy
       end
+      resources :orders do
+        get :checkout_allpay, :on => :member
+      end
     end
   end
 

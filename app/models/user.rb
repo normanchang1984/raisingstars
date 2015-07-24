@@ -8,9 +8,8 @@ class User < ActiveRecord::Base
   has_many :comments
   has_many :userproposalships
   has_many :favorites, :through => :userproposalships, :source => :proposal
-  has_many :user_reward_proposals
-  has_many :rewards, :through => :user_reward_proposals
   has_one :profile
+  has_many :orders
 
   # facebook login
   def self.from_omniauth(auth)
