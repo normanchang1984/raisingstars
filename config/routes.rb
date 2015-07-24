@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   resources :proposals do
     resources :comments, :controller => :proposalcomments
     member do
-      get :pay
+      post :pay
       post :favorite
     end
   end

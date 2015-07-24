@@ -14,6 +14,8 @@ Reward.create( :price => '100' )
 Reward.create( :price => '500' )
 Reward.create( :price => '1000' )
 
+
+
 User.create( :email => "ihower@gmail.com", :password => "12345678", :avatar_url => Faker::Avatar.image )
 
 
@@ -23,9 +25,17 @@ end
 
 3.times do
   Proposal.create!( :name => Faker::Name.name , :email => Faker::Internet.email, :phone =>Faker::PhoneNumber.cell_phone, :self_intro => Faker::Lorem.paragraph(5) , :title => Faker::Lorem.word, :content => Faker::Lorem.paragraph(20), :category_id => Category.last.id, :user_id => User.first.id, :title_graph_url => Faker::Avatar.image )
+  e = Proposal.last
+  Product.create!( :title => "Basic", :price => "100", :description => "....", :proposal_id => e.id )
+  Product.create!( :title => "standard", :price => "500", :description => "真是相當優秀", :proposal_id => e.id)
+  Product.create!( :title => "Premium", :price => "1000", :description => "根本好棒棒", :proposal_id => e.id)
 end
 
 3.times do
   Proposal.create!( :name => Faker::Name.name , :email => Faker::Internet.email, :phone =>Faker::PhoneNumber.cell_phone, :self_intro => Faker::Lorem.paragraph(5) , :title => Faker::Lorem.word, :content => Faker::Lorem.paragraph(20), :category_id => Category.first.id, :user_id => User.last.id, :title_graph_url => Faker::Avatar.image)
+  e = Proposal.last
+  Product.create!( :title => "Basic", :price => "100", :description => "....", :proposal_id => e.id )
+  Product.create!( :title => "standard", :price => "500", :description => "真是相當優秀", :proposal_id => e.id)
+  Product.create!( :title => "Premium", :price => "1000", :description => "根本好棒棒", :proposal_id => e.id)
 end
 

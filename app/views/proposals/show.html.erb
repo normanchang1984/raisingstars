@@ -45,11 +45,11 @@
                   </li>
                 </ul>
               </div>
-              <div class='box'>
-                <a class="btn btn-contrast btn-bordered btn-block btn-primary" data-method= "post" href= <%= favorite_proposal_path(@proposal) %> >加入追蹤</a>
+              <div class='box' id= "favorite_button" >
+                <%= link_to "加入追蹤", favorite_proposal_path(@proposal), :class => "btn btn-contrast btn-bordered btn-block btn-primary", :method => :post, :remote => true %>
               </div>
               <div class='box'>
-                <a class="btn btn-contrast btn-bordered btn-block" href= <%= pay_proposal_path %> >我要贊助</a>
+                <%= link_to "我要贊助", pay_proposal_path(@proposal), :class => "btn btn-contrast btn-bordered btn-block", :method => :post %>
               </div>
             </div>
           </nav>
@@ -59,6 +59,7 @@
               <div class='col-sm-12'>
                 <h2 class='no-mg-t'><%= @proposal.title %></h2>
                 <p class='lead lead-sm'><%= @user.email %></p>
+                <p> 目前 <%= @proposal.userproposalships.count %> </p>
                 <p><%= @proposal.content %></p>
                 <hr class='hr-invisible hr-half'>
                 <img class="img-responsive center-block" alt="Project detail" src= <%= @proposal.title_graph_url %> />
