@@ -12,7 +12,6 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
 //= require bootstrap-sprockets
 //= require jednotka/jquery/jquery.mobile.custom.min
 //= require jednotka/plugins/_plugins
