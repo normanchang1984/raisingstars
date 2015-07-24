@@ -82,27 +82,23 @@
                   </h2>
                 </div>
                 <div class='row portfolio-boxes'>
-
-                  <table class="table thumbnail table-striped">
+                  <div class="form-group">
                     <label>問與答</label>
                     <%@proposal.comments.each do |c|%>
-                    <tr>
-                      <td><%=c.content%></td>
-                      <td>
+                      <span style="font-size: 20px"><%=c.content%></span>
                         <% if current_user and current_user == c.user %>
                           <%=link_to "Edit", edit_forum_path(e), :class=>"btn btn-primary"%>
                           <%=link_to "Destroy", forum_path(e), :method=>:delete, :class=>"btn btn-primary"%>
                         <%end%>
-                      </td>
-                    </tr>
+                      <br>
                     <%end%>
-                  </table>
+                  </div>
                   <br>
                   <div class="form-group">
                     <label>請留言</label>
-                    <input class="form-control" id="input-textarea" type="text">
+                    <!--<input class="form-control" id="input-textarea" type="text">-->
                   </div>
-                  <%#=form_for d, :url=>proposal_comments_path(d), :method=>:patch, :class=>"form" do |f|%>
+                  <%#=form_for @newcomment, :url=>proposal_comments_path(@newcomment), :method=>:patch, :class=>"form" do |f|%>
                   <%#=f.label :content, "Content"%>
                   <%#=f.text_area :content, :class=>"form-control"%>
                   <%#=f.submit "Publish"%>

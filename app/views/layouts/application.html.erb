@@ -48,7 +48,10 @@
                 <br>
                 <% if current_user %>
                 <li style='font-size: 18px'>
-                  <%= link_to('登出', destroy_user_session_path, :method => :delete) %>
+                  <%= link_to('個人資料', user_profile_path(current_user))%>
+                </li>
+                <li style='font-size: 18px'>
+                  <%= link_to('登出', destroy_user_session_path, :method => :delete)%>
                 </li>
                 <li class='dropdown' style='font-size: 18px'>
                   <%= link_to('修改密碼', edit_registration_path(:user)) %>
