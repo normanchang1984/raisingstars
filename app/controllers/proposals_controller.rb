@@ -14,7 +14,7 @@ class ProposalsController < ApplicationController
   def show
 
     @comments = @proposal.comments
-
+    @newcomment = @proposal.comments.new(comment_params)
     if current_user
       @user_favor = current_user.userproposalships.find_by_proposal_id(@proposal.id)
     end
@@ -71,6 +71,6 @@ class ProposalsController < ApplicationController
   end
 
   def comment_params
-    params.require(:comment).permit(:content)
+    params(:comment).permit(:content)
   end
 end

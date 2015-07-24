@@ -89,8 +89,8 @@
                 </div>
                 <div class='row portfolio-boxes'>
                   <div class="form-group">
-                    <label>問與答</label>
-                    <%@proposal.comments.each do |c|%>
+                    <label style='font-size: 20px'>問與答</label>
+                    <%@comments.each do |c|%>
                       <span style="font-size: 20px"><%=c.content%></span>
                         <% if current_user and current_user == c.user %>
                           <%=link_to "Edit", edit_forum_path(e), :class=>"btn btn-primary"%>
@@ -101,14 +101,14 @@
                   </div>
                   <br>
                   <div class="form-group">
-                    <label>請留言</label>
+                    <label style='font-size: 20px'>請留言</label>
                     <!--<input class="form-control" id="input-textarea" type="text">-->
                   </div>
-                  <%#=form_for @newcomment, :url=>proposal_comments_path(@newcomment), :method=>:patch, :class=>"form" do |f|%>
+                  <%=form_for @newcomment, :url=>proposal_comments_path(@proposal, @newcomment), :method=>:patch, :class=>"form" do |f|%>
                   <%#=f.label :content, "Content"%>
-                  <%#=f.text_area :content, :class=>"form-control"%>
-                  <%#=f.submit "Publish"%>
-                  <%#end%>
+                  <%=f.text_area :content, :class=>"form-control"%>
+                  <%=f.submit "Publish"%>
+                  <%end%>
 
                 </div>
               </div>
