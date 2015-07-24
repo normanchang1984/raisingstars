@@ -45,8 +45,13 @@
                   </li>
                 </ul>
               </div>
-              <div class='box' id= "favorite_button" >
-                <%= link_to "加入追蹤", favorite_proposal_path(@proposal), :class => "btn btn-contrast btn-bordered btn-block btn-primary", :method => :post, :remote => true %>
+              <div class='box' >
+                <% if @user_favor %>
+                  <%= link_to "已追蹤", favorite_proposal_path(@proposal), :class => "btn btn-contrast btn-bordered btn-block btn-primary", :method => :post, :remote => true, :id => "favorite_button" %>
+                <% else %>
+                  <%= link_to "加入追蹤", favorite_proposal_path(@proposal), :class => "btn btn-contrast btn-bordered btn-block btn-primary", :method => :post, :remote => true, :id => "favorite_button" %>
+                <% end %>
+
               </div>
               <div class='box'>
                 <%= link_to "我要贊助", pay_proposal_path(@proposal), :class => "btn btn-contrast btn-bordered btn-block", :method => :post %>
@@ -59,7 +64,7 @@
               <div class='col-sm-12'>
                 <h2 class='no-mg-t'><%= @proposal.title %></h2>
                 <p class='lead lead-sm'><%= @user.email %></p>
-                <p> 目前 <%= @proposal.userproposalships.count %> </p>
+                <p id="user_follow"> 目前有 <%= @proposal.userproposalships.count %> 人追蹤 </p>
                 <p><%= @proposal.content %></p>
                 <hr class='hr-invisible hr-half'>
                 <img class="img-responsive center-block" alt="Project detail" src= <%= @proposal.title_graph_url %> />

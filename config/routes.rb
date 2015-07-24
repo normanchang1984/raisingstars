@@ -5,13 +5,22 @@ Rails.application.routes.draw do
     resource :profile, :controller => 'user_profiles'
   end
 
+  post 'allpay/result'
+  post 'allpay/return'
+
   resources :proposals do
     resources :comments, :controller => :proposalcomments
     member do
       post :pay
       post :favorite
     end
+    resources :products do
+      member do
+        post :buy
+      end
+    end
   end
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
