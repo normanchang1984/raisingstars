@@ -4,7 +4,7 @@ class Proposal < ActiveRecord::Base
   belongs_to :user
   has_many :userproposalships
   has_many :favorites, :through => :userproposalships, :source => :user
-
+  has_many :products
   scope :sort_by_category, -> (category) { where( :category_id =>  category ) }
 
   def page_count

@@ -34,14 +34,13 @@ class ProposalsController < ApplicationController
   end
 
   def pay
-
+    @proposal = Proposal.find(params[:id])
   end
 
   def favorite
     @proposal = Proposal.find(params[:id])
+
     respond_to do |format|
-      format.html {
-      }
       format.js
     end
   end
