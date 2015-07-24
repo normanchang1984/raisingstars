@@ -1,8 +1,7 @@
 class ProposalsController < ApplicationController
 
-  before_action :set_proposal, only: [:show,]
-  before_action :find_my_post, only: [:edit, :update, :destroy]
-  before_action :authenticate_user!, except: [:index, :show]
+  before_action :set_proposal, only: [:show]
+  before_action :authenticate_user!, except: [:index, :show,:favorite]
 
   def index
     @proposals = Proposal.all
@@ -13,8 +12,13 @@ class ProposalsController < ApplicationController
   end
 
   def show
-    @comments = Comment.find_by_id(params[:id])
-    @newcomment=Comment.new(comment_params)
+
+    @comments = @proposal.comments
+
+    if current_user
+      @user_favor = current_user.userproposalships.find_by_proposal_id(@proposal.id)
+    end
+
   end
 
   def edit
@@ -36,13 +40,22 @@ class ProposalsController < ApplicationController
 
   def pay
     @proposal = Proposal.find(params[:id])
+    @products = @proposal.products
   end
 
   def favorite
-    @proposal = Proposal.find(params[:id])
+    if current_user
+      @proposal = Proposal.find(params[:id])
 
-    respond_to do |format|
-      format.js
+      @like = current_user.toggle_like_proposal(@proposal)
+
+      respond_to do |format|
+        format.js
+      end
+    else
+      respond_to do |format|
+        format.js { render :js => "window.location.pathname='#{new_user_session_path}'" }
+      end
     end
   end
 

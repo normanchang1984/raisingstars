@@ -6,26 +6,21 @@
           <div class='page-header page-header-with-icon'>
             <i class='fa fa-dollar'></i>
             <h2>
-              Three options
+              Confirm
             </h2>
           </div>
           <div class='row panels'>
-            <% @products.each do |p| %>
             <div class='col-sm-4 panel-item'>
-              <% if p.price == 500 %>
                 <div class='panel panel-bordered panel-contrast pricing-table pricing-table-solid'>
-              <% else %>
-                <div class='panel panel-bordered panel-light pricing-table pricing-table-solid'>
-              <% end %>
                 <div class='panel-heading'>
-                  <h3 class='panel-title'><%= p.title %></h3>
+                  <h3 class='panel-title'><%= @product.title %></h3>
                 </div>
                 <div class='panel-body'>
                   <h4 class='price'>
                     <span class='currency'>
                       &#36;
                     </span>
-                    <%= p.price %>
+                    <%= @product.price %>
                   </h4>
                   <ul class='list-unstyled'>
                     <li>
@@ -45,11 +40,10 @@
                       Subdomains
                     </li>
                   </ul>
-                  <%= link_to "Buy now", buy_proposal_product_path(@proposal, p), :class => "btn btn-block  btn-light btn-bordered" %>
+                  <a class='btn btn-block  btn-light btn-bordered ' data-method= "post"  href= <%= Allpay.url %> > Buy now</a>
                 </div>
               </div>
             </div>
-            <% end %>
           <div class='row'>
             <div class='col-sm-12'>
               <hr class='hr-half hr-invisible'>

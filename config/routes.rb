@@ -5,11 +5,19 @@ Rails.application.routes.draw do
     resource :profile, :controller => 'user_profiles'
   end
 
+  post 'allpay/result'
+  post 'allpay/return'
+
   resources :proposals do
     resources :comments, :controller => :proposalcomments
     member do
-      post :pay
+      get :pay
       post :favorite
+    end
+    resources :products do
+      member do
+        get :buy
+      end
     end
   end
 
