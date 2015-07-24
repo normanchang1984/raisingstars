@@ -1,0 +1,36 @@
+<ul>
+<% @order.errors.full_messages.each do |message| %>
+  <li><%= message %></li>
+<% end %>
+</ul>
+
+<%= form_for @order, :url=>proposal_product_orders_path  do |f| %>
+
+  <p>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </p>
+
+  <p>
+    <%= f.label :email %>
+    <%= f.text_field :email %>
+  </p>
+
+  <p>
+    <%= f.label :phone %>
+    <%= f.text_field :phone %>
+  </p>
+
+  <p>
+    <%= f.label :address %>
+    <%= f.text_field :address %>
+  </p>
+
+  <p>
+    <%= f.label :payment_method %>
+    <%= f.select :payment_method, ["allpay", "paypal"] %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>

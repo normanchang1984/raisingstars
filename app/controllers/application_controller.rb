@@ -5,19 +5,6 @@ class ApplicationController < ActionController::Base
 
   protected
 
-  def current_cart
-    @cart || set_cart
-  end
-
-  def set_cart
-    if session[:cart_id]
-      @cart = Cart.find_by_id( session[:cart_id] )
-    end
-    @cart ||= Cart.create!
-    session[:cart_id] = @cart.id
-    return @cart
-  end
-
   def log_current_user
     if current_user
       Rails.logger.info "current_user_id: #{current_user.id}"

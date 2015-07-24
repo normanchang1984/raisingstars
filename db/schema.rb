@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150724082659) do
+ActiveRecord::Schema.define(version: 20150724102144) do
 
   create_table "categories", force: :cascade do |t|
     t.string   "name",       limit: 255
@@ -30,20 +30,35 @@ ActiveRecord::Schema.define(version: 20150724082659) do
   add_index "comments", ["proposal_id"], name: "index_comments_on_proposal_id", using: :btree
 
   create_table "orders", force: :cascade do |t|
-    t.string   "name",           limit: 255
-    t.string   "email",          limit: 255
-    t.string   "phone",          limit: 255
-    t.string   "address",        limit: 255
-    t.string   "payment_method", limit: 255
-    t.integer  "amount",         limit: 4
-    t.integer  "user_id",        limit: 4
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
-    t.integer  "product_id",     limit: 4
+    t.string   "name",            limit: 255
+    t.string   "email",           limit: 255
+    t.string   "phone",           limit: 255
+    t.string   "address",         limit: 255
+    t.string   "payment_method",  limit: 255
+    t.integer  "amount",          limit: 4
+    t.integer  "user_id",         limit: 4
+    t.datetime "created_at",                                      null: false
+    t.datetime "updated_at",                                      null: false
+    t.integer  "product_id",      limit: 4
+    t.string   "payment_status",  limit: 255, default: "pending"
+    t.string   "shipping_status", limit: 255, default: "pending"
   end
 
   add_index "orders", ["product_id"], name: "index_orders_on_product_id", using: :btree
   add_index "orders", ["user_id"], name: "index_orders_on_user_id", using: :btree
+
+  create_table "payments", force: :cascade do |t|
+    t.string   "type",           limit: 255
+    t.string   "payment_method", limit: 255
+    t.integer  "order_id",       limit: 4
+    t.integer  "amount",         limit: 4
+    t.boolean  "paid",           limit: 1,     default: false
+    t.text     "params",         limit: 65535
+    t.datetime "created_at",                                   null: false
+    t.datetime "updated_at",                                   null: false
+  end
+
+  add_index "payments", ["order_id"], name: "index_payments_on_order_id", using: :btree
 
   create_table "products", force: :cascade do |t|
     t.string   "title",       limit: 255
