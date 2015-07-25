@@ -15,6 +15,10 @@ gem 'coffee-rails', '~> 4.1.0'
 gem 'capistrano-rails', :group => :development
 gem 'capistrano-passenger', :group => :development
 
+# for proposal
+gem 'ckeditor'
+gem 'paperclip'
+
 # mysql2
 gem "mysql2"
 gem 'sidekiq'
