@@ -18,8 +18,14 @@ Devise.setup do |config|
   # config.mailer = 'Devise::Mailer'
 
   # config for omniauth
-  config.omniauth :facebook, '427883970729109', 'e27ed011dbe824468750bb1bc5952a7f'
+  # ==> OmniAuth
+  # Add a new OmniAuth provider. Check the wiki for more information on setting
+  # up on your models and hooks.
+  # config.omniauth :github, 'APP_ID', 'APP_SECRET', scope: 'user,public_repo'
 
+  fb = YAML.load(File.read("#{Rails.root}/config/facebook.yml"))[Rails.env]
+  config.omniauth :facebook, '427883970729109', 'e27ed011dbe824468750bb1bc5952a7f',
+                  :scope => 'email, user_likes, public_profile'
   # ==> ORM configuration
   # Load and configure the ORM. Supports :active_record (default) and
   # :mongoid (bson_ext recommended) by default. Other ORMs may be

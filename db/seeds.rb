@@ -23,16 +23,18 @@ User.create( :email => "ihower@gmail.com", :password => "12345678", :avatar_url 
   User.create!( :email => Faker::Internet.email, :password => Faker::Internet.password(8), :avatar_url => Faker::Avatar.image )
 end
 
-3.times do
-  Proposal.create!( :name => Faker::Name.name , :email => Faker::Internet.email, :phone =>Faker::PhoneNumber.cell_phone, :self_intro => Faker::Lorem.paragraph(5) , :title => Faker::Lorem.word, :content => Faker::Lorem.paragraph(20), :category_id => Category.last.id, :user_id => User.first.id, :title_graph_url => Faker::Avatar.image )
+3.times do |i|
+  num = i.to_i + 4
+  Proposal.create!( :name => Faker::Name.name , :email => Faker::Internet.email, :phone =>Faker::PhoneNumber.cell_phone, :self_intro => Faker::Lorem.paragraph(5) , :title => Faker::Lorem.word, :content => Faker::Lorem.paragraph(20), :category_id => Category.last.id, :user_id => User.first.id, :title_graph_url => Faker::Avatar.image, :picture_url => 'http://lorempixel.com/400/200/sports/'+"#{num}"+'/' )
   e = Proposal.last
   Product.create!( :title => "Basic", :price => "100", :description => "....", :proposal_id => e.id )
   Product.create!( :title => "standard", :price => "500", :description => "真是相當優秀", :proposal_id => e.id)
   Product.create!( :title => "Premium", :price => "1000", :description => "根本好棒棒", :proposal_id => e.id)
 end
 
-3.times do
-  Proposal.create!( :name => Faker::Name.name , :email => Faker::Internet.email, :phone =>Faker::PhoneNumber.cell_phone, :self_intro => Faker::Lorem.paragraph(5) , :title => Faker::Lorem.word, :content => Faker::Lorem.paragraph(20), :category_id => Category.first.id, :user_id => User.last.id, :title_graph_url => Faker::Avatar.image)
+3.times do |i|
+  num = i.to_i + 1
+  Proposal.create!( :name => Faker::Name.name , :email => Faker::Internet.email, :phone =>Faker::PhoneNumber.cell_phone, :self_intro => Faker::Lorem.paragraph(5) , :title => Faker::Lorem.word, :content => Faker::Lorem.paragraph(20), :category_id => Category.first.id, :user_id => User.last.id, :title_graph_url => Faker::Avatar.image, :picture_url => 'http://lorempixel.com/400/200/sports/'+"#{num}"+'/')
   e = Proposal.last
   Product.create!( :title => "Basic", :price => "100", :description => "....", :proposal_id => e.id )
   Product.create!( :title => "standard", :price => "500", :description => "真是相當優秀", :proposal_id => e.id)
