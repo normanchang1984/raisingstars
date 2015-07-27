@@ -82,6 +82,10 @@
                     <span><%=@proposal.user.email%></span>
                   </a>
                   <a class='btn btn-link' href='#'>
+                    <i class='fa fa-heart'></i>
+                    <span><%=@proposal.userproposalships.count%></span>
+                  </a>
+                  <a class='btn btn-link' href='#'>
                     <i class='fa fa-comments'></i>
                     <span><%=@proposal.comments.count%> comments</span>
                   </a>
@@ -122,38 +126,22 @@
                   </div>
                 </div>
               </div>
-              <div class='col-md-pull-3 col-sm-pull-4 col-sm-8 col-md-9'>
-                <div class='text-boxes'>
-                  <div class='row text-box text-box-title-above text-box-big-image'>
-                    <div class='col-sm-12'>
-                      <h2 class='title'><a href="/blog_single_post.html">Cras tempus ligula a tempor adipiscing</a></h2>
-                      <div class='toolbar'>
-                        <a class='btn btn-link' href='#'>
-                          <i class='fa fa-calendar'></i>
-                          <span><%=@proposal.created_at.to_s(:short)%></span>
-                        </a>
-                        <a class='btn btn-link' href='#'>
-                          <i class='fa fa-user'></i>
-                          <span><%=@proposal.user.email%></span>
-                        </a>
-                        <a class='btn btn-link' href='#'>
-                          <i class='fa fa-heart'></i>
-                          <span><%=@proposal.userproposalships.count%></span>
-                        </a>
-                        <a class='btn btn-link' href='#'>
-                          <i class='fa fa-comments'></i>
-                          <span><%=@proposal.comments.count%> comments</span>
-                        </a>
-                      </div>
-                      <div class='row'>
-                        <div class='col-sm-12'>
-                          <a href='blog_single_post.html'>
-                            <img class="img-responsive center-block img-rounded-half" alt="Cras tempus ligula a tempor adipiscing" width="848" height="364" src="http://placehold.it/848x364" />
-                          </a>
-                        </div>
-                        <div class='col-sm-12'>
-                          <p>Aliquam erat volutpat. Duis viverra at erat ut semper. In purus nisl, luctus sed eleifend at, pellentesque ut dolor. Nunc sodales nisi sed ullamcorper pellentesque. Etiam posuere nulla eu lectus porta ullamcorper. Aenean sit amet lectus eget augue euismod ultricies eu nec risus. Vivamus hendrerit nisi commodo.</p>
-
+            </div>
+            <div class='row'>
+              <div class='col-sm-12' id='comments'>
+                <h3>
+                  評論專區
+                </h3>
+                <%if @comments%>
+                  <%@comments.each do |c|%>
+                  <div class='media'>
+                    <div class='pull-left'>
+                      <div class='media-object without-image'></div>
+                    </div>
+                    <div class='media-body'>
+                      <div class='content'>
+                        <div class='toolbar'>
+                          <h4 class='title'><%=current_user.email%></h4>
                         </div>
                           <span style="font-size: 15px"><%=c.content%></span>
                           <% if current_user and current_user == c.user %>
@@ -174,8 +162,6 @@
               <hr class='hr-invisible hr-half'>
               <div class='col-sm-12' id='add-new-comment'>
                 <h3>請留言</h3>
-
-
                   <div class='row'>
                     <div class='col-sm-12'>
                       <div class='form-group control-group'>
@@ -191,7 +177,6 @@
                     </div>
                   </div>
                   <%end%>
-
               </div>
             </div>
           </div>
