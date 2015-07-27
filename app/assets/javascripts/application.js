@@ -18,3 +18,4 @@
 //= require jednotka/jednotka
 //= require like_proposal
 //= require ckeditor/init
+

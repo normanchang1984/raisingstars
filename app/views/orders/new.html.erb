@@ -13,7 +13,7 @@
                 </ul>
 
                 <%= form_for @order, :url=>proposal_product_orders_path  do |f| %>
-
+                  <%= @product.price %>
                   <div class="field">
                     <span style='font-size: 20px'>
                       <%= f.label :名字 %>
