@@ -82,6 +82,10 @@
                           <span><%=@proposal.user.email%></span>
                         </a>
                         <a class='btn btn-link' href='#'>
+                          <i class='fa fa-heart'></i>
+                          <span><%=@proposal.userproposalships.count%></span>
+                        </a>
+                        <a class='btn btn-link' href='#'>
                           <i class='fa fa-comments'></i>
                           <span><%=@proposal.comments.count%> comments</span>
                         </a>
