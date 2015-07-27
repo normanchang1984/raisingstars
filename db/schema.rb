@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150725213716) do
+ActiveRecord::Schema.define(version: 20150727132616) do
 
   create_table "categories", force: :cascade do |t|
     t.string   "name",       limit: 255
@@ -110,6 +110,7 @@ ActiveRecord::Schema.define(version: 20150725213716) do
     t.string   "title_graph_url_content_type", limit: 255
     t.integer  "title_graph_url_file_size",    limit: 4
     t.datetime "title_graph_url_updated_at"
+    t.string   "youtube_url",                  limit: 255
   end
 
   add_index "proposals", ["category_id"], name: "index_proposals_on_category_id", using: :btree

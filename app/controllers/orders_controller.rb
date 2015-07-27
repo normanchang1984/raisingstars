@@ -7,17 +7,19 @@ class OrdersController < ApplicationController
   end
 
   def show
-    @order = current_user.orders.find( params[:id] )
+    @order = current_user.orders.find(params[:id])
   end
 
   def new
+    @product = Product.find(params[:product_id])
     @order = current_user.orders.build
 
     @order.email = current_user.email
+    @order.amount = @product.price
   end
 
   def create
-    @order = current_user.orders.build( order_params )
+    @order = current_user.orders.build(order_params)
     if @order.save
       cookies[:cart_id] = nil
 
@@ -48,6 +50,6 @@ class OrdersController < ApplicationController
   protected
 
   def order_params
-    params.require(:order).permit(:name, :email, :phone, :address, :payment_method)
+    params.require(:order).permit(:name, :email, :phone, :address, :amount, :payment_method)
   end
 end

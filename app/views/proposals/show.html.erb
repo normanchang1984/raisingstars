@@ -71,7 +71,7 @@
           <div class='text-boxes'>
             <div class='row text-box text-box-title-above text-box-big-image'>
               <div class='col-sm-12'>
-                <h2 class='title'><a href="/blog_single_post.html">Cras tempus ligula a tempor adipiscing</a></h2>
+                <h2 class='title'><a href="/blog_single_post.html"><%=@proposal.title%></a></h2>
                 <div class='toolbar'>
                   <a class='btn btn-link' href='#'>
                     <i class='fa fa-calendar'></i>
@@ -93,23 +93,20 @@
                 <div class='row'>
                   <div class='col-sm-12'>
                     <a href='blog_single_post.html'>
-                      <img class="img-responsive center-block img-rounded-half" alt="Cras tempus ligula a tempor adipiscing" width="848" height="364" src="http://placehold.it/848x364" />
+                      <% if @proposal.youtube_url.nil? %>
+                        <%= image_tag @proposal.title_graph_url, class: "img-responsive center-block img-rounded-half" %>
+                      <% else %>
+                        <iframe width="640" height="360" src= <%= @proposal.youtube_url %> frameborder="0" allowfullscreen></iframe>
+                      <% end %>
                     </a>
                   </div>
-                  <div class='col-sm-12'>
-                    <p>Aliquam erat volutpat. Duis viverra at erat ut semper. In purus nisl, luctus sed eleifend at, pellentesque ut dolor. Nunc sodales nisi sed ullamcorper pellentesque. Etiam posuere nulla eu lectus porta ullamcorper. Aenean sit amet lectus eget augue euismod ultricies eu nec risus. Vivamus hendrerit nisi commodo.</p>
-                  </div>
                 </div>
-                <hr class='hr-half'>
               </div>
             </div>
             <div class='row text-box'>
               <div class='col-sm-12'>
-                <h2>Lorem ipsum dolor sit amet</h2>
-                <p>Praesent sed viverra lacus. Aliquam congue porttitor ipsum sed vulputate. Nam lacus nunc, malesuada a massa sed, commodo placerat sem. Fusce rutrum bibendum adipiscing. Donec ac justo et metus vulputate faucibus. Mauris quis massa vel urna gravida vulputate vitae eu metus. Sed in leo sed metus tempus egestas a ac massa. Nunc cursus urna ac molestie cursus. Donec non sapien neque.</p>
-                <p>Ut ipsum nisi, tempus ac iaculis ac, ultricies quis arcu. Integer tempor vitae lectus quis gravida. Mauris eget neque in lorem eleifend hendrerit vel et ligula. Ut ac viverra neque. In ullamcorper odio nec odio laoreet tempus. Cras eu sem eu purus posuere sagittis. In at dignissim quam. Pellentesque mollis, mi et condimentum hendrerit, felis justo interdum nulla, sed placerat nulla nibh et metus.</p>
-                <h2>Aliquam erat volutpat</h2>
-                <p>Etiam ac consectetur dui, id mollis neque. Phasellus rutrum augue nec convallis bibendum. Etiam vitae aliquam leo, laoreet venenatis massa. Aliquam erat volutpat. Fusce rutrum augue sit amet lobortis tempor. Duis ut malesuada augue, vel fringilla ante. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum a justo sed tortor vehicula fringilla eget ut diam. Praesent posuere aliquam vulputate. Donec porta mi vitae felis interdum congue. Sed vitae rhoncus massa, volutpat ultrices felis. Proin eu ullamcorper urna. Nullam eu mi vel metus faucibus mollis. Nulla rutrum fermentum dui quis ullamcorper. Integer metus nunc, interdum non libero a, semper fringilla ligula.</p>
+                <br>
+                <%= @proposal.content.html_safe %>
               </div>
             </div>
             <div class='row'>
@@ -121,7 +118,7 @@
                     </div>
                     <div class='col-sm-9 col-lg-10'>
                       <h3 class='title'>關於作者</h3>
-                      <p><%=@proposal.self_intro%></p>
+                      <p><%=@proposal.self_intro.html_safe%></p>
                     </div>
                   </div>
                 </div>

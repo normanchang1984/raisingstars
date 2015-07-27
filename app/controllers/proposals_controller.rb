@@ -10,6 +10,9 @@ class ProposalsController < ApplicationController
   def create
     @proposal = current_user.proposals.build(proposal_params)
     if @proposal.save
+      @proposal.products.create!( :title => "Basic", :price => "100", :description => "....", :proposal_id => @proposal.id )
+      @proposal.products.create!( :title => "standard", :price => "500", :description => "真是相當優秀", :proposal_id => @proposal.id)
+      @proposal.products.create!( :title => "Premium", :price => "1000", :description => "根本好棒棒", :proposal_id => @proposal.id)
       redirect_to @proposal
     else
       render 'new'
@@ -77,7 +80,7 @@ class ProposalsController < ApplicationController
   end
 
   def proposal_params
-    params.require(:proposal).permit(:name, :email, :phone, :self_intro, :title_graph_url, :title, :content, :category_id, user_attributes:[:avatar_url])
+    params.require(:proposal).permit(:name, :email, :phone, :youtube_url, :self_intro, :title_graph_url, :title, :content, :category_id, user_attributes:[:avatar_url])
   end
 
   def comment_params
