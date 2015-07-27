@@ -71,7 +71,7 @@ class ProposalsController < ApplicationController
   end
 
   def proposal_params
-    params.require(:proposal).permit(:name, :email, :phone, :self_intro, :title, :content, :category_id)
+    params.require(:proposal).permit(:name, :email, :phone, :self_intro, :title_graph_url, :picture_url, :title, :content, :category_id)
   end
 
   def comment_params

@@ -8,15 +8,4 @@
   <%= form.cktext_area :content, :cols => 50, :value => 'Text here please' %>
   <%= form.submit %>
 <% end %>
-<!--
-Proposal.create!( :name => Faker::Name.name , :email => Faker::Internet.email, :phone =>Faker::PhoneNumber.cell_phone, :self_intro => Faker::Lorem.paragraph(5) , :title => Faker::Lorem.word, :content => Faker::Lorem.paragraph(20), :category_id => Category.last.id, :user_id => User.first.id, :title_graph_url => Faker::Avatar.image, :picture_url => 'http://lorempixel.com/400/200/sports/'+"#{num}"+'/' )
 
-  = f.input :title
-  = f.collection_check_boxes(:category_ids, Category.all, :id, :name)
-  = f.cktext_area :content
-  = f.input :logo, as: :file
-
-  - if @post.logo.exists?
-    = check_box_tag :_remove_logo, "1"
-    Remove Logo
- -->
