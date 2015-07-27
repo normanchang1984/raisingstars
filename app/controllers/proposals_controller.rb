@@ -8,7 +8,12 @@ class ProposalsController < ApplicationController
   end
 
   def create
-    @proposal = Proposal.new(proposal_params)
+    @proposal = current_user.proposals.build(proposal_params)
+    if @proposal.save
+      redirect_to @proposal
+    else
+      render 'new'
+    end
   end
 
   def show
@@ -20,6 +25,10 @@ class ProposalsController < ApplicationController
       @user_favor = current_user.userproposalships.find_by_proposal_id(@proposal.id)
     end
 
+  end
+
+  def new
+    @proposal = current_user.proposals.build
   end
 
   def edit
@@ -47,7 +56,7 @@ class ProposalsController < ApplicationController
   def favorite
     if current_user
       @proposal = Proposal.find(params[:id])
-
+      UserMailer.welcome_email(current_user).deliver_later!
       @like = current_user.toggle_like_proposal(@proposal)
 
       respond_to do |format|
@@ -68,7 +77,7 @@ class ProposalsController < ApplicationController
   end
 
   def proposal_params
-    params.require(:proposal).permit(:name, :email, :phone, :self_intro, :title, :content, :category_id)
+    params.require(:proposal).permit(:name, :email, :phone, :self_intro, :title_graph_url, :title, :content, :category_id)
   end
 
   def comment_params
