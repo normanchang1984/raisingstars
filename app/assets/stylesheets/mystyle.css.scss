@@ -21,30 +21,12 @@
   color: #fff;
 }
 
-
-@media screen and (max-width: 320px) {
-  #wrapper {
-
-  background-repeat: no-repeat;
-  background-position: center 0;
-  background-image: image-url("raisingstars_logo_mobile.png");
-  -webkit-background-size: 300px 100px;
-  background-size: 300px 100px;
+@media (min-width: 768px) {
+  .media .media-body {
+    padding-left: 0px;
   }
-
 }
 
-
-@media screen and (min-width: 321) and (max-width: 600px) {
-  #wrapper {
-  background-repeat: no-repeat;
-  background-position: center 0;
-  background-image: image-url("raisingstars_logo.png");
-  -webkit-background-size: 640px 380px;
-  background-size: 640px 380px;
-  }
-
-}
 .zxc {
   background-color: #428bca;
   border-color: white;
