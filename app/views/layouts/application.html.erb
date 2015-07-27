@@ -44,23 +44,22 @@
 
             <div class='collapse navbar-collapse navbar-header-collapse'>
               <ul class='nav navbar-nav navbar-right'>
-                <br>
-                <br>
+
                 <% if current_user %>
-                <li style='font-size: 18px'>
+                <li style='font-size: 18px' id='big_screen_nav_padding'>
                   <%= link_to('個人資料', user_profile_path(current_user))%>
                 </li>
-                <li style='font-size: 18px'>
+                <li style='font-size: 18px' id='big_screen_nav_padding'>
                   <%= link_to('登出', destroy_user_session_path, :method => :delete)%>
                 </li>
-                <li class='dropdown' style='font-size: 18px'>
+                <li class='dropdown' style='font-size: 18px' id='big_screen_nav_padding'>
                   <%= link_to('修改密碼', edit_registration_path(:user)) %>
                 </li>
                 <% else %>
-                <li class='dropdown' style='font-size: 18px'>
+                <li class='dropdown' style='font-size: 18px' id='big_screen_nav_padding'>
                     <%= link_to('註冊', new_registration_path(:user)) %>
                 </li>
-                <li class='dropdown' style='font-size: 18px'>
+                <li class='dropdown' style='font-size: 18px' id='big_screen_nav_padding'>
                   <%= link_to('登入', new_session_path(:user)) %>
                 </li>
                 <% end %>
@@ -81,7 +80,7 @@
                 <div class='logo-container'>
                   <h2 class='title'>關於我們</h2>
                 </div>
-                <p class='no-mg-b'>Raising Stars 專為運動員打造的募資平台。我們協助有潛力的運動員，透過群眾募資取得必須的資金。挑戰更高等級的賽事。</p>
+                <p class='no-mg-b'>Raising Stars, 募資之星 是專為運動員打造的募資平台。我們協助有潛力的運動員，透過群眾募資取得必須的資金。挑戰更高等級的賽事。</p>
               </div>
 
               <div class='col-md-4 col-sm-4 info-box social-box'>
@@ -119,7 +118,7 @@
                 <p class='copyright'>
                   Copyright
                   &copy;
-                  2015 Raising Stars
+                  2015 Raising Stars 募資之星
                 </p>
 
               </div>
