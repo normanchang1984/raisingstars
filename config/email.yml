@@ -4,7 +4,7 @@ default: &default
   domain: "gmail.com"
   authentication: "plain"
   user_name: "howclf@gmail.com"
-  password: "ji32k7gmail5;4cl4"
+  password: "wlagqdlkaumzlplp"
   enable_starttls_auto: true
 
 development:

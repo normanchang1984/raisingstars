@@ -3,9 +3,8 @@
   <%= form.input :email %>
   <%= form.input :phone, as: :tel %>
   <%= form.input :title_graph_url, as: :file %>
-  <%= form.input :picture_url, as: :file %>
   <%= form.collection_select(:category_id, Category.all, :id, :name) %>
-  <%= form.cktext_area :content, :cols => 50, :value => 'Text here please' %>
+  <%= form.input :content, :as => :ckeditor, :input_html => { :ckeditor => {:toolbar => 'Full'} } %>
   <%= form.submit %>
 <% end %>
 
