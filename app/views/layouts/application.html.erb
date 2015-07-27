@@ -47,22 +47,25 @@
                 <br>
                 <br>
                 <% if current_user %>
-                <li style='font-size: 18px'>
-                  <%= link_to('個人資料', user_profile_path(current_user))%>
-                </li>
-                <li style='font-size: 18px'>
-                  <%= link_to('登出', destroy_user_session_path, :method => :delete)%>
-                </li>
-                <li class='dropdown' style='font-size: 18px'>
-                  <%= link_to('修改密碼', edit_registration_path(:user)) %>
-                </li>
+                  <li style='font-size: 18px'>
+                    <%= link_to'申請', new_proposal_path%>
+                  </li>
+                  <li style='font-size: 18px'>
+                    <%= link_to('個人資料', user_profile_path(current_user))%>
+                  </li>
+                  <li style='font-size: 18px'>
+                    <%= link_to('登出', destroy_user_session_path, :method => :delete)%>
+                  </li>
+                  <li class='dropdown' style='font-size: 18px'>
+                    <%= link_to('修改密碼', edit_registration_path(:user)) %>
+                  </li>
                 <% else %>
-                <li class='dropdown' style='font-size: 18px'>
+                  <li class='dropdown' style='font-size: 18px'>
                     <%= link_to('註冊', new_registration_path(:user)) %>
-                </li>
-                <li class='dropdown' style='font-size: 18px'>
-                  <%= link_to('登入', new_session_path(:user)) %>
-                </li>
+                  </li>
+                  <li class='dropdown' style='font-size: 18px'>
+                    <%= link_to('登入', new_session_path(:user)) %>
+                  </li>
                 <% end %>
 
               </ul>

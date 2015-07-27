@@ -21,6 +21,10 @@ class ProposalsController < ApplicationController
 
   end
 
+  def new
+    @proposal = current_user.proposals.build
+  end
+
   def edit
 
   end
