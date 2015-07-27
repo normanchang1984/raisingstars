@@ -13,7 +13,7 @@
             <div class='col-sm-12'>
               <%= image_tag current_user.avatar_url %>
               <br>
-              <p class='lead lead-xs text-center'>
+              <p class='lead lead-xs text-center' style='font-size: 20px'>
                 Email: <%=current_user.email%>
               </p>
             </div>
@@ -23,49 +23,87 @@
       <div class='row'>
         <div class='col-sm-12'>
           <div class='page-header page-header-with-icon'>
-            <i class='fa fa-leaf'></i>
+            <i class='fa fa-table'></i>
             <h2>
               項目收藏
             </h2>
           </div>
-          <div class='row panels'>
-            <div class='col-sm-4 panel-item'>
-              <a class='panel panel-circle-contrast' href='#'>
-                <div class='panel-icon'>
-                  <i class='fa fa-clock-o icon'></i>
-                </div>
-                <div class='panel-body text-center'>
-                  <h3 class='panel-title'><%=@user.email%></h3>
-                  <p><%=@profile.name%></p>
-                </div>
-              </a>
-            </div>
-            <div class='col-sm-4 panel-item'>
-              <a class='panel panel-circle-contrast' href='#'>
-                <div class='panel-icon'>
-                  <i class='fa fa-cog icon'></i>
-                </div>
-                <div class='panel-body text-center'>
-                  <h3 class='panel-title'>Pleasure</h3>
-                  <p>Donec id massa sodales, blandit nulla vel, aliquet velit. Nullam ultricies ut ligula non ultricies. Ut fermentum dui a metus.</p>
-                </div>
-              </a>
-            </div>
-            <div class='col-sm-4 panel-item'>
-              <a class='panel panel-circle-contrast' href='#'>
-                <div class='panel-icon'>
-                  <i class='fa fa-rocket icon'></i>
-                </div>
-                <div class='panel-body text-center'>
-                  <h3 class='panel-title'>Results</h3>
-                  <p>Aenean adipiscing rhoncus nulla ut sagittis. Curabitur vitae libero sagittis, placerat dolor eget, vestibulum sem.</p>
-                </div>
-              </a>
+          <div class='row'>
+            <div class='col-sm-12'>
+              <div class='table-responsive'>
+                <table class='table table-hover'>
+                  <thead>
+                    <tr>
+                      <th>
+                        <i class='fa fa-bookmark text-contrast' style='font-size: 18px'></i>
+                        項目分類
+                      </th>
+                      <th>
+                        <i class='fa fa-archive text-contrast' style='font-size: 18px'></i>
+                        項目名稱
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                  <%@myfavorites.each do |m|%>
+                    <tr class=' danger '>
+                      <td>
+                        <%=m.category.name%>
+                      </td>
+                      <td>
+                       <%=m.title%>
+                      </td>
+                    </tr>
+                  <%end%>
+                  </tbody>
+                </table>
+              </div>
             </div>
           </div>
         </div>
       </div>
-
+      <div class='row'>
+        <div class='col-sm-12'>
+          <div class='page-header page-header-with-icon'>
+            <i class='fa fa-table'></i>
+            <h2>
+              已捐贈項目
+            </h2>
+          </div>
+          <div class='row'>
+            <div class='col-sm-12'>
+              <div class='table-responsive'>
+                <table class='table table-hover'>
+                  <thead>
+                    <tr>
+                      <th>
+                        <i class='fa fa-file text-contrast' style='font-size: 18px'></i>
+                        項目
+                      </th>
+                      <th>
+                        <i class='fa fa-dollar text-contrast' style='font-size: 18px'></i>
+                        金額
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                  <%@myfavorites.each do |m|%>
+                    <tr class=' danger '>
+                      <td>
+                        <%=m.category.name%>
+                      </td>
+                      <td>
+                       <%=m.title%>
+                      </td>
+                    </tr>
+                  <%end%>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
   <div class='fade' id='scroll-to-top'>
