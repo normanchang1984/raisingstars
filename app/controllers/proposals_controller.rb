@@ -19,7 +19,8 @@ class ProposalsController < ApplicationController
   def show
 
     @comments = @proposal.comments
-    @newcomment = @proposal.comments.build()
+    @newcomment = Comment.new
+
     if current_user
       @user_favor = current_user.userproposalships.find_by_proposal_id(@proposal.id)
     end
