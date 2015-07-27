@@ -49,6 +49,9 @@
 
                 <% if current_user %>
                   <li style='font-size: 18px' id='big_screen_nav_padding'>
+                    <%= link_to('申請', new_proposal_path)%>
+                  </li>
+                  <li style='font-size: 18px' id='big_screen_nav_padding'>
                     <%= link_to('個人資料', user_profile_path(current_user))%>
                   </li>
                   <li style='font-size: 18px' id='big_screen_nav_padding'>
