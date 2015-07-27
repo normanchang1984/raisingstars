@@ -11,6 +11,9 @@ class User < ActiveRecord::Base
   has_one :profile
   has_many :orders
 
+  has_attached_file :avatar_graph_url, :styles => { :show => "848x364>", :index => "360x235>" }, :default_url => "/images/:style/missing.png"
+  validates_attachment_content_type :avatar_graph_url, :content_type => /\Aimage\/.*\Z/
+
   # facebook login
   def self.from_omniauth(auth)
     # Case 1: Find existing user by facebook uid
