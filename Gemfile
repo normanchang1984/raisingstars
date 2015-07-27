@@ -18,7 +18,7 @@ gem 'capistrano-passenger', :group => :development
 # for proposal
 gem 'ckeditor'
 gem 'paperclip'
-
+gem 'simple_form', '~> 3.0.2'
 # mysql2
 gem "mysql2"
 gem 'sidekiq'
