@@ -50,7 +50,6 @@ gem "awesome_rails_console"
 
 # mailer
 gem "letter_opener", :group => :development
-
 # faker
 gem 'faker'
 
