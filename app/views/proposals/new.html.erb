@@ -3,8 +3,13 @@
   <%= form.input :email %>
   <%= form.input :phone, as: :tel %>
   <%= form.input :title_graph_url, as: :file %>
+  <%= form.simple_fields_for :user do |u| %>
+    <%= u.input :avatar_url, as: :file %>
+  <% end %>
+  <%= form.input :self_intro, :as => :ckeditor, :input_html => { :ckeditor => {:toolbar => 'simple'} } %>
+  <%= form.input :title %>
+  <%= form.input :content, :as => :ckeditor, :input_html => { :ckeditor => {:toolbar => 'mini'} } %>
   <%= form.collection_select(:category_id, Category.all, :id, :name) %>
-  <%= form.input :content, :as => :ckeditor, :input_html => { :ckeditor => {:toolbar => 'Full'} } %>
   <%= form.submit %>
 <% end %>
 
