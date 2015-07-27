@@ -1,123 +1,189 @@
 <div id='main' role='main'>
-  <div id='main-content'>
-    <div class='container'>
-      <div class='row'>
-        <div class='col-md-push-9 col-sm-push-8 col-sm-4 col-md-3'>
-          <nav class='sidebar sidebar-fixed'>
-            <button class='btn btn-block btn-contrast sidebar-toggle' data-target='.sidebar-collapse' data-toggle='collapse' type='button'>
-              <span class='sr-only'>Toggle navigation</span>
-              <span class='icon-bar'></span>
-              <span class='icon-bar'></span>
-              <span class='icon-bar'></span>
-            </button>
-            <div class='sidebar-collapse collapse'>
-              <div class='box'>
-                <h3 class='title'>Info</h3>
-                <ul class='list-unstyled list-padded'>
-                  <li>
-                    <i class='fa fa-user text-contrast fa fa-fixed-width'></i>
-                    Company name
-                  </li>
-                  <li>
-                    <i class='fa fa-calendar text-contrast fa fa-fixed-width'></i>
-                    September 2013
-                  </li>
-                </ul>
-              </div>
-              <div class='box'>
-                <h3 class='title'>Services</h3>
-                <ul class='list-unstyled list-padded'>
-                  <li>
-                    <i class='fa fa-check text-contrast fa fa-fixed-width'></i>
-                    Webdesign
-                  </li>
-                  <li>
-                    <i class='fa fa-check text-contrast fa fa-fixed-width'></i>
-                    HTML / CSS
-                  </li>
-                  <li>
-                    <i class='fa fa-check text-contrast fa fa-fixed-width'></i>
-                    Marketing
-                  </li>
-                  <li>
-                    <i class='fa fa-check text-contrast fa fa-fixed-width'></i>
-                    Identity
-                  </li>
-                </ul>
-              </div>
-              <div class='box' >
-                <% if @user_favor %>
-                  <%= link_to "已追蹤", favorite_proposal_path(@proposal), :class => "btn btn-contrast btn-bordered btn-block btn-primary", :method => :post, :remote => true, :id => "favorite_button" %>
-                <% else %>
-                  <%= link_to "加入追蹤", favorite_proposal_path(@proposal), :class => "btn btn-contrast btn-bordered btn-block btn-primary", :method => :post, :remote => true, :id => "favorite_button" %>
-                <% end %>
-
-              </div>
-              <div class='box'>
-                <%= link_to "我要贊助", pay_proposal_path(@proposal), :class => "btn btn-contrast btn-bordered btn-block" %>
-              </div>
-            </div>
-          </nav>
-        </div>
-          <div class='col-md-pull-3 col-sm-pull-4 col-sm-8 col-md-9'>
+        <div id='main-content'>
+          <div class='container'>
             <div class='row'>
-              <div class='col-sm-12'>
-                <h2 class='no-mg-t'><%= @proposal.title %></h2>
-                <p class='lead lead-sm'><%= @user.email %></p>
-                <p id="user_follow"> 目前有 <%= @proposal.userproposalships.count %> 人追蹤 </p>
-                <p><%= @proposal.content %></p>
-                <hr class='hr-invisible hr-half'>
-                <img class="img-responsive center-block" alt="Project detail" src= <%= @proposal.title_graph_url %> />
-                <hr class='hr-invisible hr-half'>
-                <p><%= @proposal.content %></p>
+              <div class='col-md-push-9 col-sm-push-8 col-sm-4 col-md-3'>
+                <nav class='sidebar sidebar-fixed' style='position: absolute; top: 0px;'>
+                  <button class='btn btn-block btn-contrast sidebar-toggle' data-target='.sidebar-collapse' data-toggle='collapse' type='button'>
+                    <span class='sr-only'>Toggle navigation</span>
+                    <span class='icon-bar'></span>
+                    <span class='icon-bar'></span>
+                    <span class='icon-bar'></span>
+                  </button>
+                  <div class='sidebar-collapse collapse'>
+                    <h3 class='title'>募資進度：</h3>
+                    <div class='progress progress-striped'>
+                      <div aria-valuemax='100' aria-valuemin='0' aria-valuenow='80' class='progress-bar progress-bar-contrast' role='progressbar' style='width: 80%'>
+                        <span class='sr-only'>80% Complete</span>
+                      </div>
+                    </div>
+                    <br>
+                    <div class='box'>
+                      <h3 class='title'>贊助者：</h3>
+                      <ul class='list-unstyled list-inline image-list-box'>
+                        <li>
+                          <a href='#'>
+                            <img alt="Jednotka" width="50" height="50" src="http://placehold.it/50x50" />
+                          </a>
+                        </li>
+                        <li>
+                          <a href='#'>
+                            <img alt="Jednotka" width="50" height="50" src="http://placehold.it/50x50" />
+                          </a>
+                        </li>
+                        <li>
+                          <a href='#'>
+                            <img alt="Jednotka" width="50" height="50" src="http://placehold.it/50x50" />
+                          </a>
+                        </li>
+                        <li>
+                          <a href='#'>
+                            <img alt="Jednotka" width="50" height="50" src="http://placehold.it/50x50" />
+                          </a>
+                        </li>
+                        <li>
+                          <a href='#'>
+                            <img alt="Jednotka" width="50" height="50" src="http://placehold.it/50x50" />
+                          </a>
+                        </li>
+                        <li>
+                          <a href='#'>
+                            <img alt="Jednotka" width="50" height="50" src="http://placehold.it/50x50" />
+                          </a>
+                        </li>
+                      </ul>
+                    </div>
+                    <br>
+                    <div class='box' >
+                      <% if @user_favor %>
+                        <%= link_to "已追蹤", favorite_proposal_path(@proposal), :class => "btn btn-contrast btn-bordered btn-block btn-primary", :method => :post, :remote => true, :id => "favorite_button" %>
+                      <% else %>
+                        <%= link_to "加入追蹤", favorite_proposal_path(@proposal), :class => "btn btn-contrast btn-bordered btn-block btn-primary", :method => :post, :remote => true, :id => "favorite_button" %>
+                      <% end %>
+                    </div>
+                    <div class='box'>
+                      <%= link_to "我要贊助", pay_proposal_path(@proposal), :class => "btn btn-contrast btn-bordered btn-block" %>
+                    </div>
+                  </div>
+                </nav>
               </div>
-            </div>
-            <div class='row'>
-              <div class='col-sm-12'>
-                <h2 class='no-mg-t'>發起人</h2>
-                <p class='lead lead-sm'><%= @user.email %></p>
-                <img class="img-responsive center-block" alt="Project detail" src= <%= @user.avatar_url %> />
-              </div>
-            </div>
-            <div class='row'>
-              <div class='col-sm-12'>
-                <div class='page-header page-header-with-icon'>
-                  <i class='fa fa-leaf'></i>
-                  <h2>
-                    評論專區
-                  </h2>
-                </div>
-                <div class='row portfolio-boxes'>
-                  <div class="form-group">
-                    <label style='font-size: 20px'>問與答</label>
-                    <%@comments.each do |c|%>
-                      <span style="font-size: 20px"><%=c.content%></span>
-                        <% if current_user and current_user == c.user %>
-                          <%=link_to "Edit", edit_forum_path(e), :class=>"btn btn-primary"%>
-                          <%=link_to "Destroy", forum_path(e), :method=>:delete, :class=>"btn btn-primary"%>
+              <div class='col-md-pull-3 col-sm-pull-4 col-sm-8 col-md-9'>
+                <div class='text-boxes'>
+                  <div class='row text-box text-box-title-above text-box-big-image'>
+                    <div class='col-sm-12'>
+                      <h2 class='title'><a href="/blog_single_post.html">Cras tempus ligula a tempor adipiscing</a></h2>
+                      <div class='toolbar'>
+                        <a class='btn btn-link' href='#'>
+                          <i class='fa fa-calendar'></i>
+                          <span><%=@proposal.created_at.to_s(:short)%></span>
+                        </a>
+                        <a class='btn btn-link' href='#'>
+                          <i class='fa fa-user'></i>
+                          <span><%=@proposal.user.email%></span>
+                        </a>
+                        <a class='btn btn-link' href='#'>
+                          <i class='fa fa-comments'></i>
+                          <span><%=@proposal.comments.count%> comments</span>
+                        </a>
+                      </div>
+                      <div class='row'>
+                        <div class='col-sm-12'>
+                          <a href='blog_single_post.html'>
+                            <img class="img-responsive center-block img-rounded-half" alt="Cras tempus ligula a tempor adipiscing" width="848" height="364" src="http://placehold.it/848x364" />
+                          </a>
+                        </div>
+                        <div class='col-sm-12'>
+                          <p>Aliquam erat volutpat. Duis viverra at erat ut semper. In purus nisl, luctus sed eleifend at, pellentesque ut dolor. Nunc sodales nisi sed ullamcorper pellentesque. Etiam posuere nulla eu lectus porta ullamcorper. Aenean sit amet lectus eget augue euismod ultricies eu nec risus. Vivamus hendrerit nisi commodo.</p>
+                        </div>
+                      </div>
+                      <hr class='hr-half'>
+                    </div>
+                  </div>
+                  <div class='row text-box'>
+                    <div class='col-sm-12'>
+                      <h2>Lorem ipsum dolor sit amet</h2>
+                      <p>Praesent sed viverra lacus. Aliquam congue porttitor ipsum sed vulputate. Nam lacus nunc, malesuada a massa sed, commodo placerat sem. Fusce rutrum bibendum adipiscing. Donec ac justo et metus vulputate faucibus. Mauris quis massa vel urna gravida vulputate vitae eu metus. Sed in leo sed metus tempus egestas a ac massa. Nunc cursus urna ac molestie cursus. Donec non sapien neque.</p>
+                      <p>Ut ipsum nisi, tempus ac iaculis ac, ultricies quis arcu. Integer tempor vitae lectus quis gravida. Mauris eget neque in lorem eleifend hendrerit vel et ligula. Ut ac viverra neque. In ullamcorper odio nec odio laoreet tempus. Cras eu sem eu purus posuere sagittis. In at dignissim quam. Pellentesque mollis, mi et condimentum hendrerit, felis justo interdum nulla, sed placerat nulla nibh et metus.</p>
+                      <h2>Aliquam erat volutpat</h2>
+                      <p>Etiam ac consectetur dui, id mollis neque. Phasellus rutrum augue nec convallis bibendum. Etiam vitae aliquam leo, laoreet venenatis massa. Aliquam erat volutpat. Fusce rutrum augue sit amet lobortis tempor. Duis ut malesuada augue, vel fringilla ante. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum a justo sed tortor vehicula fringilla eget ut diam. Praesent posuere aliquam vulputate. Donec porta mi vitae felis interdum congue. Sed vitae rhoncus massa, volutpat ultrices felis. Proin eu ullamcorper urna. Nullam eu mi vel metus faucibus mollis. Nulla rutrum fermentum dui quis ullamcorper. Integer metus nunc, interdum non libero a, semper fringilla ligula.</p>
+                    </div>
+                  </div>
+                  <div class='row'>
+                    <div class='col-sm-12'>
+                      <div class='author-box'>
+                        <div class='row'>
+                          <div class='col-sm-3 col-lg-2'>
+                            <img alt="Author" width="165" height="165" class="img-circle img-responsive center-block" src="http://placehold.it/165x165" />
+                          </div>
+                          <div class='col-sm-9 col-lg-10'>
+                            <h3 class='title'>關於作者</h3>
+                            <p><%=@proposal.self_intro%></p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class='row'>
+                    <div class='col-sm-12' id='comments'>
+                      <h3>
+                        評論專區
+                      </h3>
+                      <%if @comments%>
+                        <%@comments.each do |c|%>
+                        <div class='media'>
+                          <div class='pull-left'>
+                            <div class='media-object without-image'></div>
+                          </div>
+                          <div class='media-body'>
+                            <div class='content'>
+                              <div class='toolbar'>
+                                <h4 class='title'><%=current_user.email%></h4>
+                              </div>
+                                <span style="font-size: 15px"><%=c.content%></span>
+                                <% if current_user and current_user == c.user %>
+                                  <%=link_to "Edit", edit_forum_path(e), :class=>"btn btn-primary"%>
+                                  <%=link_to "Destroy", forum_path(e), :method=>:delete, :class=>"btn btn-primary"%>
+                                <%end%>
+                                <p class='time'>
+                                  <a href="#"><%=c.updated_at.to_s(:short)%></a>
+                                </p>
+                            </div>
+                          </div>
+                        </div>
                         <%end%>
-                      <br>
-                    <%end%>
+                      <%end%>
+                    </div>
                   </div>
-                  <br>
-                  <div class="form-group">
-                    <label style='font-size: 20px'>請留言</label>
-                    <!--<input class="form-control" id="input-textarea" type="text">-->
-                  </div>
-                  <%=form_for @newcomment, :url=>proposal_comments_path(@proposal), :method=>:post, :class=>"form" do |f|%>
-                  <%#=f.label :content, "Content"%>
-                  <%=f.text_area :content, :class=>"form-control"%>
-                  <%=f.submit "Publish"%>
-                  <%end%>
+                  <div class='row'>
+                    <hr class='hr-invisible hr-half'>
+                    <div class='col-sm-12' id='add-new-comment'>
+                      <h3>請留言</h3>
 
+
+                        <div class='row'>
+                          <div class='col-sm-12'>
+                            <div class='form-group control-group'>
+                              <%=form_for @newcomment, :url=>proposal_comments_path(@proposal), :method=>:post, :class=>"form" do |f|%>
+                              <%=f.text_area :content, :class=>"form-control form form-validation"%>
+
+                            </div>
+                          </div>
+                        </div>
+                        <div class='row'>
+                          <div class='col-sm-12'>
+                            <%=f.submit '提交', :class=>'btn btn-contrast'%>
+                          </div>
+                        </div>
+                        <%end%>
+
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
+        </div>
+        <div class='fade' id='scroll-to-top'>
+          <i class='fa fa-chevron-up'></i>
+        </div>
       </div>
-    </div>
-  </div>
-  <div class='fade' id='scroll-to-top'>
-    <i class='fa fa-chevron-up'></i>
-  </div>
-</div>
