@@ -6,17 +6,17 @@
           <div class='page-header page-header-with-icon'>
             <i class='fa fa-dollar'></i>
             <h2>
-              Three options
+              捐款選項
             </h2>
           </div>
           <div class='row panels'>
             <% @products.each do |p| %>
             <div class='col-sm-4 panel-item'>
-              <% if p.price == 500 %>
-                <div class='panel panel-bordered panel-contrast pricing-table pricing-table-solid'>
-              <% else %>
+              <%# if p.price == 500 %>
+
+              <%# else %>
                 <div class='panel panel-bordered panel-light pricing-table pricing-table-solid'>
-              <% end %>
+              <%# end %>
                 <div class='panel-heading'>
                   <h3 class='panel-title'><%= p.title %></h3>
                 </div>
@@ -29,23 +29,17 @@
                   </h4>
                   <ul class='list-unstyled'>
                     <li>
-                      <strong>5GB</strong>
-                      Disk space
+                      <strong>感謝您的天使投資</strong>
+
                     </li>
+
                     <li>
-                      <strong>10GB</strong>
-                      Monthly Bandwidth
+                      <strong>請多支持募資之星</strong>
+
                     </li>
-                    <li>
-                      <strong>10</strong>
-                      Email accounts
-                    </li>
-                    <li>
-                      <strong>2</strong>
-                      Subdomains
-                    </li>
+
                   </ul>
-                  <%= link_to "Buy now", new_proposal_product_order_path(@proposal, p), :class => "btn btn-block  btn-light btn-bordered" %>
+                  <%= link_to "金額確認", new_proposal_product_order_path(@proposal, p), :class => "btn btn-block  btn-light btn-bordered" %>
                 </div>
               </div>
             </div>
@@ -53,7 +47,7 @@
           <div class='row'>
             <div class='col-sm-12'>
               <hr class='hr-half hr-invisible'>
-              <p class='lead lead-xs text-center'>* 注意balabalabalabalabalabalabalabalabalabalabalabalabalabalabalabalabalabalabalabalabalabalabalabalabalabalabalabalabalabalabalabalabalabalabalabalabalabalabalabalabalabalabalabalabalabalabalabalabala.</p>
+              <p class='lead lead-xs text-center' style='font-size: 20px'>* 注意 如果您有意願投資募資之星，請直接聯絡Norman Hexter 還有 Majus!!</p>
             </div>
           </div>
         </div>
