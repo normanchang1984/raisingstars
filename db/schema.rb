@@ -114,19 +114,6 @@ ActiveRecord::Schema.define(version: 20150727132616) do
   add_index "proposals", ["category_id"], name: "index_proposals_on_category_id", using: :btree
   add_index "proposals", ["user_id"], name: "index_proposals_on_user_id", using: :btree
 
-  create_table "rewards", force: :cascade do |t|
-    t.integer  "price",      limit: 4
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
-  end
-
-  create_table "user_reward_proposals", force: :cascade do |t|
-    t.integer  "proposal_id", limit: 4
-    t.integer  "reward_id",   limit: 4
-    t.datetime "created_at",            null: false
-    t.datetime "updated_at",            null: false
-  end
-
   create_table "userproposalships", force: :cascade do |t|
     t.integer  "proposal_id", limit: 4
     t.integer  "user_id",     limit: 4
@@ -138,23 +125,29 @@ ActiveRecord::Schema.define(version: 20150727132616) do
   add_index "userproposalships", ["user_id"], name: "index_userproposalships_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
-    t.string   "email",                  limit: 255, default: "", null: false
-    t.string   "encrypted_password",     limit: 255, default: "", null: false
-    t.string   "reset_password_token",   limit: 255
+
+    t.string   "email",                         limit: 255, default: "", null: false
+    t.string   "encrypted_password",            limit: 255, default: "", null: false
+    t.string   "reset_password_token",          limit: 255
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          limit: 4,   default: 0,  null: false
+    t.integer  "sign_in_count",                 limit: 4,   default: 0,  null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
-    t.string   "current_sign_in_ip",     limit: 255
-    t.string   "last_sign_in_ip",        limit: 255
-    t.datetime "created_at",                                      null: false
-    t.datetime "updated_at",                                      null: false
-    t.string   "fb_uid",                 limit: 255
-    t.string   "fb_token",               limit: 255
-    t.string   "avatar_url",             limit: 255
-    t.string   "provider",               limit: 255
-    t.string   "uid",                    limit: 255
+    t.string   "current_sign_in_ip",            limit: 255
+    t.string   "last_sign_in_ip",               limit: 255
+    t.datetime "created_at",                                             null: false
+    t.datetime "updated_at",                                             null: false
+    t.string   "fb_uid",                        limit: 255
+    t.string   "fb_token",                      limit: 255
+    t.string   "avatar_graph_url_file_name",    limit: 255
+    t.string   "avatar_graph_url_content_type", limit: 255
+    t.integer  "avatar_graph_url_file_size",    limit: 4
+    t.datetime "avatar_graph_url_updated_at"
+    t.string   "provider",                      limit: 255
+    t.string   "uid",                           limit: 255
+    t.string   "default_avatar_url",            limit: 255
+
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
