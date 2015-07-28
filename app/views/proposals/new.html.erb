@@ -1,16 +1,50 @@
-<%= simple_form_for @proposal do |form| %>
-  <%= form.input :name %>
-  <%= form.input :email %>
-  <%= form.input :phone, as: :tel %>
-  <%= form.input :title_graph_url, as: :file %>
-  <%= form.input :youtube_url %>
-  <%= form.simple_fields_for :user do |u| %>
-    <%#= u.input :avatar_url, as: :file %>
-  <% end %>
-  <%= form.input :self_intro, :as => :ckeditor, :input_html => { :ckeditor => {:toolbar => 'mini'} } %>
-  <%= form.input :title %>
-  <%= form.input :content, :as => :ckeditor, :input_html => { :ckeditor => {:toolbar => 'Full'} } %>
-  <%= form.collection_select(:category_id, Category.all, :id, :name) %>
-  <%= form.submit %>
-<% end %>
+<div id='main' role='main'>
+  <div id='main-content'>
+    <div class='container'>
+      <div class='row'>
+        <div class='col-sm-12'>
+          <div class='page-header page-header-with-icon no-mg-t'>
+            <i class='fa fa-tag'></i>
+            <h2>
+              申請資料
+            </h2>
+          </div>
+          <div class='row'>
+
+            <div class='col-sm-12'>
+              <%= simple_form_for @proposal do |form| %>
+              <%= form.input :name, input_html:{maxlength:70}%>
+              <br>
+              <%= form.input :email, input_html:{maxlength:70} %>
+              <br>
+              <%= form.input :phone, as: :tel, input_html:{maxlength:70} %>
+              <br>
+              <%= form.input :title_graph_url, as: :file, input_html:{maxlength:70} %>
+              <br>
+              <%= form.input :youtube_url, input_html:{maxlength:70} %>
+              <br>
+
+              <%= form.input :self_intro, :as => :ckeditor, :input_html => { :ckeditor => {:toolbar => 'mini'} } %>
+              <br>
+              <%= form.input :title, input_html:{maxlength:70} %>
+              <br>
+              <%= form.input :content, :as => :ckeditor, :input_html => { :ckeditor => {:toolbar => 'Full'} } %>
+              <br>
+              <%= form.collection_select(:category_id, Category.all, :id, :name) %>
+              <br>
+              <br>
+              <%= form.submit 'Submit', :class=>'btn btn-contrast'%>
+              <% end %>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <div class='fade' id='scroll-to-top'>
+    <i class='fa fa-chevron-up'></i>
+  </div>
+</div>
 
