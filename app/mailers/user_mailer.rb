@@ -1,5 +1,4 @@
 class UserMailer < ApplicationMailer
-  default from: ''
 
   def welcome_email(user)
     @user = user
@@ -13,10 +12,17 @@ class UserMailer < ApplicationMailer
 
   def proposal_progress(proposal, order)
     @proposal = proposal
-    @user_order = order
+    @user = @proposal.email
+    @user_order = order.user.email
   end
 
-  def proposal_complete(proposal)
+  def proposal_complete_owner(proposal)
+    @proposal = proposal
+    @user = @proposal.email
+    @proposal_orders = @proposal.orders
+  end
+
+  def proposal_complete_users(proposal)
     @proposal = proposal
     @proposal_orders = @proposal.orders
   end

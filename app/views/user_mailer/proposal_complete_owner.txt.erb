@@ -1,10 +1,10 @@
-Hi, <%= @user.email %>
+Hi, <%= @user.email %> :
 ===============================================
 
-你在 Raising Stars 的專案 <%= @proposal.title %>，
-真是非常可惜，沒有達標。
+恭喜！你在 Raising Stars 運行的專案 <%= @proposal.title %>，
+已經成功達標，目前已經募到 <%= @proposal.progress %> 元！
 
-以下是支持你的使用者(金額將會退還)：
+下面為支持你的使用者：
 
 <table>
   <tr>
@@ -18,7 +18,5 @@ Hi, <%= @user.email %>
     </tr>
   <% end %>
 </table>
-
-期望你繼續努力
 
 By Raising Stars
