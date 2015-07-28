@@ -10,7 +10,7 @@ Category.create( :name => '比賽' )
 Category.create( :name => '訓練' )
 Category.create( :name => '物資' )
 
-User.create( :email => "ihower@gmail.com", :password => "12345678", :avatar_graph_url => Faker::Avatar.image ,  :default_avatar_url => Faker::Avatar.image)
+User.create( :email => "ihower@gmail.com", :password => "12345678", :avatar_graph_url => Faker::Avatar.image )
 
 
 2.times do
