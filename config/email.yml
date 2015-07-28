@@ -1,9 +1,10 @@
 default: &default
-  address: "smtp.gmail.com"
+
+  address: "smtp.mailgun.org"
   port: "587"
-  domain: "gmail.com"
+  domain: "raisingstars.co.mailgun.org"
   authentication: "plain"
-  user_name: "howclf@gmail.com"
+  user_name: "postmaster@raisingstars.co.mailgun.org"
   password: "wlagqdlkaumzlplp"
   enable_starttls_auto: true
 

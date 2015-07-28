@@ -3,7 +3,7 @@
   <%= form.input :email %>
   <%= form.input :phone, as: :tel %>
   <%= form.input :title_graph_url, as: :file %>
-  <%= form.input :youtube_url %>
+  <%= form.input :youtube_url, as: :integr %>
   <%= form.simple_fields_for :user do |u| %>
     <%#= u.input :avatar_url, as: :file %>
   <% end %>

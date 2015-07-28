@@ -1,5 +1,6 @@
 class Proposal < ActiveRecord::Base
   has_many :comments
+  has_many :orders
   belongs_to :category
   belongs_to :user
   accepts_nested_attributes_for :user

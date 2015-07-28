@@ -7,13 +7,13 @@ class Payment < ActiveRecord::Base
   after_update :update_order_status
 
   def name
-    "Rails Exercise Shop"
+    "RailsExerciseShop"
   end
 
   private
 
   def setup_amount
-    self.amount = order.amount
+    self.amount = self.order.amount
   end
 
   def update_order_status
