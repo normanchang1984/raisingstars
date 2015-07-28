@@ -50,17 +50,19 @@ ActiveRecord::Schema.define(version: 20150727132616) do
     t.string   "email",           limit: 255
     t.string   "phone",           limit: 255
     t.string   "address",         limit: 255
+    t.integer  "product_id",      limit: 4
+    t.integer  "proposal_id",     limit: 4
     t.string   "payment_method",  limit: 255
     t.integer  "amount",          limit: 4
     t.integer  "user_id",         limit: 4
     t.datetime "created_at",                                      null: false
     t.datetime "updated_at",                                      null: false
-    t.integer  "product_id",      limit: 4
     t.string   "payment_status",  limit: 255, default: "pending"
     t.string   "shipping_status", limit: 255, default: "pending"
   end
 
   add_index "orders", ["product_id"], name: "index_orders_on_product_id", using: :btree
+  add_index "orders", ["proposal_id"], name: "index_orders_on_proposal_id", using: :btree
   add_index "orders", ["user_id"], name: "index_orders_on_user_id", using: :btree
 
   create_table "payments", force: :cascade do |t|
@@ -95,20 +97,25 @@ ActiveRecord::Schema.define(version: 20150727132616) do
   end
 
   create_table "proposals", force: :cascade do |t|
-    t.string   "name",            limit: 255
-    t.string   "email",           limit: 255
-    t.string   "phone",           limit: 255
-    t.text     "self_intro",      limit: 65535
-    t.string   "title",           limit: 255
-    t.text     "content",         limit: 65535
-    t.datetime "created_at",                    null: false
-    t.datetime "updated_at",                    null: false
-    t.integer  "views",           limit: 4
-    t.integer  "category_id",     limit: 4
-    t.integer  "user_id",         limit: 4
-    t.string   "title_graph_url", limit: 255
-    t.string   "picture_url",     limit: 255
-    t.string   "youtube_url",     limit: 255
+    t.string   "name",                         limit: 255
+    t.string   "email",                        limit: 255
+    t.string   "phone",                        limit: 255
+    t.text     "self_intro",                   limit: 65535
+    t.string   "title",                        limit: 255
+    t.text     "content",                      limit: 65535
+    t.datetime "created_at",                                 null: false
+    t.datetime "updated_at",                                 null: false
+    t.integer  "views",                        limit: 4
+    t.integer  "category_id",                  limit: 4
+    t.integer  "user_id",                      limit: 4
+    t.string   "title_graph_url_file_name",    limit: 255
+    t.string   "title_graph_url_content_type", limit: 255
+    t.integer  "title_graph_url_file_size",    limit: 4
+    t.datetime "title_graph_url_updated_at"
+    t.string   "youtube_url",                  limit: 255
+    t.integer  "target",                       limit: 4
+    t.integer  "progress",                     limit: 4
+    t.boolean  "status",                       limit: 1
   end
 
   add_index "proposals", ["category_id"], name: "index_proposals_on_category_id", using: :btree
@@ -125,7 +132,6 @@ ActiveRecord::Schema.define(version: 20150727132616) do
   add_index "userproposalships", ["user_id"], name: "index_userproposalships_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
-
     t.string   "email",                         limit: 255, default: "", null: false
     t.string   "encrypted_password",            limit: 255, default: "", null: false
     t.string   "reset_password_token",          limit: 255
@@ -146,8 +152,7 @@ ActiveRecord::Schema.define(version: 20150727132616) do
     t.datetime "avatar_graph_url_updated_at"
     t.string   "provider",                      limit: 255
     t.string   "uid",                           limit: 255
-    t.string   "default_avatar_url",            limit: 255
-
+    t.string   "fb_avatar_url",                 limit: 255
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

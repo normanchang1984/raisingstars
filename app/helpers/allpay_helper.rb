@@ -8,6 +8,7 @@ module AllpayHelper
         PaymentType: :aio,
         TotalAmount: payment.amount,
         TradeDesc: payment.name,
+        ItemName: payment.name,
         ChoosePayment: payment.payment_method,
         ReturnURL: Allpay.return_url,
         OrderResultURL: allpay_result_url
