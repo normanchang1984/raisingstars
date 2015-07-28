@@ -9,6 +9,9 @@ Rails.application.routes.draw do
   post 'allpay/result'
   post 'allpay/return'
 
+  resources :orders do
+  end
+
   resources :proposals do
     resources :comments, :controller => :proposalcomments
     member do

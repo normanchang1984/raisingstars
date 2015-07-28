@@ -20,7 +20,7 @@
                 <a href= <%= proposal_path(p) %>  >
                   <div class='image-link'>
                     <i class='fa fa-search'></i>
-                    <%= image_tag p.title_graph_url, class: "img-responsive img-rounded center-block", size: "360x235" %>
+                    <%= image_tag p.title_graph_url(:index), class: "img-responsive img-rounded center-block", size: "360x235" %>
                   </div>
                   <h3 class='title'><%=p.title%></h3>
                 </a>

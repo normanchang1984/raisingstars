@@ -54,6 +54,7 @@ class ProposalsController < ApplicationController
   def pay
     @proposal = Proposal.find(params[:id])
     @products = @proposal.products
+    console
   end
 
   def favorite
