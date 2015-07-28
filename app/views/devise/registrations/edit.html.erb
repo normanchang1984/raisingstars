@@ -22,7 +22,7 @@
 
                   <div class="field">
                     <span style='font-size: 20px'>
-                      <%= f.label :密碼 %> <i>(leave blank if you don't want to change it)</i><br />
+                      <%= f.label :密碼 %> <i>(如果不想改，請留空)</i><br />
                       <%= f.password_field :password, autocomplete: "off" %>
                     </span>
                   </div>
@@ -36,14 +36,14 @@
 
                   <div class="field">
                     <span style='font-size: 20px'>
-                      <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
+                      <%= f.label :現任密碼 %> <i>(需要現任密碼來確認更改)</i><br />
                       <%= f.password_field :current_password, autocomplete: "off" %>
                     </span>
                   </div>
-
+                  <br>
                   <div class="actions">
                     <span style='font-size: 20px'>
-                      <%= f.submit "Update" %>
+                      <%= f.submit "Update", :class=>'btn btn-contrast' %>
                     </span>
                   </div>
                 <% end %>
