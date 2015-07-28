@@ -11,18 +11,20 @@ class OrdersController < ApplicationController
   end
 
   def new
+
     @product = Product.find(params[:product_id])
     @order = current_user.orders.build
-
     @order.email = current_user.email
-    @order.amount = @product.price
   end
 
   def create
+    @product = Product.find(params[:product_id])
     @order = current_user.orders.build(order_params)
+    @order.amount = @product.price
+    @order.product_id = @product.id
+    @order.proposal_id = @product.proposal.id
     if @order.save
       cookies[:cart_id] = nil
-
       if @order.payment_method == "allpay"
 
         redirect_to checkout_allpay_proposal_product_order_path(params[:proposal_id],params[:product_id],@order)

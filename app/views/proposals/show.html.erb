@@ -11,7 +11,7 @@
               <span class='icon-bar'></span>
             </button>
             <div class='sidebar-collapse collapse'>
-              <h3 class='title'>募資進度：</h3>
+              <h3 class='title'>募資進度： <%= @proposal.target %> </h3>
               <div class='progress progress-striped'>
                 <div aria-valuemax='100' aria-valuemin='0' aria-valuenow='80' class='progress-bar progress-bar-contrast' role='progressbar' style='width: 80%'>
                   <span class='sr-only'>80% Complete</span>
@@ -94,7 +94,7 @@
                   <div class='col-sm-12'>
                     <a href='blog_single_post.html'>
                       <% if @proposal.youtube_url.nil? %>
-                        <%= image_tag @proposal.title_graph_url, class: "img-responsive center-block img-rounded-half" %>
+                        <%= image_tag @proposal.title_graph_url(:show), class: "img-responsive center-block img-rounded-half" %>
                       <% else %>
                         <iframe width="640" height="360" src= <%= @proposal.youtube_url %> frameborder="0" allowfullscreen></iframe>
                       <% end %>

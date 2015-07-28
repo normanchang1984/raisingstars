@@ -25,7 +25,7 @@ Devise.setup do |config|
 
   fb = YAML.load(File.read("#{Rails.root}/config/facebook.yml"))[Rails.env]
   config.omniauth :facebook, '427883970729109', 'e27ed011dbe824468750bb1bc5952a7f',
-                  :info_fields => "email, name"
+                  :info_fields => "email, name, picture"
   # ==> ORM configuration
   # Load and configure the ORM. Supports :active_record (default) and
   # :mongoid (bson_ext recommended) by default. Other ORMs may be

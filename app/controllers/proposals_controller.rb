@@ -9,6 +9,8 @@ class ProposalsController < ApplicationController
 
   def create
     @proposal = current_user.proposals.build(proposal_params)
+    @proposal.progress = 0
+    @proposal.target = 0
     if @proposal.save
       @proposal.products.create!( :title => "Basic", :price => "100", :description => "....", :proposal_id => @proposal.id )
       @proposal.products.create!( :title => "standard", :price => "500", :description => "真是相當優秀", :proposal_id => @proposal.id)
