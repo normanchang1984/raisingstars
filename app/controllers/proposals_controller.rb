@@ -25,6 +25,10 @@ class ProposalsController < ApplicationController
 
     @comments = @proposal.comments
     @newcomment = Comment.new
+    @percent = @proposal.progress.to_f/@proposal.target.to_f*100
+    if @proposal.progress > @proposal.target
+      UserMailer.delay.proposal_complete_owner(@proposal)
+    end
 
     if current_user
       @user_favor = current_user.userproposalships.find_by_proposal_id(@proposal.id)
@@ -61,7 +65,6 @@ class ProposalsController < ApplicationController
   def favorite
     if current_user
       @proposal = Proposal.find(params[:id])
-      UserMailer.delay.welcome_email(current_user)
       @like = current_user.toggle_like_proposal(@proposal)
 
       respond_to do |format|
