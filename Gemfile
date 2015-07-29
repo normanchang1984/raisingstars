@@ -14,6 +14,10 @@ gem 'coffee-rails', '~> 4.1.0'
 # capistrano
 gem 'capistrano-rails', :group => :development
 gem 'capistrano-passenger', :group => :development
+gem 'capistrano-sidekiq'
+# sideiq
+gem "sidekiq"
+gem 'sinatra', '>= 1.3.0', :require => nil
 
 # for proposal
 gem 'ckeditor'
@@ -21,7 +25,6 @@ gem 'paperclip'
 gem 'simple_form', '~> 3.0.2'
 # mysql2
 gem "mysql2"
-gem 'sidekiq'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

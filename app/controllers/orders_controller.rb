@@ -11,16 +11,15 @@ class OrdersController < ApplicationController
   end
 
   def new
-
     @product = Product.find(params[:product_id])
     @order = current_user.orders.build
-    @order.email = current_user.email
   end
 
   def create
     @product = Product.find(params[:product_id])
     @order = current_user.orders.build(order_params)
     @order.amount = @product.price
+    @order.email = current_user.email
     @order.product_id = @product.id
     @order.proposal_id = @product.proposal.id
     if @order.save
@@ -39,14 +38,9 @@ class OrdersController < ApplicationController
 
   def checkout_allpay
     @order = current_user.orders.find( params[:id] )
-
-    if @order.paid?
-      redirect_to products_path, alert: 'already paid!'
-    else
-      @payment = PaymentAllpay.create!( :order => @order,
-                                        :payment_method => "Credit" )
-      render :layout => false
-    end
+    @payment = PaymentAllpay.create!( :order => @order,
+                                      :payment_method => "Credit" )
+    render :layout => false
   end
 
   protected
