@@ -18,12 +18,16 @@ class UserMailer < ApplicationMailer
 
   def proposal_complete_owner(proposal)
     @proposal = proposal
-    @user = @proposal.email
+    @email = @proposal.email
     @proposal_orders = @proposal.orders
+    mail(to: @email, subjec: 'Congraduration!')
   end
 
-  def proposal_complete_users(proposal)
+  def proposal_complete_users(proposa, email)
     @proposal = proposal
+    @email = @proposal.email
+    @proposal_orders = @proposal.orders
+    mail(to: @email, subjec: 'Congraduration!')
     @proposal_orders = @proposal.orders
   end
 

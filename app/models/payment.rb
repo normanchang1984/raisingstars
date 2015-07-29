@@ -20,6 +20,13 @@ class Payment < ActiveRecord::Base
     if self.paid
       o = self.order
       o.payment_status = "paid"
+      o.proposal.progress += o.amount
+      o.proposal.
+      if o.proposal.progress >= o.proposal.target
+        UserMailer.delay.proposal_complete_owner(o.proposal)
+
+        UserMailer.delay.proposal_complete_user(o.proposal)
+      end
       o.save( :validate => false )
     end
   end
