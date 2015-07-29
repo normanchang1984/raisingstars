@@ -61,11 +61,9 @@ class ProposalsController < ApplicationController
   def favorite
     if current_user
       @proposal = Proposal.find(params[:id])
-<<<<<<< HEAD
-      #UserMailer.welcome_email(current_user).deliver_later!
-=======
+
       UserMailer.delay.welcome_email(current_user)
->>>>>>> 5edf62d1f9893b0b21cdcc791ae562bb263fad89
+
       @like = current_user.toggle_like_proposal(@proposal)
 
       respond_to do |format|
