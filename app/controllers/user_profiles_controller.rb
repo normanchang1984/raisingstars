@@ -4,6 +4,7 @@ class UserProfilesController < ApplicationController
     @user = User.find(params[:user_id])
     @profile = @user.profile || @user.create_profile
     @myfavorites = @user.favorites
+    @mypurchases = @user.orders
 
   end
 
