@@ -8,9 +8,9 @@ class ProposalsController < ApplicationController
   end
 
   def create
+
     @proposal = current_user.proposals.build(proposal_params)
     @proposal.progress = 0
-    @proposal.target = 0
     if @proposal.save
       @proposal.products.create!( :title => "方案ㄧ", :price => "100", :description => "....", :proposal_id => @proposal.id )
       @proposal.products.create!( :title => "方案二", :price => "500", :description => "真是相當優秀", :proposal_id => @proposal.id)
@@ -84,7 +84,7 @@ class ProposalsController < ApplicationController
   end
 
   def proposal_params
-    params.require(:proposal).permit(:name, :email, :phone, :youtube_url, :self_intro, :title_graph_url, :title, :content, :category_id, user_attributes:[:avatar_url])
+    params.require(:proposal).permit(:name, :email, :phone, :youtube_url, :target, :self_intro, :title_graph_url, :title, :content, :category_id, user_attributes:[:avatar_url])
   end
 
   def comment_params
