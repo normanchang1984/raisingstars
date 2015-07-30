@@ -1,6 +1,6 @@
 class ProposalsController < ApplicationController
 
-  before_action :set_proposal, only: [:show]
+  before_action :set_proposal, only: [:show, :edit, :update]
   before_action :authenticate_user!, except: [:index, :show,:favorite]
 
   def index
@@ -48,8 +48,10 @@ class ProposalsController < ApplicationController
   def update
     if @proposal.update(proposal_params)
       flash[:notice] = "Update success"
+      redirect_to @proposal
     else
       flash[:notice] = "Update fail"
+      render 'edit'
     end
   end
 
