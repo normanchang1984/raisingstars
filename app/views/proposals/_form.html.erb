@@ -1,0 +1,23 @@
+<%= form.input :name, input_html:{maxlength:70}%>
+<br>
+<%= form.input :email, input_html:{maxlength:70} %>
+<br>
+<%= form.input :phone, as: :tel, input_html:{maxlength:70} %>
+<br>
+<%= form.input :self_intro, :as => :ckeditor, :input_html => { :ckeditor => {:toolbar => 'mini'} } %>
+<br>
+<%= form.input :title, input_html:{maxlength:70} %>
+<br>
+<%= form.input :title_graph_url, as: :file, input_html:{maxlength:70} %>
+<br>
+<%= form.input :target, input_html:{maxlength:70}, as: :integer %>
+<br>
+<%= form.input :youtube_url, input_html:{maxlength:70} %>
+<br>
+<%= form.input :content, :as => :ckeditor, :input_html => { :ckeditor => {:toolbar => 'Full'} } %>
+<br>
+<%= form.collection_select(:category_id, Category.all, :id, :name) %>
+<br>
+<br>
+<%= form.submit 'Submit', :class=>'btn btn-contrast'%>
+<br>

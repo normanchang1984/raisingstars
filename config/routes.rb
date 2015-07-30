@@ -18,7 +18,7 @@ Rails.application.routes.draw do
   end
 
   resources :proposals do
-    resources :comments, :controller => :proposalcomments
+    resources :comments
     member do
       get :pay
       post :favorite
