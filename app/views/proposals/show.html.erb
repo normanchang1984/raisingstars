@@ -110,7 +110,9 @@
                   <%@comments.each do |c|%>
                   <div class='media'>
                     <div class='pull-left'>
-                      <div class='media-object without-image'></div>
+                      <div class='media-object'>
+                        <%= image_tag(c.user.check_avatar, size: "60x60") %>
+                      </div>
                     </div>
                     <div class='media-body'>
                       <div class='content'>
@@ -118,10 +120,6 @@
                           <h4 class='title'><%=current_user.email%></h4>
                         </div>
                           <span style="font-size: 15px"><%=c.content%></span>
-                          <% if current_user and current_user == c.user %>
-                            <%=link_to "Edit", edit_forum_path(e), :class=>"btn btn-primary"%>
-                            <%=link_to "Destroy", forum_path(e), :method=>:delete, :class=>"btn btn-primary"%>
-                          <%end%>
                           <p class='time'>
                             <a href="#"><%=c.updated_at.to_s(:short)%></a>
                           </p>
@@ -139,7 +137,7 @@
                   <div class='row'>
                     <div class='col-sm-12'>
                       <div class='form-group control-group'>
-                        <%=form_for @newcomment, :url=>proposal_comments_path(@proposal), :method=>:post, :class=>"form" do |f|%>
+                        <%=form_for @newcomment, :url=>proposal_comments_path(@proposal, current_user), :method=>:post, :class=>"form" do |f|%>
                         <%=f.text_area :content, :class=>"form-control form form-validation"%>
 
                       </div>
