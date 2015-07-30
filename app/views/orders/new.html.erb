@@ -12,8 +12,10 @@
                   <% end %>
                 </ul>
 
-                <%= form_for @order, :url=>proposal_product_orders_path  do |f| %>
-                  <%= @product.price %>
+                  <%= form_for @order, :url=>proposal_product_orders_path  do |f| %>
+                  <span style='font-size: 25px; color:red;'>金額：<%= @product.price %></span>
+                  <br>
+                  <br>
                   <div class="field">
                     <span style='font-size: 20px'>
                       <%= f.label :名字 %>
@@ -49,7 +51,7 @@
                     </span>
                   </div>
                   <br>
-                  <%= f.submit "同意捐款"%>
+                  <%= f.submit "同意捐款", :class=>'btn btn-contrast'%>
                 <% end %>
 
                 <%#= render "devise/shared/links" %>
