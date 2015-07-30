@@ -46,7 +46,7 @@
                   </thead>
                   <tbody>
                   <%@myfavorites.each do |m|%>
-                    <tr class=' warning '>
+                    <tr class='warning'>
                       <td>
                         <%=m.category.name%>
                       </td>
@@ -54,6 +54,7 @@
                        <%=m.title%>
                       </td>
                     </tr>
+                    </div>
                   <%end%>
                   </tbody>
                 </table>
@@ -88,7 +89,7 @@
                   </thead>
                   <tbody>
                   <%@mypurchases.each do |m|%>
-                    <tr class=' warning '>
+                    <tr class='warning'>
                       <td>
                         <%=m.product.title%>
                       </td>
@@ -96,6 +97,7 @@
                        <%=m.amount%>
                       </td>
                     </tr>
+                    </div>
                   <%end%>
                   </tbody>
                 </table>
