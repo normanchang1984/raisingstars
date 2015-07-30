@@ -5,5 +5,6 @@ class AddYoutubeUrlInUser < ActiveRecord::Migration
     add_column :proposals, :progress, :integer
     add_column :proposals, :status, :boolean
     add_column :users, :fb_avatar_url, :string
+    add_column :users, :default_avatar_url, :string
   end
 end

@@ -26,7 +26,8 @@ class ProposalsController < ApplicationController
     @comments = @proposal.comments
     @newcomment = Comment.new
     @percent = @proposal.progress.to_f/@proposal.target.to_f*100
-    @proposal_orders = @proposal.orders
+    @proposal_orders = @proposal.orders.last(9).reverse
+    @proposal_author_url = @proposal.user.check_avatar
     if  @proposal.progress > @proposal.target
     end
 

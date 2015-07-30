@@ -21,36 +21,13 @@
               <div class='box'>
                 <h3 class='title'>贊助者：</h3>
                 <ul class='list-unstyled list-inline image-list-box'>
-                  <li>
-                    <a href='#'>
-                      <img alt="Jednotka" width="50" height="50" src="http://placehold.it/50x50" />
-                    </a>
-                  </li>
-                  <li>
-                    <a href='#'>
-                      <img alt="Jednotka" width="50" height="50" src="http://placehold.it/50x50" />
-                    </a>
-                  </li>
-                  <li>
-                    <a href='#'>
-                      <img alt="Jednotka" width="50" height="50" src="http://placehold.it/50x50" />
-                    </a>
-                  </li>
-                  <li>
-                    <a href='#'>
-                      <img alt="Jednotka" width="50" height="50" src="http://placehold.it/50x50" />
-                    </a>
-                  </li>
-                  <li>
-                    <a href='#'>
-                      <img alt="Jednotka" width="50" height="50" src="http://placehold.it/50x50" />
-                    </a>
-                  </li>
-                  <li>
-                    <a href='#'>
-                      <img alt="Jednotka" width="50" height="50" src="http://placehold.it/50x50" />
-                    </a>
-                  </li>
+                  <% @proposal_orders.each do |p| %>
+                    <li>
+                      <a href='#'>
+                        <img alt="Jednotka" width="50" height="50" src=<%= p.user.check_avatar %> />
+                      </a>
+                    </li>
+                  <% end %>
                 </ul>
               </div>
               <br>
@@ -96,7 +73,9 @@
                       <% if @proposal.youtube_url == "" %>
                         <%= image_tag @proposal.title_graph_url(:show), class: "img-responsive center-block img-rounded-half" %>
                       <% else %>
-                        <iframe width="640" height="360" src= <%= @proposal.youtube_url %> frameborder="0" allowfullscreen></iframe>
+                        <div class="embed-container">
+                          <%= embed(@proposal.youtube_url) %>
+                        </div>
                       <% end %>
                     </a>
                   </div>
@@ -114,7 +93,7 @@
                 <div class='author-box'>
                   <div class='row'>
                     <div class='col-sm-3 col-lg-2'>
-                      <img alt="Author" width="165" height="165" class="img-circle img-responsive center-block" src="http://placehold.it/165x165" />
+                      <img alt="Author" width="165" height="165" class="img-circle img-responsive center-block" src=<%= @proposal_author_url %> />
                     </div>
                     <div class='col-sm-9 col-lg-10'>
                       <h3 class='title'>關於作者</h3>
@@ -131,20 +110,18 @@
                 </h3>
                 <%if @comments%>
                   <%@comments.each do |c|%>
-                  <div class='media'>
+                  <div class='media' id="comment-<%= c.id %>">
                     <div class='pull-left'>
-                      <div class='media-object without-image'></div>
-                    </div>
+                      <div class='media-object'>
+                        <%= image_tag(c.user.check_avatar, size: "60x60") %>
+                      </div>
+                    </div>"comment-<%= c.id %>"
                     <div class='media-body'>
                       <div class='content'>
                         <div class='toolbar'>
                           <h4 class='title'><%=current_user.email%></h4>
                         </div>
                           <span style="font-size: 15px"><%=c.content%></span>
-                          <% if current_user and current_user == c.user %>
-                            <%=link_to "Edit", edit_forum_path(e), :class=>"btn btn-primary"%>
-                            <%=link_to "Destroy", forum_path(e), :method=>:delete, :class=>"btn btn-primary"%>
-                          <%end%>
                           <p class='time'>
                             <a href="#"><%=c.updated_at.to_s(:short)%></a>
                           </p>
@@ -162,7 +139,7 @@
                   <div class='row'>
                     <div class='col-sm-12'>
                       <div class='form-group control-group'>
-                        <%=form_for @newcomment, :url=>proposal_comments_path(@proposal), :method=>:post, :class=>"form" do |f|%>
+                        <%=form_for @newcomment, :url=>proposal_comments_path(@proposal, current_user), :method=>:post, :class=>"form" do |f|%>
                         <%=f.text_area :content, :class=>"form-control form form-validation"%>
 
                       </div>

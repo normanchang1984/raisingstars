@@ -1,6 +1,9 @@
 class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
+
+  before_validation :setup_default_avatars, :on => :create
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
          :omniauthable, :omniauth_providers => [:facebook]
@@ -61,6 +64,21 @@ class User < ActiveRecord::Base
 
   def admin?
     Rails.env.development?
+  end
+
+  def setup_default_avatars
+    self.default_avatar_url = Faker::Avatar.image
+  end
+
+  def check_avatar
+    avatar_url = self.fb_avatar_url
+    if self.fb_avatar_url.nil?
+      avatar_url = self.avatar_graph_url
+    end
+    if self.avatar_graph_url.nil?
+      avatar_url = self.default_avatar_url
+    end
+    return avatar_url
   end
 
 end
