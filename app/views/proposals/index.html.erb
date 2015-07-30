@@ -11,26 +11,20 @@
           </ul>
         </div>
       </div>
-
-
-            <div class='row portfolio-boxes' id='portfolio-container'>
-            <% @proposals.each do |p| %>
-              <div class="col-sm-4 portfolio-box portfolio-filter-<%= p.category.id %> portfolio-item">
-
-                <a href= <%= proposal_path(p) %>  >
-                  <div class='image-link'>
-                    <i class='fa fa-search'></i>
-                    <%= image_tag p.title_graph_url(:index), class: "img-responsive img-rounded center-block", size: "360x235" %>
-                  </div>
-                  <h3 class='title'><%=p.title%></h3>
-                </a>
+      <div class='row portfolio-boxes' id='portfolio-container'>
+        <% @proposals.each do |p| %>
+          <div class="col-sm-4 portfolio-box portfolio-filter-<%= p.category.id %> portfolio-item">
+            <a href= <%= proposal_path(p) %>  >
+              <div class='image-link'>
+                <i class='fa fa-search'></i>
+                <%= image_tag p.title_graph_url(:index), class: "img-responsive img-rounded center-block", size: "360x235" %>
               </div>
-              <%end%>
-            </div>
+              <h3 class='title'><%=p.title%></h3>
+            </a>
           </div>
-
+        <%end%>
+      </div>
     </div>
-  </div>
   </div>
   <div class='fade' id='scroll-to-top'>
     <i class='fa fa-chevron-up'></i>

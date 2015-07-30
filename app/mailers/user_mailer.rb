@@ -1,38 +1,25 @@
 class UserMailer < ApplicationMailer
-
-  def welcome_email(user)
-    @user = user
-    @url = 'http://raisingstars.co/users/sign_in'
-    mail(to: @user.email, subjec: 'Welcome to Raising Stars')
-  end
-
-  def proposal_update(proposal)
-    @proposal = proposal
-  end
-
-  def proposal_progress(proposal, order)
-    @proposal = proposal
-    @user = @proposal.email
-    @user_order = order.user.email
-  end
-
+  default :from => "poster@raisingstar.co"
+  # Subject can be set in your I18n file at config/locales/en.yml
+  # with the following lookup:
+  #
+  #   en.user_mailer.proposal_complete_owner.subject
+  #
   def proposal_complete_owner(proposal)
-    @proposal = proposal
-    @email = @proposal.email
-    @proposal_orders = @proposal.orders
-    mail(to: @email, subjec: 'Congraduration!')
+    owner_email = proposal.email
+    mail(:to => owner_email, :subject => "Good")
   end
 
-  def proposal_complete_users(proposa, email)
-    @proposal = proposal
-    @email = @proposal.email
-    @proposal_orders = @proposal.orders
-    mail(to: @email, subjec: 'Congraduration!')
-    @proposal_orders = @proposal.orders
+  def proposal_complete_users(email)
+    mail(:to => email, :subject => "it success" )
   end
 
-  def proposal_end(proposal)
-    @proposal = proposal
+  def proposal_get_pay(email_owner)
+    mail(:to => email_owner, :subject => "Someone pay you!" )
   end
 
+
+  def proposal_pay(email_payer)
+    mail(:to => email_payer, :subject => "You hava pay money to someone" )
+  end
 end

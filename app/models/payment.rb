@@ -19,14 +19,23 @@ class Payment < ActiveRecord::Base
   def update_order_status
     if self.paid
       o = self.order
+      @proposal = o.proposal
       @orders = o.proposal.orders
       o.payment_status = "paid"
-      o.proposal.progress += o.amount
-
-      if o.proposal.progress >= o.proposal.target
-        UserMailer.delay.proposal_complete_owner(o.proposal)
+      @proposal.progress += o.amount
+      @proposal.save!
+      if @proposal.status = true
+        @email_owner =  @proposal.email
+        @email_payer = o.email
+        UserMailer.delay.proposal_get_pay(@email_owner)
+        UserMailer.delay.proposal_pay(@email_payer)
+      elsif @proposal.progress >= @proposal.target
+        @proposal.status = true
+        @proposal.save
+        UserMailer.delay.proposal_complete_owner(@proposal)
         @orders.each do |p|
-          UserMailer.delay.proposal_complete_user(o.proposal, p.email)
+          @email = p.email
+          UserMailer.delay.proposal_complete_users(@email)
         end
       end
       o.save( :validate => false )
