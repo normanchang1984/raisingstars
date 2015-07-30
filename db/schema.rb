@@ -153,6 +153,7 @@ ActiveRecord::Schema.define(version: 20150727132616) do
     t.string   "provider",                      limit: 255
     t.string   "uid",                           limit: 255
     t.string   "fb_avatar_url",                 limit: 255
+    t.string   "default_avatar_url",            limit: 255
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
