@@ -27,11 +27,7 @@ class ProposalsController < ApplicationController
     @newcomment = Comment.new
     @percent = @proposal.progress.to_f/@proposal.target.to_f*100
     @proposal_orders = @proposal.orders
-    if @proposal.progress > @proposal.target
-      @proposal_orders.each do |order|
-        email = order.email
-        UserMailer.delay.proposal_complete_users(email)
-      end
+    if  @proposal.progress > @proposal.target
     end
 
     if current_user
