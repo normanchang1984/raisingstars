@@ -28,7 +28,7 @@ class Payment < ActiveRecord::Base
         UserMailer.delay.proposal_complete_owner(@proposal)
         @orders.each do |p|
           @email = p.email
-          UserMailer.delay.proposal_complete_users(@proposal, @email)
+          UserMailer.delay.proposal_complete_users(@email)
         end
       end
       o.save( :validate => false )
