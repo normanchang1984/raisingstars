@@ -59,4 +59,8 @@ class User < ActiveRecord::Base
     end
   end
 
+  def admin?
+    Rails.env.development?
+  end
+
 end
