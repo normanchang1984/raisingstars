@@ -3,7 +3,7 @@ module AllpayHelper
   def generate_allpay_params(payment)
       allpay_params = {
         MerchantID: Allpay.merchant_id,
-        MerchantTradeNo: "#{payment.id}AC#{Rails.env.upcase[0]}",
+        MerchantTradeNo: "#{payment.id}AC#{Rails.env.upcase[0]}#{SecureRandom.hex(3).upcase}",
         MerchantTradeDate: Time.now.strftime('%Y/%m/%d %H:%M:%S'),
         PaymentType: :aio,
         TotalAmount: payment.amount,

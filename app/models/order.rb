@@ -6,10 +6,5 @@ class Order < ActiveRecord::Base
 
   def paid?
     self.payment_status == "paid"
-    @proposal = self.proposal
-    @proposal.progress += self.amount
-    if @proposal.progress > @proposal.target
-      @proposal.status = true
-    end
   end
 end
