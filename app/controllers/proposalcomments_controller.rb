@@ -5,8 +5,15 @@ class ProposalcommentsController < ApplicationController
   def create
     @proposal = Proposal.find_by_id( params[:proposal_id] )
     @comment= @proposal.comments.new(comment_params)
-    @comment.save
-    redirect_to :back
+    @comment.user = current_user
+    if @comment.save
+      respond_to do |format|
+        format.html {
+          flash[:notice] = "Done!"
+          redirect_to :back
+        }
+      format.js
+    end
   end
 
   def update
