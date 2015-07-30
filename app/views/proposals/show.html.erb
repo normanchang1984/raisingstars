@@ -23,7 +23,7 @@
                 <ul class='list-unstyled list-inline image-list-box'>
                   <% @proposal_orders.each do |p| %>
                     <li>
-                      <a href='#'>
+                      <a href= <%= user_profile_path(p.user) %>>
                         <img alt="Jednotka" width="50" height="50" src=<%= p.user.check_avatar %> />
                       </a>
                     </li>
@@ -40,6 +40,9 @@
               </div>
               <div class='box'>
                 <%= link_to "我要贊助", pay_proposal_path(@proposal), :class => "btn btn-contrast btn-bordered btn-block" %>
+              </div>
+              <div class='box'>
+                <%= link_to "修改資料", edit_proposal_path(@proposal), :class => "btn btn-contrast btn-bordered btn-block" %>
               </div>
             </div>
           </nav>
@@ -96,7 +99,7 @@
                       <img alt="Author" width="165" height="165" class="img-circle img-responsive center-block" src=<%= @proposal_author_url %> />
                     </div>
                     <div class='col-sm-9 col-lg-10'>
-                      <h3 class='title'>關於作者</h3>
+                      <h3 class='title'><%= @proposal.name %></h3>
                       <p><%=@proposal.self_intro.html_safe%></p>
                     </div>
                   </div>
@@ -115,11 +118,11 @@
                       <div class='media-object'>
                         <%= image_tag(c.user.check_avatar, size: "60x60") %>
                       </div>
-                    </div>"comment-<%= c.id %>"
+                    </div>
                     <div class='media-body'>
                       <div class='content'>
                         <div class='toolbar'>
-                          <h4 class='title'><%=current_user.email%></h4>
+                          <h4 class='title'><%=c.user.email%></h4>
                         </div>
                           <span style="font-size: 15px"><%=c.content%></span>
                           <p class='time'>
@@ -139,7 +142,7 @@
                   <div class='row'>
                     <div class='col-sm-12'>
                       <div class='form-group control-group'>
-                        <%=form_for @newcomment, :url=>proposal_comments_path(@proposal, current_user), :method=>:post, :class=>"form" do |f|%>
+                        <%=form_for @newcomment, :url=> proposal_comments_path(@proposal), :remote => true, :method=>:post, :class=>"form" do |f|%>
                         <%=f.text_area :content, :class=>"form-control form form-validation"%>
 
                       </div>
