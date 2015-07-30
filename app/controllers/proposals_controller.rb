@@ -12,9 +12,9 @@ class ProposalsController < ApplicationController
     @proposal.progress = 0
     @proposal.target = 0
     if @proposal.save
-      @proposal.products.create!( :title => "Basic", :price => "100", :description => "....", :proposal_id => @proposal.id )
-      @proposal.products.create!( :title => "standard", :price => "500", :description => "真是相當優秀", :proposal_id => @proposal.id)
-      @proposal.products.create!( :title => "Premium", :price => "1000", :description => "根本好棒棒", :proposal_id => @proposal.id)
+      @proposal.products.create!( :title => "方案ㄧ", :price => "100", :description => "....", :proposal_id => @proposal.id )
+      @proposal.products.create!( :title => "方案二", :price => "500", :description => "真是相當優秀", :proposal_id => @proposal.id)
+      @proposal.products.create!( :title => "方案三", :price => "1000", :description => "根本好棒棒", :proposal_id => @proposal.id)
       redirect_to @proposal
     else
       render 'new'
@@ -66,7 +66,6 @@ class ProposalsController < ApplicationController
     if current_user
       @proposal = Proposal.find(params[:id])
       @like = current_user.toggle_like_proposal(@proposal)
-
       respond_to do |format|
         format.js
       end

@@ -31,19 +31,20 @@
                 <br>
                 <div class="actions">
                   <span style='font-size: 20px'>
-                    <%= f.submit "登入" %>
+                    <%= f.submit "登入", :class=>'btn btn-contrast'%>
                   </span>
 
                 </div>
               <% end %>
-
+              <br>
+              <%= link_to "Facebook 登入", user_omniauth_authorize_path(:facebook), :class=>'btn btn-primary' %>
 
               <%#= render "devise/shared/links" %>
               </div>
             </div>
           </div>
-                        <%= link_to "Facebook 登入", user_omniauth_authorize_path(:facebook) %>
-              <%= link_to "測試", root_path %>
+              <%#= link_to "Facebook 登入", user_omniauth_authorize_path(:facebook) %>
+              <%#= link_to "測試", root_path %>
         </div>
         <div class='fade' id='scroll-to-top'>
           <i class='fa fa-chevron-up'></i>
