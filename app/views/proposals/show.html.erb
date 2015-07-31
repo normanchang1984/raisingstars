@@ -33,9 +33,7 @@
             <ul class='list-unstyled list-inline image-list-box'>
               <% @proposal_orders.each do |p| %>
                 <li>
-                  <a href= <%= user_profile_path(p.user) %>>
-                    <img alt="Jednotka" width="50" height="50" src=<%= p.user.check_avatar %> />
-                  </a>
+                  <img alt="Jednotka" width="50" height="50" src=<%= p.user.check_avatar %> />
                 </li>
               <% end %>
             </ul>
@@ -50,9 +48,11 @@
           <div class='box'>
             <%= link_to "我要贊助", pay_proposal_path(@proposal), :class => "btn btn-contrast btn-bordered btn-block" %>
           </div><!-- box end -->
-          <div class='box'>
-            <%= link_to "修改資料", edit_proposal_path(@proposal), :class => "btn btn-contrast btn-bordered btn-block" %>
-          </div><!-- box end -->
+          <% if @proposal.user == current_user %>
+            <div class='box'>
+              <%= link_to "修改資料", edit_proposal_path(@proposal), :class => "btn btn-contrast btn-bordered btn-block" %>
+            </div><!-- box end -->
+          <% end %>
         </div><!-- sidebar-collapse end -->
       </nav>
     </div>

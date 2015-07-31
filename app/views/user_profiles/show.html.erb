@@ -11,7 +11,7 @@
           </div>
           <div class='row'>
             <div class='col-sm-12', style='text-align: center;'>
-              <%= image_tag(current_user.check_avatar, size: "100x100") %>
+              <%= image_tag(@user.check_avatar, size: "100x100") %>
               <br>
               <br>
               <p class='lead lead-xs text-center' style='font-size: 20px'>
@@ -21,7 +21,7 @@
           </div>
         </div>
       </div>
-      <% if @user == current_user %>
+      <% if @user == @user %>
       <div class='row'>
         <div class='col-sm-12'>
           <div class='page-header page-header-with-icon'>
@@ -65,9 +65,7 @@
                             <ul class='list-unstyled list-inline image-list-box'>
                               <% m.orders.each do |p| %>
                                 <li>
-                                  <a href= <%= user_profile_path(p.user) %>>
                                     <img alt="Jednotka" width="50" height="50" src=<%= p.user.check_avatar %> />
-                                  </a>
                                 </li>
                               <% end %>
                             </ul>
