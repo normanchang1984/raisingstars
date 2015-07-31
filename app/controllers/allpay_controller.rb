@@ -6,7 +6,7 @@ class AllpayController < ApplicationController
     @payment = PaymentAllpay.find_and_process(request.POST)
     @payment.save
 
-    redirect_to order_path(@payment.order)
+    redirect_to user_profile_path(current_user)
   end
 
   def return
