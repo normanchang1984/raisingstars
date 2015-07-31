@@ -3,7 +3,7 @@
     <div class='container'>
     <div class='row'>
     <div class='col-md-push-9 col-sm-push-8 col-sm-4 col-md-3'>
-      <nav class='sidebar sidebar-fixed' style='position: absolute; top: 0px;'>
+      <nav class='sidebar sidebar-fixed' style='position: absolute; top: 0px; z-index: 3; background-color: white;'>
         <button class='btn btn-block btn-contrast sidebar-toggle' data-target='.sidebar-collapse' data-toggle='collapse' type='button'>
           <span class='sr-only'>Toggle navigation</span>
           <span class='icon-bar'></span>
@@ -154,7 +154,7 @@
               <%=f.text_area :content, :class=>"form-control form form-validation"%>
             </div><!-- form-group -->
           </div><!-- col-sm-12 end -->
-        </div><!-- row end -->>
+        </div><!-- row end -->
         <div class='row'>
           <div class='col-sm-12'>
             <%=f.submit '提交', :class=>'btn btn-contrast'%>
@@ -175,4 +175,4 @@
 
 <script type="text/javascript">
 $('.text-box').find('img').addClass('embed-container ck_img');
-</script>>
+</script>
