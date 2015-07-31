@@ -29,6 +29,7 @@ class ProposalsController < ApplicationController
     @proposal_orders = @proposal.orders.last(9).reverse
     @proposal_author_url = @proposal.user.check_avatar
     if  @proposal.progress > @proposal.target
+      @percent = 100
     end
 
     if current_user
