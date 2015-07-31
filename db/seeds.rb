@@ -10,22 +10,16 @@ Category.create( :name => '比賽' )
 Category.create( :name => '訓練' )
 Category.create( :name => '物資' )
 
-Reward.create( :price => '100' )
-Reward.create( :price => '500' )
-Reward.create( :price => '1000' )
+User.create( :email => "howclf@gmail.com", :password => "zxczxczxc", :avatar_graph_url => Faker::Avatar.image )
 
-User.create( :email => "ihower@gmail.com", :password => "12345678", :avatar_url => Faker::Avatar.image )
+User.create( :email => "ihower@gmail.com", :password => "zxczxczxc", :avatar_graph_url => Faker::Avatar.image )
 
+User.create( :email => "hexter.ch@gmail.com", :password => "zxczxczxc", :avatar_graph_url => Faker::Avatar.image )
 
-2.times do
-  User.create!( :email => Faker::Internet.email, :password => Faker::Internet.password(8), :avatar_url => Faker::Avatar.image )
-end
+User.create( :email => "norman@gmail.com", :password => "zxczxczxc", :avatar_graph_url => Faker::Avatar.image )
 
-3.times do
-  Proposal.create!( :name => Faker::Name.name , :email => Faker::Internet.email, :phone =>Faker::PhoneNumber.cell_phone, :self_intro => Faker::Lorem.paragraph(5) , :title => Faker::Lorem.word, :content => Faker::Lorem.paragraph(20), :category_id => Category.last.id, :user_id => User.first.id, :title_graph_url => Faker::Avatar.image )
-end
+User.create( :email => "mike@gmail.com", :password => "zxczxczxc", :avatar_graph_url => Faker::Avatar.image )
 
-3.times do
-  Proposal.create!( :name => Faker::Name.name , :email => Faker::Internet.email, :phone =>Faker::PhoneNumber.cell_phone, :self_intro => Faker::Lorem.paragraph(5) , :title => Faker::Lorem.word, :content => Faker::Lorem.paragraph(20), :category_id => Category.first.id, :user_id => User.last.id, :title_graph_url => Faker::Avatar.image)
-end
+User.create( :email => "sean@gmail.com", :password => "zxczxczxc", :avatar_graph_url => Faker::Avatar.image )
 
+User.create( :email => "bruce@gmail.com", :password => "zxczxczxc", :avatar_graph_url => Faker::Avatar.image )

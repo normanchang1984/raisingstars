@@ -6,121 +6,48 @@
           <div class='page-header page-header-with-icon'>
             <i class='fa fa-dollar'></i>
             <h2>
-              Three tables
-              <small>Second table style</small>
+              捐款選項
             </h2>
           </div>
           <div class='row panels'>
+            <% @products.each do |p| %>
             <div class='col-sm-4 panel-item'>
-              <div class='panel panel-bordered panel-light pricing-table pricing-table-solid'>
+              <%# if p.price == 500 %>
+
+              <%# else %>
+                <div class='panel panel-bordered panel-light pricing-table pricing-table-solid'>
+              <%# end %>
                 <div class='panel-heading'>
-                  <h3 class='panel-title'>Basic</h3>
+                  <h3 class='panel-title'><%= p.title %></h3>
                 </div>
                 <div class='panel-body'>
                   <h4 class='price'>
                     <span class='currency'>
                       &#36;
                     </span>
-                    29
+                    <%= p.price %>
                   </h4>
-                  <p class='period'>/ per month</p>
                   <ul class='list-unstyled'>
                     <li>
-                      <strong>5GB</strong>
-                      Disk space
+                      <strong>感謝您的天使投資</strong>
+
                     </li>
+
                     <li>
-                      <strong>10GB</strong>
-                      Monthly Bandwidth
+                      <strong>請多支持募資之星</strong>
+
                     </li>
-                    <li>
-                      <strong>10</strong>
-                      Email accounts
-                    </li>
-                    <li>
-                      <strong>2</strong>
-                      Subdomains
-                    </li>
+
                   </ul>
-                  <a class='btn btn-block  btn-light btn-bordered' href='#'>Buy now</a>
+                  <%= link_to "金額確認", new_proposal_product_order_path(@proposal, p), :class => "btn btn-block  btn-light btn-bordered" %>
                 </div>
               </div>
             </div>
-            <div class='col-sm-4 panel-item'>
-              <div class='panel panel-bordered panel-contrast pricing-table pricing-table-solid'>
-                <div class='panel-heading'>
-                  <h3 class='panel-title'>Standard</h3>
-                </div>
-                <div class='panel-body'>
-                  <h4 class='price'>
-                    <span class='currency'>
-                      &#36;
-                    </span>
-                    39
-                  </h4>
-                  <p class='period'>/ per month</p>
-                  <ul class='list-unstyled'>
-                    <li>
-                      <strong>10GB</strong>
-                      Disk space
-                    </li>
-                    <li>
-                      <strong>15GB</strong>
-                      Monthly Bandwidth
-                    </li>
-                    <li>
-                      <strong>20</strong>
-                      Email accounts
-                    </li>
-                    <li>
-                      <strong>4</strong>
-                      Subdomains
-                    </li>
-                  </ul>
-                  <a class='btn btn-block  btn-contrast btn-bordered' href='#'>Buy now</a>
-                </div>
-              </div>
-            </div>
-            <div class='col-sm-4 panel-item'>
-              <div class='panel panel-bordered panel-light pricing-table pricing-table-solid'>
-                <div class='panel-heading'>
-                  <h3 class='panel-title'>Premium</h3>
-                </div>
-                <div class='panel-body'>
-                  <h4 class='price'>
-                    <span class='currency'>
-                      &#36;
-                    </span>
-                    59
-                  </h4>
-                  <p class='period'>/ per month</p>
-                  <ul class='list-unstyled'>
-                    <li>
-                      <strong>20GB</strong>
-                      Disk space
-                    </li>
-                    <li>
-                      <strong>20GB</strong>
-                      Monthly Bandwidth
-                    </li>
-                    <li>
-                      <strong>Unlimited</strong>
-                      Email accounts
-                    </li>
-                    <li>
-                      <strong>10</strong>
-                      Subdomains
-                    </li>
-                  </ul>
-                  <a class='btn btn-block  btn-light btn-bordered' href='#'>Buy now</a>
-                </div>
-              </div>
-            </div>
-          </div>
+            <% end %>
           <div class='row'>
             <div class='col-sm-12'>
               <hr class='hr-half hr-invisible'>
-              <p class='lead lead-xs text-center'>* Nulla orci sem, pretium et facilisis et, mattis et orci. Vivamus bibendum hendrerit metus, in mattis urna interdum id. Suspendisse potenti. Sed volutpat est eu lacus pharetra, at venenatis eros ullamcorper.</p>
+              <p class='lead lead-xs text-center' style='font-size: 20px'>* 注意 如果您有意願投資募資之星，請直接聯絡Norman Hexter 還有 Majus!!</p>
             </div>
           </div>
         </div>

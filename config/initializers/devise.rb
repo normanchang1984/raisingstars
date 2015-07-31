@@ -6,7 +6,7 @@ Devise.setup do |config|
   # confirmation, reset password and unlock tokens in the database.
   # Devise will use the `secret_key_base` on Rails 4+ applications as its `secret_key`
   # by default. You can change it below and use your own secret key.
-  # config.secret_key = '65c1fc40807fd058cf6a35213276b422b6bceaa26a02a07816d818638fea72a26d7092e4c7a586ac38e6fcd68772c3022d1f55e836b0c85b7a845b150369142a'
+  config.secret_key = 'a23f3beaa90416a1169b915272045fb5c5c1205000576490db116b974ae7d24264603b28bcefb9c1f9a0149e8f9b58af650bb651cf293acfa4d93af4007d39d2'
 
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,
@@ -18,8 +18,14 @@ Devise.setup do |config|
   # config.mailer = 'Devise::Mailer'
 
   # config for omniauth
-  config.omniauth :facebook, '427883970729109', 'e27ed011dbe824468750bb1bc5952a7f'
+  # ==> OmniAuth
+  # Add a new OmniAuth provider. Check the wiki for more information on setting
+  # up on your models and hooks.
+  # config.omniauth :github, 'APP_ID', 'APP_SECRET', scope: 'user,public_repo'
 
+  fb = YAML.load(File.read("#{Rails.root}/config/facebook.yml"))[Rails.env]
+  config.omniauth :facebook, '427883970729109', 'e27ed011dbe824468750bb1bc5952a7f',
+                  :info_fields => "email, name, picture"
   # ==> ORM configuration
   # Load and configure the ORM. Supports :active_record (default) and
   # :mongoid (bson_ext recommended) by default. Other ORMs may be

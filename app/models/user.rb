@@ -1,6 +1,9 @@
 class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
+
+  before_validation :setup_default_avatars, :on => :create
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
          :omniauthable, :omniauth_providers => [:facebook]
@@ -8,10 +11,11 @@ class User < ActiveRecord::Base
   has_many :comments
   has_many :userproposalships
   has_many :favorites, :through => :userproposalships, :source => :proposal
-  has_many :user_reward_proposals
-  has_many :rewards, :through => :user_reward_proposals
   has_one :profile
+  has_many :orders
 
+  has_attached_file :avatar_graph_url, :styles => { :show => "848x364>", :index => "360x235>" }, :default_url => "/images/:style/missing.png"
+  validates_attachment_content_type :avatar_graph_url, :content_type => /\Aimage\/.*\Z/
 
   # facebook login
   def self.from_omniauth(auth)
@@ -30,6 +34,7 @@ class User < ActiveRecord::Base
 
     # Case 3: Create new password
     user = User.new
+    user.fb_avatar_url = auth.info.image
     user.fb_uid = auth.uid
     user.fb_token = auth.credentials.token
     user.email = auth.info.email
@@ -46,13 +51,34 @@ class User < ActiveRecord::Base
     end
   end
 
-  def add_proposal_relationship(user, proposal)
-    result = Userproposalship.find_by( :user_id => user.id, :proposal_id => proposal.id)
+  def toggle_like_proposal(proposal)
+    result = Userproposalship.find_by( :user_id => self.id, :proposal_id => proposal.id)
     if result
       result.delete
+      return false
     else
-      Userproposalship.create( :user_id => user.id, :proposal_id => proposal.id)
+      Userproposalship.create!( :user_id => self.id, :proposal_id => proposal.id)
+      return true
     end
+  end
+
+  def admin?
+    Rails.env.development?
+  end
+
+  def setup_default_avatars
+    self.default_avatar_url = Faker::Avatar.image
+  end
+
+  def check_avatar
+    avatar_url = self.fb_avatar_url
+    if self.fb_avatar_url.nil?
+      avatar_url = self.avatar_graph_url
+    end
+    if self.avatar_graph_url.nil?
+      avatar_url = self.default_avatar_url
+    end
+    return avatar_url
   end
 
 end

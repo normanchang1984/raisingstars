@@ -1,0 +1,6 @@
+<% if @like %>
+  nofavoriteproposal( <%= @proposal.userproposalships.count %> );
+<% else %>
+  favoriteproposal( <%= @proposal.userproposalships.count %> );
+<% end %>
+

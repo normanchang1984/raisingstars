@@ -12,9 +12,10 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
 //= require bootstrap-sprockets
 //= require jednotka/jquery/jquery.mobile.custom.min
 //= require jednotka/plugins/_plugins
 //= require jednotka/jednotka
-//= require_tree .
+//= require like_proposal
+//= require ckeditor/init
+

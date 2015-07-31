@@ -1,6 +1,6 @@
 class AddImageForProposalAndUser < ActiveRecord::Migration
   def change
-    add_column :users, :avatar_url, :string
-    add_column :proposals, :title_graph_url, :string
+    add_attachment :users, :avatar_graph_url
+    add_attachment :proposals, :title_graph_url
   end
 end

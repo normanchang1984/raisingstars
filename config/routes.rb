@@ -1,23 +1,45 @@
 Rails.application.routes.draw do
-  devise_for :users, :controllers => { :omniauth_calllbacks => "users/omniauth_calllbacks" }
+  mount Ckeditor::Engine => '/ckeditor'
+  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 
   resources :users do
     resource :profile, :controller => 'user_profiles'
   end
 
+  post 'allpay/result'
+  post 'allpay/return'
+
+  resources :orders do
+  end
+
+  require 'sidekiq/web'
+  authenticate :user, lambda { |u| u.admin? } do
+    mount Sidekiq::Web => '/sidekiq'
+  end
+
   resources :proposals do
-    resources :comments, :controller => :proposalcomments
+    resources :comments
     member do
       get :pay
       post :favorite
     end
+    resources :products do
+      member do
+        get :buy
+      end
+      resources :orders do
+        get :checkout_allpay, :on => :member
+      end
+    end
   end
+
+  resources :profiles, :only => :show
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'proposals#index'
+  root :to=>'proposals#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

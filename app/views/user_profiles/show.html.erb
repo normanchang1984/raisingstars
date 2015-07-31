@@ -1,0 +1,116 @@
+<div id='main' role='main'>
+  <div id='main-content'>
+    <div class='container'>
+      <div class='row'>
+        <div class='col-sm-12'>
+          <div class='page-header page-header-with-icon no-mg-t'>
+            <i class='fa fa-tag'></i>
+            <h2>
+              個人資料
+            </h2>
+          </div>
+          <div class='row'>
+            <div class='col-sm-12'>
+              <%#= image_tag current_user.avatar_url %>
+              <br>
+              <p class='lead lead-xs text-center' style='font-size: 20px'>
+                Email: <%= @user.email %>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class='row'>
+        <div class='col-sm-12'>
+          <div class='page-header page-header-with-icon'>
+            <i class='fa fa-table'></i>
+            <h2>
+              項目收藏
+            </h2>
+          </div>
+          <div class='row'>
+            <div class='col-sm-12'>
+              <div class='table-responsive'>
+                <table class='table table-hover'>
+                  <thead>
+                    <tr>
+                      <th>
+                        <i class='fa fa-bookmark text-contrast' style='font-size: 18px'></i>
+                        項目分類
+                      </th>
+                      <th>
+                        <i class='fa fa-archive text-contrast' style='font-size: 18px'></i>
+                        項目名稱
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                  <%@myfavorites.each do |m|%>
+                    <tr class='warning'>
+                      <td>
+                        <%=m.category.name%>
+                      </td>
+                      <td>
+                       <%=m.title%>
+                      </td>
+                    </tr>
+                    </div>
+                  <%end%>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <% if @user == current_user %>
+      <div class='row'>
+        <div class='col-sm-12'>
+          <div class='page-header page-header-with-icon'>
+            <i class='fa fa-table'></i>
+            <h2>
+              已捐贈項目
+            </h2>
+          </div>
+          <div class='row'>
+            <div class='col-sm-12'>
+              <div class='table-responsive'>
+                <table class='table table-hover'>
+                  <thead>
+                    <tr>
+                      <th>
+                        <i class='fa fa-file text-contrast' style='font-size: 18px'></i>
+                        項目
+                      </th>
+                      <th>
+                        <i class='fa fa-dollar text-contrast' style='font-size: 18px'></i>
+                        金額
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <%@mypurchases.each do |m|%>
+                      <tr class='warning'>
+                        <td>
+                          <%=m.product.proposal.title%>
+                        </td>
+                        <td>
+                          <%=m.amount%>
+                        </td>
+                      </tr>
+                    </div>
+                  <%end%>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class='fade' id='scroll-to-top'>
+    <i class='fa fa-chevron-up'></i>
+  </div>
+</div>

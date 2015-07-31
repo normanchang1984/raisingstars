@@ -17,26 +17,51 @@
   padding-bottom: 15px;
 }
 
-@media screen and (max-width: 320px) {
-  #wrapper {
-
-  background-repeat: no-repeat;
-  background-position: center 0;
-  background-image: image-url("raisingstars_logo_mobile.png");
-  -webkit-background-size: 300px 100px;
-  background-size: 300px 100px;
-  }
-
+.navbar-default .navbar-nav > li > a {
+  color: #fff;
 }
 
 
-@media screen and (min-width: 321) and (max-width: 600px) {
-  #wrapper {
-  background-repeat: no-repeat;
-  background-position: center 0;
-  background-image: image-url("raisingstars_logo.png");
-  -webkit-background-size: 640px 380px;
-  background-size: 640px 380px;
-  }
 
+@media (min-width: 768px) {
+  .media .media-body {
+    padding-left: 0px;
+  }
+  #big_screen_nav_padding{
+  padding-top: 40px;
+  }
+}
+
+.zxc {
+  background-color: #428bca;
+  border-color: white;
+  color: white;
+}
+
+.category_hidden {
+  visibility: hidden;
+}
+
+.embed-container {
+  position: relative;
+  padding-bottom: 56.25%;
+  padding-top: 30px;
+  height: 0;
+  overflow: hidden;
+  width: 100%;
+  height: auto;
+  margin-bottom: 12px;
+}
+
+.embed-container iframe,
+.embed-container object,
+.embed-container embed {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.ck_img {
+  padding-bottom: 0;
 }
