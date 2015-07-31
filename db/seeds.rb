@@ -12,3 +12,14 @@ Category.create( :name => '物資' )
 
 User.create( :email => "howclf@gmail.com", :password => "zxczxczxc", :avatar_graph_url => Faker::Avatar.image )
 
+User.create( :email => "ihower@gmail.com", :password => "zxczxczxc", :avatar_graph_url => Faker::Avatar.image )
+
+User.create( :email => "hexter.ch@gmail.com", :password => "zxczxczxc", :avatar_graph_url => Faker::Avatar.image )
+
+User.create( :email => "norman@gmail.com", :password => "zxczxczxc", :avatar_graph_url => Faker::Avatar.image )
+
+User.create( :email => "mike@gmail.com", :password => "zxczxczxc", :avatar_graph_url => Faker::Avatar.image )
+
+User.create( :email => "sean@gmail.com", :password => "zxczxczxc", :avatar_graph_url => Faker::Avatar.image )
+
+User.create( :email => "bruce@gmail.com", :password => "zxczxczxc", :avatar_graph_url => Faker::Avatar.image )
