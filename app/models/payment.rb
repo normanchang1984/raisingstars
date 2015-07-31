@@ -28,12 +28,12 @@ class Payment < ActiveRecord::Base
 
       if proposal.status
         UserMailer.delay.proposal_get_pay( proposal.email )
-        UserMailer.delay.proposal_pay( o.email, o )
+        UserMailer.delay.proposal_pay( o.email )
       elsif proposal.progress >= proposal.target
         proposal.status = true
         proposal.save
         UserMailer.delay.proposal_complete_owner(proposal)
-        orders.each do |p|
+        orders.group(:user_id).each do |p|
           UserMailer.delay.proposal_complete_users( p.email )
         end
       end
