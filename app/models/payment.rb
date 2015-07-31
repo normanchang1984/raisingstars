@@ -28,7 +28,7 @@ class Payment < ActiveRecord::Base
 
       if proposal.status
         UserMailer.delay.proposal_get_pay( proposal.email )
-        UserMailer.delay.proposal_pay( o.email )
+        UserMailer.delay.proposal_pay( o.email, o )
       elsif proposal.progress >= proposal.target
         proposal.status = true
         proposal.save
