@@ -31,7 +31,7 @@ class ProposalsController < ApplicationController
 
     # TODO: extract to @proposal.percent
     @percent = @proposal.progress.to_f/@proposal.target.to_f*100
-    @proposal_orders = @proposal.orders.group(:user_id).limit(9)
+    @proposal_orders = @proposal.orders.last(9).reverse
     @proposal_author_url = @proposal.user.check_avatar
     if  @proposal.progress >= @proposal.target
       @percent = 100
