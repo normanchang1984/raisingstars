@@ -33,7 +33,7 @@ class Payment < ActiveRecord::Base
         proposal.status = true
         proposal.save
         UserMailer.delay.proposal_complete_owner(proposal)
-        orders.each do |p|
+        orders.group(:user_id).each do |p|
           UserMailer.delay.proposal_complete_users( p.email )
         end
       end
