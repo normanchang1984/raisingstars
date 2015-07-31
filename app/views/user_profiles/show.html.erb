@@ -76,6 +76,15 @@
                               </div>
                             </div>
                             募資進度：NTD <%= m.progress %> / <%= m.target %>
+                            <br>
+                            捐贈列表: 目前 <%= m.orders.count %> 人
+                            <ul class='list-unstyled list-inline image-list-box'>
+                              <% m.orders.each do |p| %>
+                                <li>
+                                    <img alt="Jednotka" width="50" height="50" src=<%= p.user.check_avatar %> />
+                                </li>
+                              <% end %>
+                            </ul>
                           <% end %>
                         </td>
                       </tr>
