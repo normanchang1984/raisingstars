@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150727132616) do
+ActiveRecord::Schema.define(version: 20150731100338) do
 
   create_table "categories", force: :cascade do |t|
     t.string   "name",       limit: 255
@@ -154,6 +154,7 @@ ActiveRecord::Schema.define(version: 20150727132616) do
     t.string   "uid",                           limit: 255
     t.string   "fb_avatar_url",                 limit: 255
     t.string   "default_avatar_url",            limit: 255
+    t.string   "fb_name",                       limit: 255
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
