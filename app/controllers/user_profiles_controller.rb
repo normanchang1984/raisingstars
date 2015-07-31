@@ -5,7 +5,8 @@ class UserProfilesController < ApplicationController
     @profile = @user.profile || @user.create_profile
     @myfavorites = @user.favorites
     @mypurchases = @user.orders
-
+    #@myfavorites_percent = @myfavorites.progress.to_f/@proposal.target.to_f*100
+    #@mypurchases_precent = @mypurchases.proposal.progress.to_f/@mypurchases.proposal.target.to_f*100
   end
 
   def edit
