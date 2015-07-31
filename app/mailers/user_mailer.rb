@@ -7,19 +7,19 @@ class UserMailer < ApplicationMailer
   #
   def proposal_complete_owner(proposal)
     owner_email = proposal.email
-    mail(:to => owner_email, :subject => "Good")
+    mail(:to => owner_email, :subject => "Raising Stars 擁有專案達標通知")
   end
 
   def proposal_complete_users(email)
-    mail(:to => email, :subject => "it success" )
+    mail(:to => email, :subject => "Raising Stars 支持專案達標通知" )
   end
 
   def proposal_get_pay(email_owner)
-    mail(:to => email_owner, :subject => "Someone pay you!" )
+    mail(:to => email_owner, :subject => "Raising Stars 收到款項通知" )
   end
 
 
   def proposal_pay(email_payer)
-    mail(:to => email_payer, :subject => "You hava pay money to someone" )
+    mail(:to => email_payer, :subject => "Raising Stars 付款成功通知" )
   end
 end
