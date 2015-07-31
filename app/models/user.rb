@@ -21,7 +21,13 @@ class User < ActiveRecord::Base
   def self.from_omniauth(auth)
     # Case 1: Find existing user by facebook uid
     user = User.find_by_fb_uid( auth.uid )
-    return user if user
+    if user
+      user.fb_avatar_url = auth.info.image
+      user.fb_name = auth.info.name
+      user.fb_token = auth.credentials.token
+      user.save!
+      return user
+    end
 
     # Case 2: Find existing user by email
     existing_user = User.find_by_email( auth.info.email )
