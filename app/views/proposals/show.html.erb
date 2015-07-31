@@ -25,6 +25,7 @@
                 <span class='sr-only'><%= @percent %>% Complete</span>
               </div><!-- progress bar end -->
             </div><!-- progress-striped -->
+            NTD <%= @proposal.progress %> / <%= @proposal.target %>
           <% end %>
           <br>
           <div class='box'>
@@ -39,7 +40,6 @@
               <% end %>
             </ul>
           </div><!-- box end -->
-          <br>
           <div class='box' >
             <% if @user_favor %>
               <%= link_to "已追蹤", favorite_proposal_path(@proposal), :class => "btn btn-contrast btn-bordered btn-block btn-primary", :method => :post, :remote => true, :id => "favorite_button" %>
