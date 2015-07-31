@@ -7,7 +7,7 @@ class Payment < ActiveRecord::Base
   after_update :update_order_status
 
   def name
-    "RailsExerciseShop"
+    "RaisingStars"
   end
 
   private
@@ -17,27 +17,27 @@ class Payment < ActiveRecord::Base
   end
 
   def update_order_status
+    # TODO: refactors, extract methods to Order and Proposal
     if self.paid
       o = self.order
-      @proposal = o.proposal
-      @orders = o.proposal.orders
+      proposal = o.proposal
+      orders = o.proposal.orders.paid
       o.payment_status = "paid"
-      @proposal.progress += o.amount
-      @proposal.save!
-      if @proposal.status = true
-        @email_owner =  @proposal.email
-        @email_payer = o.email
-        UserMailer.delay.proposal_get_pay(@email_owner)
-        UserMailer.delay.proposal_pay(@email_payer)
-      elsif @proposal.progress >= @proposal.target
-        @proposal.status = true
-        @proposal.save
-        UserMailer.delay.proposal_complete_owner(@proposal)
-        @orders.each do |p|
-          @email = p.email
-          UserMailer.delay.proposal_complete_users(@email)
+      proposal.progress += o.amount
+      proposal.save!
+
+      if proposal.status
+        UserMailer.delay.proposal_get_pay( proposal.email )
+        UserMailer.delay.proposal_pay( o.email )
+      elsif proposal.progress >= proposal.target
+        proposal.status = true
+        proposal.save
+        UserMailer.delay.proposal_complete_owner(proposal)
+        orders.each do |p|
+          UserMailer.delay.proposal_complete_users( p.email )
         end
       end
+
       o.save( :validate => false )
     end
   end

@@ -27,6 +27,7 @@ class User < ActiveRecord::Base
     existing_user = User.find_by_email( auth.info.email )
     if existing_user
       existing_user.fb_uid = auth.uid
+      existing_user.fb_avatar_url = auth.info.image
       existing_user.fb_token = auth.credentials.token
       existing_user.save!
       return existing_user
@@ -62,6 +63,7 @@ class User < ActiveRecord::Base
     end
   end
 
+  # TODO: use role column
   def admin?
     Rails.env.development?
   end

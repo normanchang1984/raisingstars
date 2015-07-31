@@ -1,9 +1,9 @@
 class CommentsController < ApplicationController
 
-  before_action :find_comments, only: [:show, :destroy, :update]
+  before_action :find_comment, only: [:show, :destroy, :update]
 
   def create
-    @proposal = Proposal.find_by_id( params[:proposal_id] )
+    @proposal = Proposal.find( params[:proposal_id] )
     @comment= @proposal.comments.new(comment_params)
     @comment.user = current_user
     if @comment.save
@@ -32,8 +32,10 @@ class CommentsController < ApplicationController
 
   protected
 
-  def find_comments
-    @comment=Comment.find_by_id(params[:id])
+  def find_comment
+    @comment = Comment.find(params[:id]) # raise ActiveRecord::RecordNotFound exception, it means 404
+
+    # find_by_id will return nil if not found, then it may cause NoMethodError later, it means 500 server error
   end
 
 
