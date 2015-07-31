@@ -28,6 +28,7 @@ class User < ActiveRecord::Base
     if existing_user
       existing_user.fb_uid = auth.uid
       existing_user.fb_avatar_url = auth.info.image
+      existing_user.fb_name = auth.info.name
       existing_user.fb_token = auth.credentials.token
       existing_user.save!
       return existing_user
@@ -37,6 +38,7 @@ class User < ActiveRecord::Base
     user = User.new
     user.fb_avatar_url = auth.info.image
     user.fb_uid = auth.uid
+    user.fb_name = auth.info.name
     user.fb_token = auth.credentials.token
     user.email = auth.info.email
     user.password = Devise.friendly_token[0,20]

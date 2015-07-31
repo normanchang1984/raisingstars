@@ -131,7 +131,13 @@
               <div class='media-body'>
                 <div class='content'>
                   <div class='toolbar'>
-                    <h4 class='title'><%=c.user.email%></h4>
+                    <h4 class='title'>
+                      <% if c.user.fb_name.nil? %>
+                        <%= c.user.email %>
+                      <% else %>
+                        <%= c.user.fb_name %>
+                      <% end %>
+                    </h4>
                   </div><!-- toolbar -->
                   <span style="font-size: 15px"><%=c.content%></span>
                   <p class='time'>
