@@ -19,21 +19,21 @@
                   <div class="field">
                     <span style='font-size: 20px'>
                       <%= f.label :名字 %>
-                      <%= f.text_field :name %>
+                      <%= f.text_field :name, :value => Faker::Name.name %>
                     </span>
                   </div>
                   <br>
                   <div class="field">
                     <span style='font-size: 20px'>
                       <%= f.label :電話 %>
-                      <%= f.text_field :phone %>
+                      <%= f.text_field :phone, :value => Faker::PhoneNumber.cell_phone %>
                     </span>
                   </div>
                   <br>
                   <div class="actions">
                     <span style='font-size: 20px'>
                       <%= f.label :地址 %>
-                      <%= f.text_field :address %>
+                      <%= f.text_field :address, :value => Faker::Address.city %>
                     </span>
                   </div>
                   <br>

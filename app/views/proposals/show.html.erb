@@ -1,167 +1,178 @@
 <div id='main' role='main'>
   <div id='main-content'>
     <div class='container'>
-      <div class='row'>
-        <div class='col-md-push-9 col-sm-push-8 col-sm-4 col-md-3'>
-          <nav class='sidebar sidebar-fixed' style='position: absolute; top: 0px;'>
-            <button class='btn btn-block btn-contrast sidebar-toggle' data-target='.sidebar-collapse' data-toggle='collapse' type='button'>
-              <span class='sr-only'>Toggle navigation</span>
-              <span class='icon-bar'></span>
-              <span class='icon-bar'></span>
-              <span class='icon-bar'></span>
-            </button>
-            <div class='sidebar-collapse collapse'>
-              <h3 class='title'>募資進度： <%= @proposal.progress %> / <%= @proposal.target %>  </h3>
-              <div class='progress progress-striped'>
-                <div aria-valuemax='100' aria-valuemin='0' aria-valuenow='80' class='progress-bar progress-bar-contrast' role='progressbar' style='width: <%= @percent %>%'>
-                  <span class='sr-only'>80% Complete</span>
-                </div>
-              </div>
-              <br>
-              <div class='box'>
-                <h3 class='title'>贊助者：</h3>
-                <ul class='list-unstyled list-inline image-list-box'>
-                  <% @proposal_orders.each do |p| %>
-                    <li>
-                      <a href= <%= user_profile_path(p.user) %>>
-                        <img alt="Jednotka" width="50" height="50" src=<%= p.user.check_avatar %> />
-                      </a>
-                    </li>
-                  <% end %>
-                </ul>
-              </div>
-              <br>
-              <div class='box' >
-                <% if @user_favor %>
-                  <%= link_to "已追蹤", favorite_proposal_path(@proposal), :class => "btn btn-contrast btn-bordered btn-block btn-primary", :method => :post, :remote => true, :id => "favorite_button" %>
-                <% else %>
-                  <%= link_to "加入追蹤", favorite_proposal_path(@proposal), :class => "btn btn-contrast btn-bordered btn-block btn-primary", :method => :post, :remote => true, :id => "favorite_button" %>
-                <% end %>
-              </div>
-              <div class='box'>
-                <%= link_to "我要贊助", pay_proposal_path(@proposal), :class => "btn btn-contrast btn-bordered btn-block" %>
-              </div>
-              <div class='box'>
-                <%= link_to "修改資料", edit_proposal_path(@proposal), :class => "btn btn-contrast btn-bordered btn-block" %>
-              </div>
-            </div>
-          </nav>
-        </div>
-        <div class='col-md-pull-3 col-sm-pull-4 col-sm-8 col-md-9'>
-          <div class='text-boxes'>
-            <div class='row text-box text-box-title-above text-box-big-image'>
-              <div class='col-sm-12'>
-                <h2 class='title'><a href="/blog_single_post.html"><%=@proposal.title%></a></h2>
-                <div class='toolbar'>
-                  <a class='btn btn-link' href='#'>
-                    <i class='fa fa-calendar'></i>
-                    <span><%=@proposal.created_at.to_s(:short)%></span>
+    <div class='row'>
+    <div class='col-md-push-9 col-sm-push-8 col-sm-4 col-md-3'>
+      <nav class='sidebar sidebar-fixed' style='position: absolute; top: 0px;'>
+        <button class='btn btn-block btn-contrast sidebar-toggle' data-target='.sidebar-collapse' data-toggle='collapse' type='button'>
+          <span class='sr-only'>Toggle navigation</span>
+          <span class='icon-bar'></span>
+          <span class='icon-bar'></span>
+          <span class='icon-bar'></span>
+        </button>
+        <div class='sidebar-collapse collapse'>
+          <h3 class='title'>募資進度： <%= @proposal.progress %> / <%= @proposal.target %>  </h3>
+          <% if @percent == 100 %>
+            <div class='progress'>
+              <div aria-valuemax='100' aria-valuemin='0' aria-valuenow='80' class='progress-bar progress-bar-contrast progress-success' role='progressbar' style='width: 100%'>
+                <span class='sr-only'>100% Complete</span>
+              </div><!-- progress bar end -->
+            </div><!-- progress-striped -->
+          <% else %>
+            <div class='progress progress-striped'>
+              <div aria-valuemax='100' aria-valuemin='0' aria-valuenow='80' class='progress-bar progress-bar-danger' role='progressbar' style='width: <%= @percent %>%'>
+                <span class='sr-only'><%= @percent %>% Complete</span>
+              </div><!-- progress bar end -->
+            </div><!-- progress-striped -->
+          <% end %>
+          <br>
+          <div class='box'>
+            <h3 class='title'>贊助者：</h3>
+            <ul class='list-unstyled list-inline image-list-box'>
+              <% @proposal_orders.each do |p| %>
+                <li>
+                  <a href= <%= user_profile_path(p.user) %>>
+                    <img alt="Jednotka" width="50" height="50" src=<%= p.user.check_avatar %> />
                   </a>
-                  <a class='btn btn-link' href='#'>
-                    <i class='fa fa-user'></i>
-                    <span><%=@proposal.user.email%></span>
-                  </a>
-                  <a class='btn btn-link' href='#'>
-                    <i class='fa fa-heart'></i>
-                    <span><%=@proposal.userproposalships.count%></span>
-                  </a>
-                  <a class='btn btn-link' href='#'>
-                    <i class='fa fa-comments'></i>
-                    <span><%=@proposal.comments.count%> comments</span>
-                  </a>
-                </div>
-                <div class='row'>
-                  <div class='col-sm-12'>
-                    <a href='blog_single_post.html'>
-                      <% if @proposal.youtube_url == "" %>
-                        <%= image_tag @proposal.title_graph_url(:show), class: "img-responsive center-block img-rounded-half" %>
-                      <% else %>
-                        <div class="embed-container">
-                          <%= embed(@proposal.youtube_url) %>
-                        </div>
-                      <% end %>
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class='row text-box'>
-              <div class='col-sm-12'>
-                <br>
-                <%= @proposal.content.html_safe %>
-              </div>
-            </div>
-            <div class='row'>
-              <div class='col-sm-12'>
-                <div class='author-box'>
-                  <div class='row'>
-                    <div class='col-sm-3 col-lg-2'>
-                      <img alt="Author" width="165" height="165" class="img-circle img-responsive center-block" src=<%= @proposal_author_url %> />
-                    </div>
-                    <div class='col-sm-9 col-lg-10'>
-                      <h3 class='title'><%= @proposal.name %></h3>
-                      <p><%=@proposal.self_intro.html_safe%></p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class='row'>
-              <div class='col-sm-12' id='comments'>
-                <h3>
-                  評論專區
-                </h3>
-                <%if @comments%>
-                  <%@comments.each do |c|%>
-                  <div class='media' id="comment-<%= c.id %>">
-                    <div class='pull-left'>
-                      <div class='media-object'>
-                        <%= image_tag(c.user.check_avatar, size: "60x60") %>
-                      </div>
-                    </div>
-                    <div class='media-body'>
-                      <div class='content'>
-                        <div class='toolbar'>
-                          <h4 class='title'><%=c.user.email%></h4>
-                        </div>
-                          <span style="font-size: 15px"><%=c.content%></span>
-                          <p class='time'>
-                            <a href="#"><%=c.updated_at.to_s(:short)%></a>
-                          </p>
-                      </div>
-                    </div>
-                  </div>
-                  <%end%>
-                <%end%>
-              </div>
-            </div>
-            <div class='row'>
-              <hr class='hr-invisible hr-half'>
-              <div class='col-sm-12' id='add-new-comment'>
-                <h3>請留言</h3>
-                  <div class='row'>
-                    <div class='col-sm-12'>
-                      <div class='form-group control-group'>
-                        <%=form_for @newcomment, :url=> proposal_comments_path(@proposal), :remote => true, :method=>:post, :class=>"form" do |f|%>
-                        <%=f.text_area :content, :class=>"form-control form form-validation"%>
-
-                      </div>
-                    </div>
-                  </div>
-                  <div class='row'>
-                    <div class='col-sm-12'>
-                      <%=f.submit '提交', :class=>'btn btn-contrast'%>
-                    </div>
-                  </div>
-                  <%end%>
-              </div>
-            </div>
+                </li>
+              <% end %>
+            </ul>
+          </div><!-- box end -->
+          <br>
+          <div class='box' >
+            <% if @user_favor %>
+              <%= link_to "已追蹤", favorite_proposal_path(@proposal), :class => "btn btn-contrast btn-bordered btn-block btn-primary", :method => :post, :remote => true, :id => "favorite_button" %>
+            <% else %>
+              <%= link_to "加入追蹤", favorite_proposal_path(@proposal), :class => "btn btn-contrast btn-bordered btn-block btn-primary", :method => :post, :remote => true, :id => "favorite_button" %>
+            <% end %>
           </div>
-        </div>
-      </div>
+          <div class='box'>
+            <%= link_to "我要贊助", pay_proposal_path(@proposal), :class => "btn btn-contrast btn-bordered btn-block" %>
+          </div><!-- box end -->
+          <div class='box'>
+            <%= link_to "修改資料", edit_proposal_path(@proposal), :class => "btn btn-contrast btn-bordered btn-block" %>
+          </div><!-- box end -->
+        </div><!-- sidebar-collapse end -->
+      </nav>
+    </div>
+    <div class='col-md-pull-3 col-sm-pull-4 col-sm-8 col-md-9'>
+    <div class='text-boxes'>
+    <div class='row text-box text-box-title-above text-box-big-image'>
+    <div class='col-sm-12'>
+    <h2 class='title'><a href="/blog_single_post.html"><%=@proposal.title%></a></h2>
+    <div class='toolbar'>
+      <a class='btn btn-link' href='#'>
+        <i class='fa fa-calendar'></i>
+        <span><%=@proposal.created_at.to_s(:short)%></span>
+      </a>
+      <a class='btn btn-link' href='#'>
+        <i class='fa fa-user'></i>
+        <span><%=@proposal.user.email%></span>
+      </a>
+      <a class='btn btn-link' href='#'>
+        <i class='fa fa-heart'></i>
+        <span><%=@proposal.userproposalships.count%></span>
+      </a>
+      <a class='btn btn-link' href='#'>
+        <i class='fa fa-comments'></i>
+        <span><%=@proposal.comments.count%> comments</span>
+      </a>
+    </div><!-- toolbar.end -->
+    <div class='row'>
+      <div class='col-sm-12'>
+        <a href='blog_single_post.html'>
+          <% if @proposal.youtube_url == "" %>
+           <%= image_tag @proposal.title_graph_url(:show), class: "img-responsive center-block img-rounded-half" %>
+          <% else %>
+            <div class="embed-container">
+              <%= embed(@proposal.youtube_url) %>
+            </div>
+          <% end %>
+        </a>
+      </div><!-- col-sm-12 end -->
+    </div><!-- row end -->
+    </div>
+    </div>
+    <div class='row text-box'>
+      <div class='col-sm-12'>
+        <br>
+        <%= @proposal.content.html_safe %>
+      </div><!-- col-sm-12 end -->
+    </div><!-- text-box end -->
+    <div class='row'>
+      <div class='col-sm-12'>
+        <div class='author-box'>
+          <div class='row'>
+            <div class='col-sm-3 col-lg-2'>
+              <img alt="Author" width="165" height="165" class="img-circle img-responsive center-block" src=<%= @proposal_author_url %> />
+            </div><!-- col-sm-3 -->
+            <div class='col-sm-9 col-lg-10'>
+              <h3 class='title'><%= @proposal.name %></h3>
+              <p><%=@proposal.self_intro.html_safe%></p>
+            </div><!-- col-sm-9 -->
+          </div><!-- author-box row -->
+        </div><!-- author-box -->
+      </div><!-- row col-sm-12 -->
+    </div><!-- row -->
+    <div class='row'>
+      <div class='col-sm-12' id='comments'>
+        <h3>
+        評論專區
+        </h3>
+        <%if @comments%>
+          <%@comments.each do |c|%>
+            <div class='media' id="comment-<%= c.id %>">
+              <div class='pull-left'>
+                <div class='media-object'>
+                  <%= image_tag(c.user.check_avatar, size: "60x60") %>
+                </div><!-- media-object -->
+              </div><!-- pull-left -->
+              <div class='media-body'>
+                <div class='content'>
+                  <div class='toolbar'>
+                    <h4 class='title'><%=c.user.email%></h4>
+                  </div><!-- toolbar -->
+                  <span style="font-size: 15px"><%=c.content%></span>
+                  <p class='time'>
+                    <a href="#"><%=c.updated_at.to_s(:short)%></a>
+                  </p>
+                </div><!-- content -->
+              </div>
+            </div>
+          <%end%>
+        <%end%>
+      </div><!-- comments -->
+    </div><!-- row -->
+    <div class='row'>
+      <hr class='hr-invisible hr-half'>
+      <div class='col-sm-12' id='add-new-comment'>
+        <h3>請留言</h3>
+        <div class='row'>
+          <div class='col-sm-12'>
+            <div class='form-group control-group'>
+              <%=form_for @newcomment, :url=> proposal_comments_path(@proposal), :remote => true, :method=>:post, :class=>"form" do |f|%>
+              <%=f.text_area :content, :class=>"form-control form form-validation"%>
+            </div><!-- form-group -->
+          </div><!-- col-sm-12 end -->
+        </div><!-- row end -->>
+        <div class='row'>
+          <div class='col-sm-12'>
+            <%=f.submit '提交', :class=>'btn btn-contrast'%>
+          </div><!-- row_col-sm-12 end -->
+        </div><!-- row end -->
+              <%end%>
+      </div><!-- add-new-comment -->
+    </div><!-- row end -->
+    </div>
+    </div>
+    </div>
     </div>
   </div>
   <div class='fade' id='scroll-to-top'>
     <i class='fa fa-chevron-up'></i>
-  </div>
-</div>
+  </div><!-- scroll-to-top end -->
+</div><!-- main end -->
+
+<script type="text/javascript">
+$('.text-box').find('img').addClass('embed-container ck_img');
+</script>>
