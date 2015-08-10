@@ -3,7 +3,7 @@
     <div class='container'>
     <div class='row'>
     <div class='col-md-push-9 col-sm-push-8 col-sm-4 col-md-3'>
-      <nav class='sidebar sidebar-fixed' style='position: absolute; top: 0px;'>
+      <nav class='sidebar sidebar-fixed' style='position: absolute; top: 0px; z-index: 3; background-color: white;'>
         <button class='btn btn-block btn-contrast sidebar-toggle' data-target='.sidebar-collapse' data-toggle='collapse' type='button'>
           <span class='sr-only'>Toggle navigation</span>
           <span class='icon-bar'></span>
@@ -11,26 +11,33 @@
           <span class='icon-bar'></span>
         </button>
         <div class='sidebar-collapse collapse'>
-          <h3 class='title'>募資進度： <%= @proposal.progress %> / <%= @proposal.target %>  </h3>
-          <div class='progress progress-striped'>
-            <div aria-valuemax='100' aria-valuemin='0' aria-valuenow='80' class='progress-bar progress-bar-contrast' role='progressbar' style='width: <%= @percent %>%'>
-              <span class='sr-only'>80% Complete</span>
-            </div><!-- progress bar end -->
-          </div><!-- progress-striped -->
+          <h3 class='title'>募資進度：   </h3>
+          <% if @percent == 100 %>
+            <div class='progress'>
+              <div aria-valuemax='100' aria-valuemin='0' aria-valuenow='80' class='progress-bar progress-bar-contrast progress-success' role='progressbar' style='width: 100%'>
+                <span class='sr-only'>100% Complete</span>
+              </div><!-- progress bar end -->
+            </div><!-- progress-striped -->
+            NTD <%= @proposal.progress %> / <%= @proposal.target %>
+          <% else %>
+            <div class='progress progress-striped'>
+              <div aria-valuemax='100' aria-valuemin='0' aria-valuenow='80' class='progress-bar progress-bar-danger' role='progressbar' style='width: <%= @percent %>%'>
+                <span class='sr-only'><%= @percent %>% Complete</span>
+              </div><!-- progress bar end -->
+            </div><!-- progress-striped -->
+            NTD <%= @proposal.progress %> / <%= @proposal.target %>
+          <% end %>
           <br>
           <div class='box'>
             <h3 class='title'>贊助者：</h3>
             <ul class='list-unstyled list-inline image-list-box'>
               <% @proposal_orders.each do |p| %>
                 <li>
-                  <a href= <%= user_profile_path(p.user) %>>
-                    <img alt="Jednotka" width="50" height="50" src=<%= p.user.check_avatar %> />
-                  </a>
+                  <img alt="Jednotka" width="50" height="50" src=<%= p.user.check_avatar %> />
                 </li>
               <% end %>
             </ul>
           </div><!-- box end -->
-          <br>
           <div class='box' >
             <% if @user_favor %>
               <%= link_to "已追蹤", favorite_proposal_path(@proposal), :class => "btn btn-contrast btn-bordered btn-block btn-primary", :method => :post, :remote => true, :id => "favorite_button" %>
@@ -41,9 +48,11 @@
           <div class='box'>
             <%= link_to "我要贊助", pay_proposal_path(@proposal), :class => "btn btn-contrast btn-bordered btn-block" %>
           </div><!-- box end -->
-          <div class='box'>
-            <%= link_to "修改資料", edit_proposal_path(@proposal), :class => "btn btn-contrast btn-bordered btn-block" %>
-          </div><!-- box end -->
+          <% if @proposal.user == current_user %>
+            <div class='box'>
+              <%= link_to "修改資料", edit_proposal_path(@proposal), :class => "btn btn-contrast btn-bordered btn-block" %>
+            </div><!-- box end -->
+          <% end %>
         </div><!-- sidebar-collapse end -->
       </nav>
     </div>
@@ -111,8 +120,8 @@
         <h3>
         評論專區
         </h3>
-        <%if @comments%>
-          <%@comments.each do |c|%>
+        <%if @comments %>
+          <% @comments.each do |c| %>
             <div class='media' id="comment-<%= c.id %>">
               <div class='pull-left'>
                 <div class='media-object'>
@@ -122,7 +131,13 @@
               <div class='media-body'>
                 <div class='content'>
                   <div class='toolbar'>
-                    <h4 class='title'><%=c.user.email%></h4>
+                    <h4 class='title'>
+                      <% if c.user.fb_name.nil? %>
+                        <%= c.user.email %>
+                      <% else %>
+                        <%= c.user.fb_name %>
+                      <% end %>
+                    </h4>
                   </div><!-- toolbar -->
                   <span style="font-size: 15px"><%=c.content%></span>
                   <p class='time'>
@@ -146,7 +161,7 @@
               <%=f.text_area :content, :class=>"form-control form form-validation"%>
             </div><!-- form-group -->
           </div><!-- col-sm-12 end -->
-        </div><!-- row end -->>
+        </div><!-- row end -->
         <div class='row'>
           <div class='col-sm-12'>
             <%=f.submit '提交', :class=>'btn btn-contrast'%>
@@ -167,4 +182,4 @@
 
 <script type="text/javascript">
 $('.text-box').find('img').addClass('embed-container ck_img');
-</script>>
+</script>

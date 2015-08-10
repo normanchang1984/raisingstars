@@ -17,11 +17,14 @@ class OrdersController < ApplicationController
 
   def create
     @product = Product.find(params[:product_id])
+
+    # @order = current_user.build_order(@product, order_params)
     @order = current_user.orders.build(order_params)
     @order.amount = @product.price
     @order.email = current_user.email
     @order.product_id = @product.id
     @order.proposal_id = @product.proposal.id
+
     if @order.save
       cookies[:cart_id] = nil
       if @order.payment_method == "allpay"

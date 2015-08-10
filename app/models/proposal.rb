@@ -3,7 +3,7 @@ class Proposal < ActiveRecord::Base
   has_many :orders
   belongs_to :category
   belongs_to :user
-  accepts_nested_attributes_for :user
+
   has_many :userproposalships
   has_many :favorites, :through => :userproposalships, :source => :user
   has_many :products

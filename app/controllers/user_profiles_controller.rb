@@ -5,7 +5,7 @@ class UserProfilesController < ApplicationController
     @profile = @user.profile || @user.create_profile
     @myfavorites = @user.favorites
     @mypurchases = @user.orders
-
+    @myproposals = current_user.proposals
   end
 
   def edit
