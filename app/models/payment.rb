@@ -22,13 +22,17 @@ class Payment < ActiveRecord::Base
       o = self.order
       proposal = o.proposal
       orders = o.proposal.orders.paid
+      o.proposal.get_paid
+
       o.payment_status = "paid"
       proposal.progress += o.amount
       proposal.save!
 
+
+
       if proposal.status
         UserMailer.delay.proposal_get_pay( proposal.email )
-        UserMailer.delay.proposal_pay( o.email )
+        UserMailer.delay.proposal_pay( o.email, o )
       elsif proposal.progress >= proposal.target
         proposal.status = true
         proposal.save
