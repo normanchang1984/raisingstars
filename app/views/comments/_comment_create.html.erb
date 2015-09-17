@@ -1,0 +1,18 @@
+<div class='media' id="comment-<%= c.id %>">
+  <div class='pull-left'>
+    <div class='media-object'>
+      <%= image_tag(c.user.check_avatar, size: "60x60") %>
+    </div>
+  </div>
+  <div class='media-body'>
+    <div class='content'>
+      <div class='toolbar'>
+        <h4 class='title'><%=current_user.email%></h4>
+      </div>
+        <span style="font-size: 15px"><%=c.content%></span>
+        <p class='time'>
+          <a href="#"><%=c.updated_at.to_s(:short)%></a>
+        </p>
+    </div>
+  </div>
+</div>

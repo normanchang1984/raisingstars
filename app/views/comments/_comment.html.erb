@@ -1,18 +1,26 @@
-<div class='media' id="comment-<%= c.id %>">
+<% cache comment do %>
+<div class='media' id="comment-<%= comment.id %>">
   <div class='pull-left'>
     <div class='media-object'>
-      <%= image_tag(c.user.check_avatar, size: "60x60") %>
-    </div>
-  </div>
+      <%= image_tag(comment.user.check_avatar, size: "60x60") %>
+    </div><!-- media-object -->
+  </div><!-- pull-left -->
   <div class='media-body'>
     <div class='content'>
       <div class='toolbar'>
-        <h4 class='title'><%=current_user.email%></h4>
-      </div>
-        <span style="font-size: 15px"><%=c.content%></span>
-        <p class='time'>
-          <a href="#"><%=c.updated_at.to_s(:short)%></a>
-        </p>
-    </div>
+        <h4 class='title'>
+          <% if comment.user.fb_name.nil? %>
+            <%= comment.user.email %>
+          <% else %>
+            <%= comment.user.fb_name %>
+          <% end %>
+        </h4>
+      </div><!-- toolbar -->
+      <span style="font-size: 15px"><%=comment.content%></span>
+      <p class='time'>
+        <a href="#"><%=comment.updated_at.to_s(:short)%></a>
+      </p>
+    </div><!-- content -->
   </div>
 </div>
+<% end %>

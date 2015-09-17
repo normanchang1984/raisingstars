@@ -19,7 +19,8 @@ class UserMailer < ApplicationMailer
   end
 
 
-  def proposal_pay(email_payer)
+  def proposal_pay(email_payer, order)
+    @order_proposal = order.proposal.title
     mail(:to => email_payer, :subject => "Raising Stars 付款成功通知" )
   end
 end

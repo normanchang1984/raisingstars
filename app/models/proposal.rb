@@ -18,6 +18,10 @@ class Proposal < ActiveRecord::Base
     self.views
   end
 
+  def get_paid
+
+  end
+
   # still not work ,but i will working on it
   def sort_by_default
     1

@@ -1,2 +1,2 @@
-<% html = j(render :partial => "comments/comment" , :locals => { :c => @comment } ) %>
+<% html = j(render :partial => "comments/comment_create" , :locals => { :c => @comment } ) %>
 $("#comments").fadeIn(3000).append("<%= html %>");
